@@ -23,7 +23,7 @@ export async function middleware(req) {
 
   const strippedPath = `/${pathSegments.slice(1).join("/")}`;
 
-  const publicRoutes = ["/", "/about", "/impressum"];
+  const publicRoutes = ["/", "/about", "/impressum", "/collection"];
   const protectedRoutes = ["/dashboard", "/profile"];
   const authRoutes = ["/login", "/register"];
 

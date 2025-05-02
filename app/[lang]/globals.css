@@ -16,36 +16,35 @@
 }
 
 .main {
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(93% 0 0);
-  --color-base-300: oklch(86% 0 0);
-  --color-base-content: oklch(27.807% 0.029 256.847);
-  --color-primary: oklch(37.45% 0.189 325.02);
-  --color-primary-content: oklch(87.49% 0.037 325.02);
-  --color-secondary: oklch(53.92% 0.162 241.36);
-  --color-secondary-content: oklch(90.784% 0.032 241.36);
-  --color-accent: oklch(75.98% 0.204 56.72);
-  --color-accent-content: oklch(15.196% 0.04 56.72);
-  --color-neutral: oklch(27.807% 0.029 256.847);
-  --color-neutral-content: oklch(85.561% 0.005 256.847);
-  --color-info: oklch(72.06% 0.191 231.6);
-  --color-info-content: oklch(0% 0 0);
-  --color-success: oklch(64.8% 0.15 160);
-  --color-success-content: oklch(0% 0 0);
-  --color-warning: oklch(84.71% 0.199 83.87);
-  --color-warning-content: oklch(0% 0 0);
-  --color-error: oklch(71.76% 0.221 22.18);
-  --color-error-content: oklch(0% 0 0);
+  --color-base-100: #fcf5ed;
+  --color-base-200: #fbedda;
+  --color-base-300: #efb86c;
+  --color-base-content: #795039;
+  --color-primary: #2f9a6e;
+  --color-primary-content: oklch(98% 0 0);
+  --color-secondary: #eb8744;
+  --color-secondary-content: oklch(37% 0.01 67.558);
+  --color-accent: #94c09e;
+  --color-accent-content: #330036;
+  --color-neutral: oklch(44% 0.011 73.639);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: #4d9de0;
+  --color-info-content: oklch(30% 0.056 229.695);
+  --color-success: #00d28f;
+  --color-success-content: oklch(26% 0.051 172.552);
+  --color-warning: #efc11a;
+  --color-warning-content: oklch(27% 0.077 45.635);
+  --color-error: #f8333c;
+  --color-error-content: oklch(27% 0.105 12.094);
   --radius-selector: 2rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.21875rem;
-  --size-field: 0.21875rem;
-  --border: 0.5px;
-  --depth: 1;
-  --noise: 0;
+  --radius-field: 2rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 1;
 }
-
 .dark {
   --color-base-100: oklch(20.768% 0.039 265.754);
   --color-base-200: oklch(19.314% 0.037 265.754);

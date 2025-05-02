@@ -23,6 +23,9 @@ export default async function Home({ params }) {
             <Link href={`/${lang}/login`}>
               <button className="btn btn-primary">LOGIN</button>
             </Link>
+            <Link href={`/${lang}/collection`} className="ml-2">
+              <button className="btn btn-primary">Zur Collection</button>
+            </Link>
           </div>
         </div>
       </div>
