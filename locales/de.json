@@ -1,0 +1,16 @@
+{
+  "home": {
+    "title": "Das ist der Deutsche Titel",
+    "description": "Das ist die Deutsche Beschreibung"
+  },
+  "login": {
+    "title": "Das ist der Deutsche Login Titel",
+    "description": "Das ist die Deutsche Login Beschreibung",
+    "login": "Einloggen"
+  },
+  "dashboard": {
+    "title": "Das ist der Deutsche Dashboard Titel",
+    "description": "Das ist die Deutsche Dashboard Beschreibung",
+    "welcome": "Willkommen auf der Dashboard-Seite"
+  }
+}

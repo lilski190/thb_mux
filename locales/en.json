@@ -1,0 +1,16 @@
+{
+  "home": {
+    "title": "Next.js Setup Welcome Page",
+    "description": "This is a simple Next.js setup with TypeScript, Tailwind CSS, and ESLint. And this is test text"
+  },
+  "login": {
+    "title": "Next.js Setup Login Page",
+    "description": "This is the dashboard text",
+    "login": "Login"
+  },
+  "dashboard": {
+    "title": "Next.js Setup Dashboard Page",
+    "description": "This is the dashboard text",
+    "welcome": "Welcome to the dashboard page"
+  }
+}
