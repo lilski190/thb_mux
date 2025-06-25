@@ -1,0 +1,33 @@
+{
+  "request": {},
+  "response": {
+    "data": [
+      {
+        "type": "linechart",
+        "data": ""
+      },
+      {
+        "type": "cloud",
+        "data": [143.7, 168.2, 161.7]
+      },
+      {
+        "type": "barchart",
+        "data": {
+          "FBI": [12, 15, 10, 20, 18],
+          "FBT": [8, 10, 12, 14, 16],
+          "FBW": [5, 7, 6, 8, 9]
+        }
+      },
+      {
+        "type": "iconScale",
+        "labeles": ["veggie", "meat", "vegan", "salat", "fish"],
+        "counts": [87, 45, 30, 20, 10]
+      },
+      {
+        "type": "iconScale",
+        "labeles": ["bike", "car", "train", "walk"],
+        "counts": [87, 45, 30, 20]
+      }
+    ]
+  }
+}

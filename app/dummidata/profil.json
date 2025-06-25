@@ -1,0 +1,18 @@
+{
+  "request": {},
+  "response": {
+    "data": {
+      "name": "Demo User",
+      "profile_picture": "/link to picture in some cloud",
+      "medal": {
+        "type": "record",
+        "icon": "/link or path to medal icon in some cloud",
+        "duration": 14
+      },
+      "notifications": [1, 0, 1, 1, 1]
+    }
+  },
+  "update_notifications": {
+    "notifications": [1, 0, 0, 0, 1]
+  }
+}

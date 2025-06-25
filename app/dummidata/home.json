@@ -1,0 +1,19 @@
+{
+  "request": {},
+  "response": {
+    "data": {
+      "streak": 5,
+      "arivals": "bike",
+      "food": "veggi",
+      "comparrison": {
+        "FBI": 23,
+        "FBT": 45,
+        "FBW": 12
+      },
+      "usual_arival": {
+        "key": "bike",
+        "value": 4
+      }
+    }
+  }
+}

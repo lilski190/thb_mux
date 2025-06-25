@@ -1,0 +1,17 @@
+{
+  "requestArival": {
+    "data": {
+      "key": "bike",
+      "value": 4
+    }
+  },
+  "requestMeal": {
+    "data": {
+      "key": "vegan",
+      "value": 1
+    }
+  },
+  "response": {
+    "message": "success"
+  }
+}

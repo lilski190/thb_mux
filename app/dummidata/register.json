@@ -1,0 +1,12 @@
+{
+  "request": {
+    "email": "user@demo.de",
+    "userName": "Demo User",
+    "password": "demo1234",
+    "password_confirmation": "demo1234",
+    "FB": "FBI"
+  },
+  "response": {
+    "token": "JWT TOKEN"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "request": {
+    "email": "User@demo.de",
+    "password": "demo1234"
+  },
+  "response": {
+    "token": "JWT TOKEN"
+  }
+}
