@@ -1,46 +1,64 @@
 import { NextResponse } from "next/server";
-import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
+import { NextRequest } from "next/server";
 
 const SUPPORTED_LANGUAGES = ["de", "en"];
 
-export async function middleware(req) {
+const PUBLIC_ROUTES = [
+  "/",
+  "/about",
+  "/examples",
+  "/tutorial",
+  "/join",
+  "/impressum",
+  "/collection",
+];
+
+const PROTECTED_ROUTES = [
+  "/dashboard",
+  "/styleguide",
+  "/templates",
+  "/content",
+  "/create",
+  "/management",
+];
+
+const AUTH_ROUTES = ["/login"];
+
+export function middleware(req) {
   const { pathname } = req.nextUrl;
-  const pathSegments = pathname.split("/").filter(Boolean); // z.B. ['de', 'login']
+  const pathSegments = pathname.split("/").filter(Boolean); // ['de', 'dashboard']
   const langInPath = pathSegments[0];
 
-  // ⛔️ Wenn Sprache in der URL fehlt oder ungültig → redirect mit Default (de)
+  // Sprache fehlt oder ungültig → redirect zu /de
   if (!SUPPORTED_LANGUAGES.includes(langInPath)) {
     const newUrl = new URL(`/de${pathname}`, req.url);
+    newUrl.search = req.nextUrl.search;
     return NextResponse.redirect(newUrl);
   }
 
+  const strippedPath = `/${pathSegments.slice(1).join("/")}`; // z.B. '/dashboard'
+  const token = req.cookies.get("token")?.value;
   const res = NextResponse.next();
-  const supabase = createMiddlewareClient({ req, res });
-  const session = await supabase.auth.getSession();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
 
-  const strippedPath = `/${pathSegments.slice(1).join("/")}`;
+  // Zugriff auf Public Routes immer erlaubt
+  if (PUBLIC_ROUTES.includes(strippedPath)) return res;
 
-  const publicRoutes = ["/", "/about", "/impressum", "/collection"];
-  const protectedRoutes = ["/dashboard", "/profile"];
-  const authRoutes = ["/login", "/register"];
-
-  if (publicRoutes.includes(strippedPath)) return res;
-
-  if (protectedRoutes.some((route) => strippedPath.startsWith(route))) {
-    if (!user) {
-      return NextResponse.redirect(new URL(`/${langInPath}/login`, req.url));
+  // Zugriff auf Protected Routes nur mit Token
+  if (PROTECTED_ROUTES.some((route) => strippedPath.startsWith(route))) {
+    if (!token) {
+      const newUrl = new URL(`/${langInPath}/login`, req.url);
+      newUrl.search = req.nextUrl.search;
+      return NextResponse.redirect(newUrl);
     }
     return res;
   }
 
-  if (authRoutes.includes(strippedPath)) {
-    if (user) {
-      return NextResponse.redirect(
-        new URL(`/${langInPath}/dashboard`, req.url)
-      );
+  // Auth Routes nur für nicht eingeloggte Nutzer
+  if (AUTH_ROUTES.includes(strippedPath)) {
+    if (token) {
+      const newUrl = new URL(`/${langInPath}/dashboard`, req.url);
+      newUrl.search = req.nextUrl.search;
+      return NextResponse.redirect(newUrl);
     }
     return res;
   }

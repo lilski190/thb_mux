@@ -1,0 +1,70 @@
+"use client";
+
+import { Toaster } from "react-hot-toast";
+import { loginAction } from "@/app/actions/authAction";
+import { useState } from "react";
+import Tooltip from "../tooltips/InformationTooltip";
+
+/**
+ * LoginForm Komponent
+ * Dieser Komponent ist ein einfaches Login-Formular, das in verschiedenen Themen verwendet werden kann.
+ * Er enthält Eingabefelder für E-Mail und Passwort sowie einen Button zum Einloggen.
+ * Das Styling erfolgt über Tailwind CSS-Klassen und DaisyUI-Klassen.
+ * Die Login-Action wird über die Funktion loginAction aufgerufen, die in der Datei app/actions/authAction.js definiert ist.s
+ * @param {Object} dict - Das Wörterbuch-Objekt, das die Übersetzungen für die verschiedenen Sprachen enthält.
+ */
+export default function LoginForm({ dict }) {
+  return (
+    <>
+      <Toaster position="top-center" />
+      <form action={loginAction} className="card-body">
+        <fieldset className="fieldset">
+          <div className="relative mt-3">
+            <input
+              type="email"
+              name="email"
+              id="floating_outlined_mail"
+              className="input block px-2.5 pb-2 pt-2 w-full text-sm  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_outlined_mail"
+              className="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            >
+              {dict.login.mail}
+            </label>
+          </div>
+          <div className="relative mt-3">
+            <input
+              type="password"
+              name="password"
+              id="floating_outlined_mail"
+              className="input block px-2.5 pb-2 pt-2 w-full text-sm  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_outlined_mail"
+              className="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            >
+              {dict.login.pw}
+            </label>
+          </div>
+
+          <div className="flex justify-between">
+            <Tooltip text={dict.general.notImplementet}>
+              <a className="link link-hover">{dict.login.stayLoggedIn}</a>
+            </Tooltip>
+            <Tooltip text={dict.general.notImplementet}>
+              <a className="link link-hover">{dict.login.ForgotPassword}</a>
+            </Tooltip>
+          </div>
+          <button type="submit" className="btn btn-neutral mt-4">
+            {dict.login.login}
+          </button>
+        </fieldset>
+      </form>
+    </>
+  );
+}

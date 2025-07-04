@@ -1,53 +1,51 @@
 "use server";
 
-import { supabase } from "@/lib/supabaseClient";
+import { getRequestToken, postRequest, postRequestToken } from "../api/api";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function loginAction(_, formData) {
-  const email = formData.get("email");
-  const password = formData.get("password");
+const path = "login";
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
+export async function loginAction(formData) {
+  console.log("Send login: ");
+  const user = formData.get("email");
+  const pw = formData.get("password");
 
-  if (error) {
-    return { error: error.message };
+  console.log("username", user, "pw", pw);
+
+  //logs:
+  //Send login:
+  //username demo@thb.de pw demo2025
+
+  let obj = { username: user, password: pw };
+  let result = true; //await postRequest(path, obj);
+  //TODO: DEBUG LOGIN
+  console.log("Reasult", result);
+  if (result?.token) {
+    // JWT Cookie für 6 Stunden setzen
+    const cookieStore = await cookies();
+    cookieStore.set("token", result.token, {
+      httpOnly: true, // schützt vor JS-Zugriff
+      secure: process.env.NODE_ENV === "production", // nur über HTTPS in Produktion
+      maxAge: 6 * 60 * 60, // 6 Stunden in Sekunden
+      path: "/",
+    });
+
+    // Weiterleitung zum Dashboard
+    redirect("/dashboard");
+  } else {
+    // Optional: Fehlerbehandlung
+    console.log("Login fehlgeschlagen, Setze Dummi token");
+    let token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc1MTU0ODgzNSwianRpIjoiMjcwZDgwMDgtYjliYS00NjQ1LTk1ZDUtMTQyMzRlNzU0MzRhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NTE1NDg4MzUsImNzcmYiOiI2YTRiZWUyNi01ZGZhLTQ0ZmEtYTJkMy1iMDE4ZmI2OTgzY2MiLCJleHAiOjE3NTE1NDk3MzV9.x0crUjgeKWBSKQVbiAiVfTrPenJ2KcVEsVBFME6jhQs";
+    // JWT Cookie für 6 Stunden setzen
+    const cookieStore = await cookies();
+    cookieStore.set("token", token, {
+      httpOnly: true, // schützt vor JS-Zugriff
+      secure: process.env.NODE_ENV === "production", // nur über HTTPS in Produktion
+      maxAge: 6 * 60 * 60, // 6 Stunden in Sekunden
+      path: "/",
+    });
+    redirect("/dashboard");
   }
-
-  const cookieStore = await cookies();
-  const projectRef =
-    process.env.NEXT_PUBLIC_SUPABASE_URL?.split("https://")[1]?.split(".")[0];
-
-  const sessionCookieValue = JSON.stringify({
-    access_token: data.session.access_token,
-    refresh_token: data.session.refresh_token,
-    expires_at: Math.floor(Date.now() / 1000) + data.session.expires_in,
-    token_type: "bearer",
-    provider_token: null,
-    provider_refresh_token: null,
-    user: data.session.user ?? null,
-  });
-
-  cookieStore.set(`sb-${projectRef}-auth-token`, sessionCookieValue, {
-    httpOnly: true,
-    secure: true,
-    path: "/",
-    maxAge: data.session.expires_in,
-    sameSite: "lax",
-  });
-
-  redirect("/dashboard");
-}
-
-export async function logoutAction() {
-  const { createSupabaseServerClient } = await import(
-    "@/lib/createSupabaseServerClient"
-  );
-  const supabase = await createSupabaseServerClient();
-
-  await supabase.auth.signOut();
-  redirect("/");
 }

@@ -4,13 +4,34 @@
     "description": "Das ist die Deutsche Beschreibung"
   },
   "login": {
-    "title": "Das ist der Deutsche Login Titel",
-    "description": "Das ist die Deutsche Login Beschreibung",
-    "login": "Einloggen"
+    "title": "Anmelden",
+    "description": "Willkommen zurück! Melde dich mit deiner E-Mailadresse und Passwort an um fortzufahren.",
+    "login": "Einloggen",
+    "help": "Hilfe",
+    "setting": "Nutzerbedingungen",
+    "cookies": "Datenschutz und Cookies",
+    "mail": "E-Mail Adresse",
+    "pw": "Passwort",
+    "stayLoggedIn": "Eingeloggt bleiben",
+    "ForgotPassword": "Passwort Vergessen?"
   },
   "dashboard": {
     "title": "Das ist der Deutsche Dashboard Titel",
     "description": "Das ist die Deutsche Dashboard Beschreibung",
     "welcome": "Willkommen auf der Dashboard-Seite"
+  },
+  "general": {
+    "projectName": "SustainAble",
+    "projectSlogan": "Die Nachhaltigkeitsapp der THB",
+    "login": "Einloggen",
+    "register": "Registrieren",
+    "notImplementet": "Diese Funktion ist noch nicht implememntiert :("
+  },
+  "routes": {
+    "home": "Home",
+    "input": "Eingabe",
+    "statistic": "Statistik",
+    "inbox": "Inbox",
+    "profil": "Profil"
   }
 }

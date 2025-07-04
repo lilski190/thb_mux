@@ -18,7 +18,7 @@
 .main {
   --color-base-100: #fcf5ed;
   --color-base-200: #fbedda;
-  --color-base-300: #efb86c;
+  --color-base-300: #6cef88;
   --color-base-content: #795039;
   --color-primary: #2f9a6e;
   --color-primary-content: oklch(98% 0 0);
@@ -41,7 +41,7 @@
   --radius-box: 0.5rem;
   --size-selector: 0.28125rem;
   --size-field: 0.25rem;
-  --border: 1px;
+  --border: 2px;
   --depth: 0;
   --noise: 1;
 }

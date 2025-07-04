@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
+import Tooltip from "../components/tooltips/InformationTooltip";
 
 export default async function Home({ params }) {
   const param = await params;
@@ -7,24 +8,20 @@ export default async function Home({ params }) {
   const dict = await getDictionary(lang);
 
   return (
-    <div className="bg-base-200">
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage:
-            "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-        }}
-      >
-        <div className="hero-overlay"></div>
-        <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">{dict.home.title}</h1>
-            <p className="mb-5">{dict.home.description}</p>
+    <div className="bg-base-200 h-screen flex items-center justify-center">
+      <div className="card bg-base-100 shadow-sm m-3 border-1 border-base-300 h-fit">
+        <div className="card-body">
+          <div>LOGO</div>
+          <h2 className="card-title">{dict.general.projectName}</h2>
+          <p>{dict.general.projectSlogan}</p>
+          <div className="card-actions justify-center">
+            <Tooltip text={dict.general.notImplementet}>
+              <button className="btn btn-primary">
+                {dict.general.register}
+              </button>
+            </Tooltip>
             <Link href={`/${lang}/login`}>
-              <button className="btn btn-primary">LOGIN</button>
-            </Link>
-            <Link href={`/${lang}/collection`} className="ml-2">
-              <button className="btn btn-primary">Zur Collection</button>
+              <button className="btn btn-base-200">{dict.general.login}</button>
             </Link>
           </div>
         </div>
