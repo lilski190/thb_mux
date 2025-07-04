@@ -1,5 +1,6 @@
 import { getDictionary } from "@/lib/getDictionary";
 import { getHomeData } from "@/app/actions/DashboardAction";
+
 export default async function DashboardPage({ params }) {
   const lang = params.lang || "de";
   const dict = await getDictionary(lang);
