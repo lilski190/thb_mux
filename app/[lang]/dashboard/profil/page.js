@@ -10,7 +10,10 @@ export default async function ProfilPage({ params }) {
 
   return (
     <div>
-      <h1 className="mb-5 text-5xl font-bold">{dict.routes.profil}</h1>
+      <h1 className="mb-5 text-5xl font-bold fixed">
+        <div>logo</div>
+        {dict.routes.profil}
+      </h1>
       <h1></h1>
       <pre>{JSON.stringify(profilData, null, 2)}</pre>
       <NotificationFrom />

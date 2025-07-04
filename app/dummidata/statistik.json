@@ -4,7 +4,13 @@
     "data": [
       {
         "type": "linechart",
-        "data": ""
+        "data": [
+          {
+            "label": "Co2",
+            "data": [5, 7, 6, 8, 9]
+          }
+        ],
+        "label": ["feb", "mar", "apr", "mai", "jun"]
       },
       {
         "type": "cloud",
@@ -12,11 +18,24 @@
       },
       {
         "type": "barchart",
-        "data": {
-          "FBI": [12, 15, 10, 20, 18],
-          "FBT": [8, 10, 12, 14, 16],
-          "FBW": [5, 7, 6, 8, 9]
-        }
+        "data": [
+          {
+            "label": "FBI",
+            "data": [12, 15, 10, 20, 18],
+            "backgroundColor": "#00BAE5"
+          },
+          {
+            "label": "FBT",
+            "data": [8, 10, 12, 14, 16],
+            "backgroundColor": "#83BB20"
+          },
+          {
+            "label": "FBW",
+            "data": [5, 7, 6, 8, 9],
+            "backgroundColor": "#F18400"
+          }
+        ],
+        "label": ["di", "mi", "don", "fr", "sa"]
       },
       {
         "type": "iconScale",

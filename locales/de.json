@@ -33,5 +33,58 @@
     "statistic": "Statistik",
     "inbox": "Inbox",
     "profil": "Profil"
+  },
+  "statistics": {
+    "line": {
+      "title": "CO2-Ausstoß der THB im aktuellen Jahr in t",
+      "labels": {
+        "jan": "Januar",
+        "feb": "Februar",
+        "mar": "März",
+        "apr": "April",
+        "mai": "Mai",
+        "jun": "Juni",
+        "jul": "Juli",
+        "aug": "August",
+        "sep": "September",
+        "okt": "Oktober",
+        "nov": "November",
+        "dez": "Dezember"
+      }
+    },
+    "cloud": {
+      "title": "CO2-Ausstoß: Vergleich zwischen den Fakultäten in kg"
+    },
+    "bar": {
+      "title": "Von Studierenden der Fakultäten gemeldete Distanzen zur Hochschule (letzte 5 Tage",
+      "labels": {
+        "mo": "Montag",
+        "di": "Dienstag",
+        "mi": "Mittwoch",
+        "don": "Donnerstag",
+        "fr": "Freitag",
+        "sa": "Samstag",
+        "so": "Sonntag"
+      }
+    },
+    "iconArival": {
+      "title": "Heutige Wahl der Verkehrsmittel für die Anreise zur THB",
+      "labels": {
+        "bike": "Fahrrad",
+        "train": "Öffis",
+        "car": "Auto",
+        "walk": "zu Fuß"
+      }
+    },
+    "iconMeal": {
+      "title": "Heute in der App eingetragene THB-Mensagerichte",
+      "labels": {
+        "vegetarian": "Fahrrad",
+        "vegan": "Öffis",
+        "fish": "Auto",
+        "meat": "zu Fuß",
+        "salat": "zu Fuß"
+      }
+    }
   }
 }

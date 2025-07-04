@@ -9,7 +9,10 @@ export default async function InputPage({ params }) {
 
   return (
     <div>
-      <h1 className="mb-5 text-5xl font-bold">{dict.routes.input}</h1>
+      <h1 className="mb-5 text-5xl font-bold fixed">
+        <div>logo</div>
+        {dict.routes.input}
+      </h1>
       <ArivalFrom />
       <MealFrom />
     </div>

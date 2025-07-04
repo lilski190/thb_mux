@@ -9,7 +9,6 @@ export default async function Layout({ children, params }) {
 
   return (
     <div className="bg-base-200 h-screen">
-      <div>logo (LAYOUT COMPONENT)</div>
       {/* Navbar */}
       <div className="h-16 bg-base-300 w-full fixed bottom-0 z-50 flex justify-evenly items-center ">
         <Link href={`/${lang}/dashboard`}>{dict.routes.home}</Link>
