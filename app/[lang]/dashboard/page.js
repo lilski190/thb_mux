@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/getDictionary";
-import { getHomeData } from "@/app/actions/DashboardAction";
+import { getHomeData } from "@/app/actions/dashboardAction";
 
 export default async function DashboardPage({ params }) {
   const lang = params.lang || "de";

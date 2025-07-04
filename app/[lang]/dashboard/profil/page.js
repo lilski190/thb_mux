@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/getDictionary";
-import { getProfilData } from "@/app/actions/DashboardAction";
+import { getProfilData } from "@/app/actions/dashboardAction";
 import NotificationFrom from "./notificationForm";
 
 export default async function ProfilPage({ params }) {

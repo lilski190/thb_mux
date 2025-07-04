@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/getDictionary";
-import { getStatisitcData } from "@/app/actions/DashboardAction";
+import { getStatisitcData } from "@/app/actions/dashboardAction";
 
 export default async function StatisticPage({ params }) {
   const param = await params;
