@@ -4,6 +4,8 @@ import { redirect } from "next/dist/server/api-utils";
 import { getRequestToken } from "../api/api";
 import { cookies } from "next/headers";
 import statisticDummi from "@/app/dummidata/statistik.json";
+import HomeDummi from "@/app/dummidata/home.json";
+import ProfilDummi from "@/app/dummidata/profil.json";
 
 const path = "api/???";
 
@@ -19,8 +21,9 @@ export async function getHomeData() {
     return null;
   }
 
+  //TODO: write usual_arival in cookies
   //const data = await getRequestToken(path, token);
-  return "DATEN GELADEN ;)"; //data;
+  return HomeDummi.response.data; //data;
 }
 
 export async function getStatisitcData() {
@@ -52,5 +55,5 @@ export async function getProfilData() {
   }
 
   //const data = await getRequestToken(path, token);
-  return "DATEN GELADEN ;)"; //data;
+  return ProfilDummi.response.data;
 }

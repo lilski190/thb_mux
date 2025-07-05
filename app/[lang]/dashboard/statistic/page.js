@@ -2,8 +2,9 @@ import { getDictionary } from "@/lib/getDictionary";
 import { getStatisitcData } from "@/app/actions/dashboardAction";
 import BarChart from "@/app/components/charts/barChart";
 import LineChart from "@/app/components/charts/lineChart";
+import Cloudchart from "@/app/components/charts/CloudChart";
+import IconScaleChart from "@/app/components/charts/IconScaleChart";
 
-import { Bar } from "react-chartjs-2";
 export default async function StatisticPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";
@@ -15,7 +16,7 @@ export default async function StatisticPage({ params }) {
         <div>logo</div>
         {dict.routes.statistic}
       </h1>
-      <div className="py-16 bg-base-200">
+      <div className="py-16 bg-base-200 ">
         {statisticData.data.map((item, index) => {
           switch (item.type) {
             case "barchart":
@@ -37,17 +38,29 @@ export default async function StatisticPage({ params }) {
                     ChartData={item.data}
                     dict={dict.statistics.line}
                     labels={item.label}
-                    color="var(--color-primary)"
                   />
                 </div>
               );
             case "cloud":
-              return <div key={item.type + "_" + index}>CLOUDCHART</div>;
+              return (
+                <div key={item.type + "_" + index}>
+                  {dict.statistics.cloud.title}
+                  <Cloudchart
+                    data={item.data}
+                    labels={item.labels}
+                    colors={item.colors}
+                  />
+                </div>
+              );
             case "iconScale":
               return (
                 <div key={item.type + "_" + index}>
-                  ICONSCALE
-                  {JSON.stringify(item)}
+                  {dict.statistics[item.title].title}
+                  <IconScaleChart
+                    data={item.data}
+                    labels={item.labeles}
+                    dict={dict.statistics[item.title]}
+                  />
                 </div>
               );
 

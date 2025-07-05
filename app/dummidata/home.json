@@ -3,8 +3,8 @@
   "response": {
     "data": {
       "streak": 5,
-      "arivals": "bike",
-      "food": "veggi",
+      "arival": "bike",
+      "meal": "vegetarian",
       "comparrison": {
         "FBI": 23,
         "FBT": 45,

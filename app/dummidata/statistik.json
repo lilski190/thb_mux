@@ -14,7 +14,9 @@
       },
       {
         "type": "cloud",
-        "data": [143.7, 168.2, 161.7]
+        "labels": ["FBI", "FBT", "FBW"],
+        "data": [143.7, 168.2, 161.7],
+        "colors": ["#00BAE5", "#83BB20", "#F18400"]
       },
       {
         "type": "barchart",
@@ -39,13 +41,15 @@
       },
       {
         "type": "iconScale",
-        "labeles": ["veggie", "meat", "vegan", "salat", "fish"],
-        "counts": [87, 45, 30, 20, 10]
+        "title": "iconMeal",
+        "labeles": ["vegetarian", "meat", "vegan", "salat", "fish"],
+        "data": [60, 45, 3, 0, 1]
       },
       {
         "type": "iconScale",
+        "title": "iconArival",
         "labeles": ["bike", "car", "train", "walk"],
-        "counts": [87, 45, 30, 20]
+        "data": [87, 0, 30, 20]
       }
     ]
   }

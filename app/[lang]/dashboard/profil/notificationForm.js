@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { pushNotoficationData } from "@/app/actions/formAction";
 
-export default function NotificationFrom({ params }) {
+export default function NotificationFrom({ params, dict }) {
   const [checkboxes, setCheckboxes] = useState({
     mo: false,
     di: false,
@@ -35,19 +35,20 @@ export default function NotificationFrom({ params }) {
 
   return (
     <div>
-      <h2>NOTIFICATION FORM</h2>
+      TODO: überlegen wie wir mit dem update Umgehen sollen? update im
+      localstorage oder cookies? oder neuladen der seite?
       <form action={pushNotoficationData}>
         <label>
           <input
             type="checkbox"
             onChange={handleSelectAll}
             checked={allChecked}
-          />{" "}
-          Alle auswählen
+          />
+          {dict.options[5]}
         </label>
         <br />
         <label>
-          MO{" "}
+          {dict.options[0]}
           <input
             type="checkbox"
             name="mo"
@@ -58,7 +59,7 @@ export default function NotificationFrom({ params }) {
         </label>
         <br />
         <label>
-          DI{" "}
+          {dict.options[1]}
           <input
             type="checkbox"
             name="di"
@@ -69,7 +70,7 @@ export default function NotificationFrom({ params }) {
         </label>
         <br />
         <label>
-          MI{" "}
+          {dict.options[2]}
           <input
             type="checkbox"
             name="mi"
@@ -80,7 +81,7 @@ export default function NotificationFrom({ params }) {
         </label>
         <br />
         <label>
-          DO{" "}
+          {dict.options[3]}
           <input
             type="checkbox"
             name="do"
@@ -91,7 +92,7 @@ export default function NotificationFrom({ params }) {
         </label>
         <br />
         <label>
-          FR{" "}
+          {dict.options[4]}
           <input
             type="checkbox"
             name="fr"
@@ -101,7 +102,7 @@ export default function NotificationFrom({ params }) {
           />
         </label>
         <br />
-        <button type="submit">Speichern</button>
+        <button type="submit">{dict.save}</button>
       </form>
     </div>
   );

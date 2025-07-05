@@ -1,7 +1,74 @@
 {
   "home": {
-    "title": "Das ist der Deutsche Titel",
-    "description": "Das ist die Deutsche Beschreibung"
+    "title": "Home",
+    "streak": {
+      "title": "Tage Streak",
+      "options": [
+        "Ein solider Start!",
+        "Heißer als mein Kompost im Sommer!",
+        "Noch ein Spruch",
+        "Und noch ein Spruch",
+        "Der letzte noch ein Spruch",
+        "Woche 2 Ein solider Start!",
+        "Woche 2 Heißer als mein Kompost im Sommer!",
+        "Woche 2 Noch ein Spruch",
+        "Woche 2 Und noch ein Spruch",
+        "Woche 2 Der letzte noch ein Spruch",
+        "Woche 3 Ein solider Start!",
+        "Woche 3 Heißer als mein Kompost im Sommer!",
+        "Woche 3 Noch ein Spruch",
+        "Woche 3 Und noch ein Spruch",
+        "Woche 3 Der letzte noch ein Spruch",
+        "Woche 4 Ein solider Start!",
+        "Woche 4 Heißer als mein Kompost im Sommer!",
+        "Woche 4 Noch ein Spruch",
+        "Woche 4 Und noch ein Spruch",
+        "Woche 4 Der letzte noch ein Spruch",
+        "Ein spruch der Besagt das die Person zu krass ist mit den Streaks, sodass wir darauf gar nicht mehr vorbereitet waren"
+      ]
+    },
+    "arivalTitel": "Anreise:",
+    "mealTitel": "Essenswahl",
+    "fbTitel": "Dein Fachbereich im Vergleich",
+    "arival": {
+      "bike": "Die Mehrheit ist heute mit dem Fahrrad angereist.",
+      "train": "Die Mehrheit ist heute mit den Öffis angereist.",
+      "car": "Die Mehrheit ist heute mit dem Auto angereist.",
+      "walk": "Die Mehrheit ist heute zu Fuß gekommen."
+    },
+    "meal": {
+      "vegetarian": "Die meisten Personen hatten heute das vegetarische Gericht in der Mensa.",
+      "vegan": "Die meisten Personen hatten heute das vegane Gericht in der Mensa.",
+      "fish": "Die meisten Personen hatten heute ein Gericht mit Fisch in der Mensa.",
+      "meat": "Die meisten Personen hatten heute das Fleisch Gericht in der Mensa.",
+      "salat": "Die meisten Personen hatten heute einen Salat in der Mensa."
+    },
+    "fbs": {
+      "FBI": "Der Fachbereich Informatik hat heute am Meisten Daten eingetragen.",
+      "FBT": "Der Fachbereich Technik hat heute am Meisten Daten eingetragen.",
+      "FBW": "Der Fachbereich Wirtschaft hat heute am Meisten Daten eingetragen."
+    }
+  },
+  "profil": {
+    "welcome": "Hey",
+    "record": [
+      "Hier siehtst du deine Recods",
+      "Du hast einen neuen Rekord aufgestellt. Drei Tage lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. Eine Wochen lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. Zwei Wochen lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. Drei Wochen lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. Einen Monat lückenlose Eingabe: weiter so!",
+      "Du bist so krass, das wir keine Medallie mehr für dich haben.."
+    ],
+    "settings": "Einstellungen",
+    "notifications": "Benachrichtigungseinstellungen",
+    "darkmode": "Darkmode",
+    "notificationForm": {
+      "title": "Benachrichtigungen",
+      "description": "Wann möchtest du Push-Benachrichtigungen bekommen?",
+      "options": ["Mo", "Di", "Mi", "Do", "Fr", "Alle"],
+      "save": "Speichern"
+    }
   },
   "login": {
     "title": "Anmelden",
@@ -15,17 +82,15 @@
     "stayLoggedIn": "Eingeloggt bleiben",
     "ForgotPassword": "Passwort Vergessen?"
   },
-  "dashboard": {
-    "title": "Das ist der Deutsche Dashboard Titel",
-    "description": "Das ist die Deutsche Dashboard Beschreibung",
-    "welcome": "Willkommen auf der Dashboard-Seite"
-  },
   "general": {
     "projectName": "SustainAble",
     "projectSlogan": "Die Nachhaltigkeitsapp der THB",
     "login": "Einloggen",
     "register": "Registrieren",
-    "notImplementet": "Diese Funktion ist noch nicht implememntiert :("
+    "notImplementet": "Diese Funktion ist noch nicht implememntiert :(",
+    "FBI": "Fachbereich Informatik",
+    "FBT": "Fachbereich Technik",
+    "FBW": "Fachbereich Wirtschaft"
   },
   "routes": {
     "home": "Home",
@@ -79,12 +144,38 @@
     "iconMeal": {
       "title": "Heute in der App eingetragene THB-Mensagerichte",
       "labels": {
-        "vegetarian": "Fahrrad",
-        "vegan": "Öffis",
-        "fish": "Auto",
-        "meat": "zu Fuß",
-        "salat": "zu Fuß"
+        "vegetarian": "Vegetarisch",
+        "vegan": "Vegan",
+        "fish": "Fisch",
+        "meat": "Fleisch",
+        "salat": "Salat"
       }
+    }
+  },
+  "input": {
+    "description": "Hilf uns dabei den ökologischen Fußabdruck der Hochschule zu messen und beantworte kurz die Frage zum Thema:",
+    "mealTitel": "Essenswahl",
+    "arivalTitle": "Anreise",
+    "meal": {
+      "title": "Essenswahl",
+      "description": "Was hast du heute in der Mensa gegessen?",
+      "options": [
+        "Vegan",
+        "Vegetarisch",
+        "Fisch",
+        "Fleisch",
+        "Salat",
+        "Ich habe heute nicht in der Mensa gegessen"
+      ],
+      "save": "Speichern"
+    },
+    "arival": {
+      "title": "Anreise",
+      "description": "Wie bist du heute zur THB gekommen?",
+      "options": ["Zu Fuß", "Fahrrad", "Öffis", "Auto"],
+      "distance": "Wie viele Kilometer hast du heute zurückgelegt?",
+      "usual": "So wie Immer",
+      "save": "Speichern"
     }
   }
 }
