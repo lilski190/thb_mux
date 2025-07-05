@@ -10,7 +10,7 @@ export default async function DashboardPage({ params }) {
 
   return (
     <div>
-      <h1 className="mb-5  font-bold fixed bg-base-200 w-full">
+      <h1 className="mb-5 font-bold fixed bg-base-200 w-full">
         <div>logo</div>
         {dict.routes.home}
       </h1>
