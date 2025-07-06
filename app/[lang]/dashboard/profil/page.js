@@ -3,6 +3,7 @@ import { getProfilData } from "@/app/actions/dashboardAction";
 import NotificationFrom from "./notificationForm";
 import Record from "@/app/components/medals/Record";
 import Modal from "@/app/components/modals/Modal";
+import DashboardHeader from "@/app/components/header";
 
 export default async function ProfilPage({ params }) {
   const param = await params;
@@ -12,10 +13,8 @@ export default async function ProfilPage({ params }) {
 
   return (
     <div>
-      <h1 className="mb-5 font-bold fixed bg-base-200 w-full">
-        <div>logo</div>
-        {dict.routes.profil}
-      </h1>
+      <DashboardHeader title={dict.routes.profil} />
+
       <div className="py-16 bg-base-200">
         <div>TODO picture (cloud?): {profilData.profile_picture}</div>
         <div className="bg-primary/20 m-5">

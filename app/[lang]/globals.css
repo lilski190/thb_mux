@@ -1,6 +1,11 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Athiti:wght@400;700&family=Onest:wght@400;700&display=swap");
+
+/* Tailwind & DaisyUI */
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Root Variables */
 :root {
   --color-primary: #1e40af;
   --color-secondary: #cccccc;
@@ -13,29 +18,51 @@
   --color-buttonDisabled: #9ca3af;
   --color-error: #dc2626;
   --color-confirm: #16a34a;
+  --fs-350: 3.5rem;
+  --fs-300: 3rem;
+  --fs-172: 1.72rem;
+  --fs-150: 1.5rem;
+  --fs-124: 1.24rem;
+  --fs-100: 1rem;
+  --fs-98: 0.98rem;
+  --fs-96: 0.96rem;
+  --fs-80: 0.8rem;
+  --fs-75: 0.75rem;
+  --fs-65: 0.65rem;
+  --fs-54: 0.54rem;
+  --fs-36: 0.36rem;
 }
 
 .main {
-  --color-base-100: #fcf5ed;
-  --color-base-200: #fbedda;
-  --color-base-300: #6cef88;
-  --color-base-content: #795039;
-  --color-primary: #2f9a6e;
-  --color-primary-content: oklch(98% 0 0);
-  --color-secondary: #eb8744;
-  --color-secondary-content: oklch(37% 0.01 67.558);
-  --color-accent: #94c09e;
-  --color-accent-content: #330036;
-  --color-neutral: oklch(44% 0.011 73.639);
-  --color-neutral-content: oklch(98% 0.002 247.839);
-  --color-info: #4d9de0;
-  --color-info-content: oklch(30% 0.056 229.695);
-  --color-success: #00d28f;
-  --color-success-content: oklch(26% 0.051 172.552);
-  --color-warning: #efc11a;
-  --color-warning-content: oklch(27% 0.077 45.635);
-  --color-error: #f8333c;
-  --color-error-content: oklch(27% 0.105 12.094);
+  --color-base-100: rgb(252, 245, 237);
+  --color-base-200: rgb(251, 237, 218);
+  --color-base-300: rgb(108, 239, 136);
+  --color-base-content: rgb(121, 80, 57);
+
+  --color-primary: rgb(47, 154, 110);
+  --color-primary-content: rgb(250, 250, 250);
+
+  --color-secondary: rgb(235, 135, 68);
+  --color-secondary-content: rgb(99, 94, 79);
+
+  --color-accent: rgb(148, 192, 158);
+  --color-accent-content: rgb(164, 67, 169);
+
+  --color-neutral: rgb(107, 101, 87);
+  --color-neutral-content: rgb(251, 251, 253);
+
+  --color-info: rgb(77, 157, 224);
+  --color-info-content: rgb(34, 53, 103);
+
+  --color-success: rgb(0, 210, 143);
+  --color-success-content: rgb(13, 56, 40);
+
+  --color-warning: rgb(239, 193, 26);
+  --color-warning-content: rgb(86, 56, 2);
+
+  --color-error: rgb(248, 51, 60);
+  --color-error-content: rgb(92, 30, 18);
+
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 0.5rem;
@@ -44,68 +71,6 @@
   --border: 2px;
   --depth: 0;
   --noise: 1;
-}
-.dark {
-  --color-base-100: oklch(20.768% 0.039 265.754);
-  --color-base-200: oklch(19.314% 0.037 265.754);
-  --color-base-300: oklch(17.86% 0.034 265.754);
-  --color-base-content: oklch(84.153% 0.007 265.754);
-  --color-primary: oklch(75.351% 0.138 232.661);
-  --color-primary-content: oklch(15.07% 0.027 232.661);
-  --color-secondary: oklch(68.011% 0.158 276.934);
-  --color-secondary-content: oklch(13.602% 0.031 276.934);
-  --color-accent: oklch(72.36% 0.176 350.048);
-  --color-accent-content: oklch(14.472% 0.035 350.048);
-  --color-neutral: oklch(27.949% 0.036 260.03);
-  --color-neutral-content: oklch(85.589% 0.007 260.03);
-  --color-info: oklch(68.455% 0.148 237.251);
-  --color-info-content: oklch(0% 0 0);
-  --color-success: oklch(78.452% 0.132 181.911);
-  --color-success-content: oklch(15.69% 0.026 181.911);
-  --color-warning: oklch(83.242% 0.139 82.95);
-  --color-warning-content: oklch(16.648% 0.027 82.95);
-  --color-error: oklch(71.785% 0.17 13.118);
-  --color-error-content: oklch(14.357% 0.034 13.118);
-  --radius-selector: 2rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.21875rem;
-  --size-field: 0.21875rem;
-  --border: 0.5px;
-  --depth: 1;
-  --noise: 0;
-  /* die anderen kannst du gleich lassen oder auch anpassen */
-}
-
-.high-contrast {
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(97% 0 0);
-  --color-base-300: oklch(94% 0 0);
-  --color-base-content: oklch(0% 0 0);
-  --color-primary: oklch(15.906% 0 0);
-  --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(21.455% 0.001 17.278);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(26.861% 0 0);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(0% 0 0);
-  --color-neutral-content: oklch(100% 0 0);
-  --color-info: oklch(79.54% 0.103 205.9);
-  --color-info-content: oklch(15.908% 0.02 205.9);
-  --color-success: oklch(90.13% 0.153 164.14);
-  --color-success-content: oklch(18.026% 0.03 164.14);
-  --color-warning: oklch(88.37% 0.135 79.94);
-  --color-warning-content: oklch(17.674% 0.027 79.94);
-  --color-error: oklch(78.66% 0.15 28.47);
-  --color-error-content: oklch(15.732% 0.03 28.47);
-  --radius-selector: 2rem;
-  --radius-field: 0.25rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.21875rem;
-  --size-field: 0.21875rem;
-  --border: 0.5px;
-  --depth: 1;
-  --noise: 0;
 }
 
 @theme {
@@ -125,8 +90,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Athiti", sans-serif;
+  --font-title: "Onest", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -136,8 +101,77 @@
   }
 }
 
+/* Global Styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Athiti", sans-serif;
+}
+
+/* Title Styling */
+.title {
+  font-family: "Onest", sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: var(--fs-150);
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  color: var(--color-primary);
+  line-height: 1.1; /* optional, für bessere Lesbarkeit */
+  margin: 0;
+}
+
+.titleBig {
+  font-size: var(--fs-172);
+}
+
+/* Text Styling */
+.text {
+  color: var(--color-base-content);
+  font-family: "Athiti", sans-serif;
+  font-size: var(--fs-75);
+}
+.text96 {
+  font-size: var(--fs-96);
+  font-weight: 400;
+}
+.text65 {
+  font-size: var(--fs-65);
+  font-weight: 400;
+}
+
+.text54 {
+  font-size: var(--fs-54);
+  font-weight: 400;
+}
+
+.text75 {
+  font-size: var(--fs-75);
+}
+
+.text100 {
+  font-size: var(--fs-100);
+}
+
+.text350 {
+  font-size: var(--fs-350);
+  font-weight: 700;
+}
+
+.text300 {
+  font-size: var(--fs-300);
+  font-weight: 500;
+}
+
+.text124 {
+  font-size: var(--fs-124);
+  font-weight: 700;
+}
+
+.Textbold {
+  font-weight: 700;
+}
+
+.TextSelect {
+  color: var(--color-accent);
 }

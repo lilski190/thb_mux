@@ -2,6 +2,7 @@ import { getDictionary } from "@/lib/getDictionary";
 import ArivalFrom from "./arivalForm";
 import MealFrom from "./mealForm";
 import Modal from "@/app/components/modals/Modal";
+import DashboardHeader from "@/app/components/header";
 
 export default async function InputPage({ params }) {
   const param = await params;
@@ -10,12 +11,10 @@ export default async function InputPage({ params }) {
 
   return (
     <div>
-      <h1 className="mb-5 font-bold fixed bg-base-200 w-full">
-        <div>logo</div>
-        {dict.routes.input}
-      </h1>
+      <DashboardHeader title={dict.routes.input} />
+
       <div className="py-16 bg-base-200">
-        <div>{dict.input.description}</div>
+        <div className="text text100">{dict.input.description}</div>
         <Modal
           id="arival"
           button={dict.input.arivalTitle}

@@ -17,36 +17,36 @@ export default function LoginForm({ dict }) {
   return (
     <>
       <Toaster position="top-center" />
-      <form action={loginAction} className="card-body">
+      <form action={loginAction} className="card-body ">
         <fieldset className="fieldset">
-          <div className="relative mt-3">
+          <div className="relative mt-3 text">
             <input
               type="email"
               name="email"
               id="floating_outlined_mail"
-              className="input block px-2.5 pb-2 pt-2 w-full text-sm  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              className="input block px-2.5 pb-2 pt-2 w-full  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
               placeholder=" "
               required
             />
             <label
               htmlFor="floating_outlined_mail"
-              className="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+              className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               {dict.login.mail}
             </label>
           </div>
-          <div className="relative mt-3">
+          <div className="relative mt-3 text">
             <input
               type="password"
               name="password"
               id="floating_outlined_mail"
-              className="input block px-2.5 pb-2 pt-2 w-full text-sm  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
               placeholder=" "
               required
             />
             <label
               htmlFor="floating_outlined_mail"
-              className="absolute text-sm duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+              className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
             >
               {dict.login.pw}
             </label>
@@ -54,15 +54,24 @@ export default function LoginForm({ dict }) {
 
           <div className="flex justify-between">
             <Tooltip text={dict.general.notImplementet}>
-              <a className="link link-hover">{dict.login.stayLoggedIn}</a>
+              <a className="link link-hover text54 text-accent">
+                {dict.login.stayLoggedIn}
+              </a>
             </Tooltip>
             <Tooltip text={dict.general.notImplementet}>
-              <a className="link link-hover">{dict.login.ForgotPassword}</a>
+              <a className="link link-hover text54 text-accent">
+                {dict.login.ForgotPassword}
+              </a>
             </Tooltip>
           </div>
-          <button type="submit" className="btn btn-neutral mt-4">
-            {dict.login.login}
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="btn btn-primary mt-4 text75 text-primary-content Textbold"
+            >
+              {dict.login.login}
+            </button>
+          </div>
         </fieldset>
       </form>
     </>

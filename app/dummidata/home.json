@@ -2,12 +2,12 @@
   "request": {},
   "response": {
     "data": {
-      "streak": 5,
-      "arival": "bike",
-      "meal": "vegetarian",
+      "streak": 12,
+      "arival": "walk",
+      "meal": "fish",
       "comparrison": {
         "FBI": 23,
-        "FBT": 45,
+        "FBT": 5,
         "FBW": 12
       },
       "usual_arival": {

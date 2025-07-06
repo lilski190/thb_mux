@@ -19,11 +19,6 @@
         "Woche 3 Noch ein Spruch",
         "Woche 3 Und noch ein Spruch",
         "Woche 3 Der letzte noch ein Spruch",
-        "Woche 4 Ein solider Start!",
-        "Woche 4 Heißer als mein Kompost im Sommer!",
-        "Woche 4 Noch ein Spruch",
-        "Woche 4 Und noch ein Spruch",
-        "Woche 4 Der letzte noch ein Spruch",
         "Ein spruch der Besagt das die Person zu krass ist mit den Streaks, sodass wir darauf gar nicht mehr vorbereitet waren"
       ]
     },
@@ -176,6 +171,18 @@
       "distance": "Wie viele Kilometer hast du heute zurückgelegt?",
       "usual": "So wie Immer",
       "save": "Speichern"
+    }
+  },
+  "toast": {
+    "login": {
+      "info": "Du hast dich lange nicht mehr eingeloggt.",
+      "success": "Erfolgreich eingeloggt",
+      "error": {
+        "notRegistert": "Die Email exestiert nicht",
+        "serverError": "Der Server ist abgestürzt oder so",
+        "anotherError": "Es gibt noch weitere errors"
+      },
+      "warning": "User ist bereit woanders eingeloggt"
     }
   }
 }
