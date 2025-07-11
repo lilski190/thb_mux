@@ -3,11 +3,11 @@
   "response": {
     "data": {
       "name": "Demo User",
-      "profile_picture": "/link to picture in some cloud",
+      "profile_picture": "",
       "medal": {
         "type": "record",
 
-        "duration": 35
+        "duration": 14
       },
       "notifications": [1, 0, 1, 1, 1]
     }

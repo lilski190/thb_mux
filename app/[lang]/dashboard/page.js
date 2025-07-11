@@ -7,6 +7,7 @@ import MedalModal from "@/app/components/cards/MedalModal";
 import HomeInputModal from "@/app/components/cards/HomeInputModal";
 import HomeStatisticModal from "@/app/components/cards/HomeStatisticModal";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 export default async function DashboardPage({ params }) {
   const lang = params.lang || "de";
@@ -15,6 +16,9 @@ export default async function DashboardPage({ params }) {
   const homeData = await getHomeData();
   if (homeData.personal.lang != lang) {
     redirect(`/${homeData.personal.lang}/dashboard`);
+  }
+  if (homeData?.personal?.colorMode) {
+    //   await setColorMode(homeData?.personal?.colorMode);
   }
 
   return (

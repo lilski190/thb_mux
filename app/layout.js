@@ -7,8 +7,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const colorMode = cookieStore.get("colorMode")?.value || "main";
+  console.log("detected colormode", colorMode);
 
   const lang = params.lang || "de";
 

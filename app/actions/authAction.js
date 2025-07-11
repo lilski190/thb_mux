@@ -46,6 +46,9 @@ export async function loginAction(formData) {
       maxAge: 6 * 60 * 60, // 6 Stunden in Sekunden
       path: "/",
     });
+    //TODO: COLORMODE FROM THE LOGIN DATA SETZTE!
+    let colorMode = "dark";
+    cookieStore.set("colorMode", colorMode || "main");
     redirect("/dashboard");
   }
 }

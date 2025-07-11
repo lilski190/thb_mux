@@ -21,9 +21,13 @@ export async function getHomeData() {
     return null;
   }
 
+  let response = HomeDummi.response.data;
   //TODO: write usual_arival in cookies
   //const data = await getRequestToken(path, token);
-  return HomeDummi.response.data; //data;
+
+  //COLROMODE Cookie setzen
+
+  return response; //data;
 }
 
 export async function getStatisitcData() {
@@ -37,6 +41,8 @@ export async function getStatisitcData() {
     redirect("/login");
     return null;
   }
+
+  //TODO MAKE REAL ACTION OR PATH REQUEST AND SAVE COOKIE!
 
   //const data = await getRequestToken(path, token);
   return statisticDummi.response; //data;

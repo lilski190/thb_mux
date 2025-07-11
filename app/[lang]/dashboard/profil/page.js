@@ -10,12 +10,16 @@ import MenuBar from "@/app/components/cards/MenuBar";
 import BarColormode from "@/app/components/cards/BarColormode";
 import { ICONS } from "@/lib/globals";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+import { cookies } from "next/headers";
 
 export default async function ProfilPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";
   const dict = await getDictionary(lang);
   const profilData = await getProfilData();
+
+  const cookieStore = await cookies();
+  const colorMode = cookieStore.get("colorMode")?.value || "main";
 
   return (
     <div>
@@ -79,7 +83,11 @@ export default async function ProfilPage({ params }) {
           <NotificationFrom dict={dict.profil.notificationForm} />
         </Modal>
 
-        <BarColormode title={dict.profil.darkmode} icon="colormode" />
+        <BarColormode
+          title={dict.profil.darkmode}
+          icon="colormode"
+          mode={colorMode}
+        />
 
         <div className="text text100"> {dict.profil.generallSettings}</div>
 
