@@ -1,16 +1,205 @@
 {
   "home": {
-    "title": "Next.js Setup Welcome Page",
-    "description": "This is a simple Next.js setup with TypeScript, Tailwind CSS, and ESLint. And this is test text"
+    "title": "Home",
+    "streak": {
+      "title": "Day Streak",
+      "options": [
+        "A solid start!",
+        "Hotter than my compost in summer!",
+        "Another quote",
+        "And another one",
+        "The last quote (for now)",
+        "Week 2 A solid start!",
+        "Week 2 Hotter than my compost in summer!",
+        "Week 2 Another quote",
+        "Week 2 And another one",
+        "Week 2 The last quote (for now)",
+        "Week 3 A solid start!",
+        "Week 3 Hotter than my compost in summer!",
+        "Week 3 Another quote",
+        "Week 3 And another one",
+        "Week 3 The last quote (for now)",
+        "A quote saying this person is too good at streaks – we weren’t prepared for this level"
+      ]
+    },
+    "arivalTitel": "Arrival:",
+    "mealTitel": "Meal Choice",
+    "fbTitel": "Your Department in Comparison",
+    "arival": {
+      "bike": "The majority came by bike today.",
+      "train": "The majority used public transport today.",
+      "car": "The majority came by car today.",
+      "walk": "The majority walked today."
+    },
+    "meal": {
+      "vegetarian": "Most people had the vegetarian dish in the cafeteria today.",
+      "vegan": "Most people had the vegan dish in the cafeteria today.",
+      "fish": "Most people had a fish dish in the cafeteria today.",
+      "meat": "Most people had a meat dish in the cafeteria today.",
+      "salat": "Most people had a salad in the cafeteria today."
+    },
+    "fbs": {
+      "FBI": "The Computer Science department logged the most data today.",
+      "FBT": "The Technology department logged the most data today.",
+      "FBW": "The Business department logged the most data today."
+    }
+  },
+  "profil": {
+    "welcome": "Hey",
+    "record": [
+      "Here you can see your records",
+      "You’ve set a new record. <strong>Three days</strong> of consistent input: keep it up!",
+      "You’ve set a new record. <strong>One week</strong> of consistent input: keep it up!",
+      "You’ve set a new record. <strong>Two weeks</strong> of consistent input: keep it up!",
+      "You’ve set a new record. <strong>Three weeks</strong> of consistent input: keep it up!",
+      "You’ve set a new record. <strong>One month</strong> of consistent input: keep it up!",
+      "You're <strong>so amazing</strong>, we don’t even have a medal for you anymore..."
+    ],
+    "settings": "Settings",
+    "notifications": "Notification Settings",
+    "darkmode": "Dark Mode",
+    "notificationForm": {
+      "title": "Notifications",
+      "description": "When would you like to receive push notifications?",
+      "options": ["Mon", "Tue", "Wed", "Thu", "Fri", "All"],
+      "save": "Save"
+    },
+    "generallSettings": "General Settings",
+    "konto": "Account Settings",
+    "authorization": "Permissions",
+    "language": "Language",
+    "lang": {
+      "title": "Language Settings",
+      "description": "Choose your preferred language",
+      "options": ["de", "en"],
+      "save": "Save"
+    },
+    "info": "Information",
+    "about": "About SustainAble",
+    "help": "Help",
+    "logout": "Log out",
+    "data": "Privacy Policy",
+    "impressum": "Imprint",
+    "agb": "Terms & Conditions"
   },
   "login": {
-    "title": "Next.js Setup Login Page",
-    "description": "This is the dashboard text",
-    "login": "Login"
+    "title": "Login",
+    "description": "Welcome back! Log in with your email and password to continue.",
+    "login": "Login",
+    "help": "Help",
+    "setting": "User Terms",
+    "cookies": "Privacy and Cookies",
+    "mail": "Email Address",
+    "pw": "Password",
+    "stayLoggedIn": "Stay logged in",
+    "ForgotPassword": "Forgot password?"
   },
-  "dashboard": {
-    "title": "Next.js Setup Dashboard Page",
-    "description": "This is the dashboard text",
-    "welcome": "Welcome to the dashboard page"
+  "general": {
+    "projectName": "SustainAble",
+    "projectSlogan": "The sustainability app of THB",
+    "login": "Login",
+    "register": "Register",
+    "notImplementet": "This feature is not implemented yet :(",
+    "FBI": "Computer Science Department",
+    "FBT": "Technology Department",
+    "FBW": "Business Department"
+  },
+  "routes": {
+    "home": "Home",
+    "input": "Input",
+    "statistic": "Statistics",
+    "inbox": "Inbox",
+    "profil": "Profile"
+  },
+  "statistics": {
+    "line": {
+      "title": "THB’s CO2 emissions this year in tons",
+      "labels": {
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "mai": "May",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "okt": "October",
+        "nov": "November",
+        "dez": "December"
+      }
+    },
+    "cloud": {
+      "title": "CO2 Emissions: Comparison between faculties in kg"
+    },
+    "bar": {
+      "title": "Distances to the university reported by students (last 5 days)",
+      "labels": {
+        "mo": "Monday",
+        "di": "Tuesday",
+        "mi": "Wednesday",
+        "don": "Thursday",
+        "fr": "Friday",
+        "sa": "Saturday",
+        "so": "Sunday"
+      }
+    },
+    "iconArival": {
+      "title": "Today's choice of transportation to THB",
+      "labels": {
+        "bike": "Bike",
+        "train": "Public transport",
+        "car": "Car",
+        "walk": "Walking"
+      }
+    },
+    "iconMeal": {
+      "title": "Today's THB cafeteria meals logged in the app",
+      "labels": {
+        "vegetarian": "Vegetarian",
+        "vegan": "Vegan",
+        "fish": "Fish",
+        "meat": "Meat",
+        "salat": "Salad"
+      }
+    }
+  },
+  "input": {
+    "description": "Help us measure the ecological footprint of the university by briefly answering today’s question:",
+    "mealTitel": "Meal Choice",
+    "arivalTitle": "Arrival",
+    "meal": {
+      "title": "Meal Choice",
+      "description": "What did you eat in the cafeteria today?",
+      "options": [
+        "Vegan",
+        "Vegetarian",
+        "Fish",
+        "Meat",
+        "Salad",
+        "I didn’t eat in the cafeteria today"
+      ],
+      "save": "Save"
+    },
+    "arival": {
+      "title": "Arrival",
+      "description": "How did you get to THB today?",
+      "options": ["Walking", "Bike", "Public transport", "Car"],
+      "distance": "How many kilometers did you travel today?",
+      "usual": "Same as always",
+      "save": "Save"
+    }
+  },
+  "toast": {
+    "login": {
+      "info": "You haven’t logged in for a while.",
+      "success": "Successfully logged in",
+      "error": {
+        "notRegistert": "This email does not exist",
+        "serverError": "The server crashed or something",
+        "anotherError": "There are other errors"
+      },
+      "warning": "User is already logged in elsewhere"
+    }
   }
 }

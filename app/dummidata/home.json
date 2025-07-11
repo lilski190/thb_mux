@@ -13,6 +13,10 @@
       "usual_arival": {
         "key": "bike",
         "value": 4
+      },
+      "personal": {
+        "lang": "de",
+        "colorMode": "dark"
       }
     }
   }

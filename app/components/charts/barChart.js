@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -21,13 +22,33 @@ ChartJS.register(
 );
 
 export default function BarChart({ ChartData, dict, labels }) {
+  const [fontSettings, setFontSettings] = useState({
+    size: 10,
+    color: "#000",
+  });
+
+  useEffect(() => {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const mainEl = document.querySelector(".main");
+    const mainStyles = mainEl ? getComputedStyle(mainEl) : null;
+
+    const fontSize = 10;
+    const fontColor =
+      mainStyles?.getPropertyValue("--color-base-content").trim() || "#000";
+
+    setFontSettings({
+      size: fontSize,
+      color: fontColor,
+    });
+  }, []);
+
   const translatedLabels = labels.map((label) => dict.labels[label] || label);
 
   const formattedData = {
     labels: translatedLabels,
     datasets: ChartData.map((dataset) => ({
       ...dataset,
-      borderRadius: 3, // Rundung hier setzen
+      borderRadius: 3,
     })),
   };
 
@@ -36,6 +57,12 @@ export default function BarChart({ ChartData, dict, labels }) {
     plugins: {
       legend: {
         position: "bottom",
+        labels: {
+          color: fontSettings.color,
+          font: {
+            size: fontSettings.size,
+          },
+        },
       },
       title: {
         display: false,
@@ -44,14 +71,28 @@ export default function BarChart({ ChartData, dict, labels }) {
     scales: {
       x: {
         grid: {
-          display: false, // Grid-Linien auf der x-Achse ausblenden
+          display: false,
+        },
+        border: {
+          color: fontSettings.color,
+        },
+        ticks: {
+          color: fontSettings.color,
+          font: { size: fontSettings.size },
         },
       },
       y: {
         grid: {
-          display: false, // Grid-Linien auf der y-Achse ausblenden
+          display: false,
         },
         beginAtZero: true,
+        border: {
+          color: fontSettings.color,
+        },
+        ticks: {
+          color: fontSettings.color,
+          font: { size: fontSettings.size },
+        },
       },
     },
   };

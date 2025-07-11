@@ -8,8 +8,8 @@ const Cloudchart = ({ data, labels, colors }) => {
   const chartRef = useRef();
   const max = Math.max(...data);
 
-  const maxSize = 150;
-  const minSize = 2;
+  const maxSize = 180;
+  const minSize = 60;
 
   const getSize = (value) => {
     if (max === 0) return minSize;
@@ -31,47 +31,52 @@ const Cloudchart = ({ data, labels, colors }) => {
     pdf.save("cloudchart.pdf");
   };
 
-  // Tailwind-compatible spacing classes
-  const marginRightClasses = ["-mr-10 z-10", "-ml-10 z-20", "-ml-20 z-10"];
+  // negative margin to create overlap
+  const marginClasses = ["-ml-0 z-10", "-ml-10 z-20", "-ml-10 z-30"];
 
   return (
     <div className="p-4">
       <div ref={chartRef}>
-        <div className="flex items-end justify-center w-full h-full bg-secondary">
+        <div className="flex items-end justify-center w-full h-full">
           {data.map((value, i) => {
             const size = getSize(value);
-            const mrClass = marginRightClasses[i] || ""; // fallback if i > 2
+            const marginClass = marginClasses[i] || "";
 
             return (
               <div
                 key={i}
-                className={`flex flex-col items-center  justify-end h-38  ${mrClass}`}
+                className={`w-[40%] relative flex flex-col items-center justify-end ${marginClass}`}
+                style={{ height: maxSize }}
               >
-                <div className="relative">
-                  <div className={`flex items-center  h-24`}>
-                    <div className="">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 96 96"
-                        className=""
-                        style={{
-                          width: `${size}px`,
-                        }}
-                      >
-                        <path d={ICONS.cloud} />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className=" bg-primary"
-                    style={{ color: colors[i], width: `${size}px` }}
-                  >
-                    {value.toFixed(1)}
-                  </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 96 96"
+                  style={{
+                    width: `${size}px`,
+                    color: "#5c4033", // oder deine Wunschfarbe
+                  }}
+                >
+                  <path d={ICONS.cloud} />
+                </svg>
+
+                {/* Zahl zentriert */}
+                <div
+                  className="absolute text-sm font-semibold"
+                  style={{
+                    color: colors[i],
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: `${size}px`,
+                    textAlign: "center",
+                  }}
+                >
+                  {value.toFixed(1)}
                 </div>
 
-                <div className="text-xs mt-1 text-gray-500">{labels[i]}</div>
+                {/* Label */}
+                <div className="text text36">{labels[i]}</div>
               </div>
             );
           })}

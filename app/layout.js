@@ -1,16 +1,20 @@
-import { getDictionary } from "@/lib/getDictionary";
+import { cookies } from "next/headers";
+import "./globals.css";
+
 export const metadata = {
   title: "SustainAble",
   description: "Die Nachhaltigkeitsapp der THB",
 };
 
 export default async function RootLayout({ children, params }) {
-  const param = await params;
-  const lang = param.lang || "de";
-  const dict = await getDictionary(lang);
+  const cookieStore = cookies();
+  const colorMode = cookieStore.get("colorMode")?.value || "main";
+
+  const lang = params.lang || "de";
+
   return (
-    <html lang="de">
-      <body className="bg-base-200">{children}</body>
+    <html lang={lang}>
+      <body className={`${colorMode} bg-base-200`}>{children}</body>
     </html>
   );
 }

@@ -21,30 +21,23 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="dropdown dropdown-end h-8 ">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-xs">
-        🌐 {langLabels[currentLang]}
-      </div>
-      <div></div>
-      <ul
-        tabIndex={0}
-        className="dropdown-content z-[100] menu p-2 shadow bg-base-100 rounded-box w-52"
-      >
+    <div className="flex items-center gap-4 p-2">
+      <span className="font-medium">TODO STYLE:</span>
+      <div className="flex gap-4">
         {["de", "en"].map((lang) => (
-          <li key={lang}>
-            <button
-              onClick={() => handleLanguageChange(lang)}
-              className={`w-full text-left px-3 py-2 rounded-md ${
-                lang === currentLang
-                  ? "bg-primary text-primary-content"
-                  : "hover:bg-base-200"
-              }`}
-            >
-              {langLabels[lang]}
-            </button>
-          </li>
+          <label key={lang} className="flex items-center gap-1 cursor-pointer">
+            <input
+              type="radio"
+              name="language"
+              value={lang}
+              checked={lang === currentLang}
+              onChange={() => handleLanguageChange(lang)}
+              className="radio radio-sm"
+            />
+            <span>{langLabels[lang]}</span>
+          </label>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

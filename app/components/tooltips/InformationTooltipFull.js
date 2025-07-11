@@ -7,8 +7,8 @@ a
 const Tooltip = ({ text, children }) => {
   return (
     <div className="">
-      <div className="tooltip tooltip-top z-20">
-        <div className="tooltip-content w-32 rounded-md">
+      <div className="tooltip tooltip-top z-20 w-full">
+        <div className="tooltip-content rounded-md w-38">
           <div className="">{text}</div>
         </div>
         <div className="">{children}</div>

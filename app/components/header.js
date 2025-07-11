@@ -4,7 +4,7 @@ import { ICONS } from "@/lib/globals";
 
 const DashboardHeader = ({ title }) => {
   return (
-    <div className="mb-5 font-bold fixed bg-base-200 w-full z-20">
+    <div className="mb-5 font-bold fixed bg-base-200 w-full z-50">
       <div className="flex items-center justify-between">
         <div className="text-primary w-32 flex justify-left items-center -mt-3">
           <svg

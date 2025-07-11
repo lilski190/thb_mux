@@ -2,7 +2,7 @@
 import React from "react";
 import MenuModal from "../cards/MenuModal";
 
-const Modal = ({ button, children, title, description, id }) => {
+const Modal = ({ button, children, title, description, id, icon }) => {
   return (
     <div className="">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -10,7 +10,7 @@ const Modal = ({ button, children, title, description, id }) => {
         className="w-full"
         onClick={() => document.getElementById(id).showModal()}
       >
-        <MenuModal title={button} />
+        <MenuModal title={button} icon={icon} />
       </button>
 
       <dialog id={id} className="modal ">

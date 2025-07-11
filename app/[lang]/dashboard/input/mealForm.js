@@ -59,7 +59,7 @@ export default function MealForm({ dict }) {
                   <path d={item.icon} />
                 </svg>
               </div>
-              <span className="text-sm mt-1">{item.label}</span>
+              <span className="mt-1 hidden">{item.label}</span>
             </label>
           ) : (
             // Sonderbehandlung für "none"

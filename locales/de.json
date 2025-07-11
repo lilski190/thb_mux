@@ -48,12 +48,12 @@
     "welcome": "Hey",
     "record": [
       "Hier siehtst du deine Recods",
-      "Du hast einen neuen Rekord aufgestellt. Drei Tage lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. Eine Wochen lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. Zwei Wochen lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. Drei Wochen lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. Einen Monat lückenlose Eingabe: weiter so!",
-      "Du bist so krass, das wir keine Medallie mehr für dich haben.."
+      "Du hast einen neuen Rekord aufgestellt. <strong>Drei Tage</strong> lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Eine Woche</strong> lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Zwei Woche</strong> lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Drei Woche</strong>lückenlose Eingabe: weiter so!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Einen Monat</strong> lückenlose Eingabe: weiter so!",
+      "Du bist <strong>so Krass</strong>, das wir keine Medallie mehr für dich haben.."
     ],
     "settings": "Einstellungen",
     "notifications": "Benachrichtigungseinstellungen",
@@ -63,7 +63,24 @@
       "description": "Wann möchtest du Push-Benachrichtigungen bekommen?",
       "options": ["Mo", "Di", "Mi", "Do", "Fr", "Alle"],
       "save": "Speichern"
-    }
+    },
+    "generallSettings": "Allgemeine Einsgellungen",
+    "konto": "Kontoeinstellungen",
+    "authorization": "Berechtigungen",
+    "language": "Sprache",
+    "lang": {
+      "title": "Spracheinstellungen",
+      "description": "Wähle deine Bevorzugte sprache aus",
+      "options": ["de", "en"],
+      "save": "Speichern"
+    },
+    "info": "Informationen",
+    "about": "Über SustainAble",
+    "help": "Hilfe",
+    "logout": "Abmelden",
+    "data": "Datenschutz",
+    "impressum": "Impressum",
+    "agb": "AGB"
   },
   "login": {
     "title": "Anmelden",

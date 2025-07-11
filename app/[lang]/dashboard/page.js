@@ -6,18 +6,23 @@ import DashboardHeader from "@/app/components/header";
 import MedalModal from "@/app/components/cards/MedalModal";
 import HomeInputModal from "@/app/components/cards/HomeInputModal";
 import HomeStatisticModal from "@/app/components/cards/HomeStatisticModal";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage({ params }) {
   const lang = params.lang || "de";
   const dict = await getDictionary(lang);
 
   const homeData = await getHomeData();
+  if (homeData.personal.lang != lang) {
+    redirect(`/${homeData.personal.lang}/dashboard`);
+  }
 
   return (
     <div>
       <DashboardHeader title={dict.routes.home} />
 
       <div className="py-16 bg-base-200">
+        {JSON.stringify(homeData.personal)}
         <MedalModal
           count={homeData.streak}
           title={dict.home.streak.title}
