@@ -14,14 +14,9 @@ export default async function LoginPage({ params }) {
     <div>
       <Toaster position="top-center" />
 
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">{dict.login.login}</h1>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-sm m-3 border-1 border-base-300 h-fit">
-          <div className="card-body">
+      <div className="bg-base-200 min-h-screen p-3">
+        <div className="card bg-base-100 shadow-sm p-3 border-1 border-base-300 ">
+          <div className="card-body ">
             <div className="text-primary h-20 flex justify-left items-center m-0 p-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,18 +34,19 @@ export default async function LoginPage({ params }) {
               </svg>
             </div>
             <div className="title">{dict.login.title}</div>
-            <div className="text">{dict.login.description}</div>
+            <div className="text mt-4 -mb-3">{dict.login.description}</div>
             <LoginForm dict={dict} />
           </div>
-          <div className="flex justify-evenly text65">
+
+          <div className="flex justify-evenly text65 mt-14">
             <Tooltip text={dict.general.notImplementet}>
-              {dict.login.help}
+              <div className="hover:underline"> {dict.login.help}</div>
             </Tooltip>
             <Tooltip text={dict.general.notImplementet}>
-              {dict.login.setting}
+              <div className="hover:underline"> {dict.login.setting}</div>
             </Tooltip>
             <Tooltip text={dict.general.notImplementet}>
-              {dict.login.cookies}
+              <div className="hover:underline"> {dict.login.cookies}</div>
             </Tooltip>
           </div>
         </div>

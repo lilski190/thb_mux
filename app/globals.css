@@ -34,12 +34,12 @@
 }
 
 .main {
-  --color-base-100: rgb(252, 245, 237);
-  --color-base-200: rgb(251, 237, 218);
-  --color-base-300: rgb(108, 239, 136);
-  --color-base-content: rgb(121, 80, 57);
+  --color-base-100: #fffcf9;
+  --color-base-200: #fbedda;
+  --color-base-300: #f3ca91;
+  --color-base-content: #61412e;
 
-  --color-primary: rgb(47, 154, 110);
+  --color-primary: #2f9a6e;
   --color-primary-content: rgb(250, 250, 250);
 
   --color-secondary: rgb(235, 135, 68);
@@ -126,15 +126,6 @@
   --color-warning-content: oklch(17.674% 0.027 79.94);
   --color-error: oklch(78.66% 0.15 28.47);
   --color-error-content: oklch(15.732% 0.03 28.47);
-
-  --radius-selector: 2rem;
-  --radius-field: 2rem;
-  --radius-box: 0.5rem;
-  --size-selector: 0.28125rem;
-  --size-field: 0.25rem;
-  --border: 2px;
-  --depth: 0;
-  --noise: 1;
 }
 @theme {
   --color-primary: var(--color-primary);
@@ -245,4 +236,28 @@ body {
 
 .TextSelect {
   color: var(--color-accent);
+}
+
+.hoverButtonBase {
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hoverButtonBase:hover {
+  background-color: var(--color-base-300);
+  transform: scale(1.05);
+}
+
+.hoverButtonPrim {
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hoverButtonPrim:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+.buttonStyle {
+  height: 2.3rem;
 }

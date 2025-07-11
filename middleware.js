@@ -3,6 +3,14 @@ import { NextRequest } from "next/server";
 
 const SUPPORTED_LANGUAGES = ["de", "en"];
 
+const PUBLIC_FILES = [
+  "/favicon.ico",
+  "/manifest.json",
+  "/robots.txt",
+  "/sw.js",
+  // weitere statische Dateien hier
+];
+
 const PUBLIC_ROUTES = [
   "/",
   "/about",
@@ -26,6 +34,10 @@ const AUTH_ROUTES = ["/login"];
 
 export function middleware(req) {
   const { pathname } = req.nextUrl;
+  if (PUBLIC_FILES.includes(pathname)) {
+    return NextResponse.next(); // KEINE Umleitung bei statischen Assets
+  }
+
   const pathSegments = pathname.split("/").filter(Boolean); // ['de', 'dashboard']
   const langInPath = pathSegments[0];
 

@@ -10,9 +10,9 @@ export default async function Home({ params }) {
 
   return (
     <div className="bg-base-200 h-screen flex items-center justify-center">
-      <div className="card bg-base-100 shadow-sm m-3 border-1 border-base-300 h-fit">
-        <div className="card-body">
-          <div className="text-primary h-30 flex justify-center items-center">
+      <div className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-2/3 flex items-center ">
+        <div className="card-body flex flex-col items-center max-w-96 ">
+          <div className="text-primary max-h-30 flex justify-center items-center w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -28,16 +28,18 @@ export default async function Home({ params }) {
               />
             </svg>
           </div>
-          <h2 className="title titleBig">{dict.general.projectName}</h2>
-          <div className="text96">{dict.general.projectSlogan}</div>
-          <div className="card-actions justify-center">
-            <Tooltip text={dict.general.notImplementet}>
-              <button className="btn btn-primary text96">
+          <h2 className="title titleBig pt-2">{dict.general.projectName}</h2>
+          <div className="text96 text-center w-full mt-4 mb-6">
+            {dict.general.projectSlogan}
+          </div>
+          <div className="grid grid-cols-2  w-full mb-6 gap-4 ">
+            <Tooltip text={dict.general.notImplementet} className="w-full grow">
+              <button className="btn buttonStyle btn-primary text96 w-full">
                 {dict.general.register}
               </button>
             </Tooltip>
-            <Link href={`/${lang}/login`}>
-              <button className="btn btn-base-200 text96">
+            <Link href={`/${lang}/login`} className="w-full grow">
+              <button className="btn btn-base-100 buttonStyle text96 w-full  hoverButtonBase">
                 {dict.general.login}
               </button>
             </Link>

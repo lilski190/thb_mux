@@ -25,8 +25,7 @@ export default async function DashboardPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.home} />
 
-      <div className="py-16 bg-base-200">
-        {JSON.stringify(homeData.personal)}
+      <div className="py-18 bg-base-200 px-3 grid grid-cols-1 gap-2">
         <MedalModal
           count={homeData.streak}
           title={dict.home.streak.title}

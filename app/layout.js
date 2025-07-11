@@ -1,16 +1,21 @@
+// app/[lang]/layout.js  (oder Root‑Layout, je nach Struktur)
 import { cookies } from "next/headers";
 import "./globals.css";
 
 export const metadata = {
   title: "SustainAble",
   description: "Die Nachhaltigkeitsapp der THB",
+  manifest: "/manifest.json", // ← hier
+  themeColor: "#000000", // ersetzt <meta name="theme-color" …>
+  icons: {
+    icon: "/icons/icon-192.png", // normale Favicon/Android‑Icon
+    apple: "/icons/icon-192.png", // iOS‑Home‑Screen‑Icon
+  },
 };
 
 export default async function RootLayout({ children, params }) {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const colorMode = cookieStore.get("colorMode")?.value || "main";
-  console.log("detected colormode", colorMode);
-
   const lang = params.lang || "de";
 
   return (

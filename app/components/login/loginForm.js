@@ -17,14 +17,14 @@ export default function LoginForm({ dict }) {
   return (
     <>
       <Toaster position="top-center" />
-      <form action={loginAction} className="card-body ">
+      <form action={loginAction} className="">
         <fieldset className="fieldset">
           <div className="relative mt-3 text">
             <input
               type="email"
               name="email"
               id="floating_outlined_mail"
-              className="input block px-2.5 pb-2 pt-2 w-full  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              className="input block px-2.5 pb-2 pt-2 w-full  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info "
               placeholder=" "
               required
             />
@@ -35,12 +35,12 @@ export default function LoginForm({ dict }) {
               {dict.login.mail}
             </label>
           </div>
-          <div className="relative mt-3 text">
+          <div className="relative mt-1 text -mb-1">
             <input
               type="password"
               name="password"
               id="floating_outlined_mail"
-              className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer"
+              className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info"
               placeholder=" "
               required
             />
@@ -52,22 +52,28 @@ export default function LoginForm({ dict }) {
             </label>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex items-center justify-between ">
             <Tooltip text={dict.general.notImplementet}>
               <a className="link link-hover text54 text-accent">
-                {dict.login.stayLoggedIn}
+                <div className="flex items-center">
+                  <div className="ml-3 h-2.5 w-2.5 bg-[#EFE9E5] rounded-full mr-1"></div>
+                  {dict.login.stayLoggedIn}
+                </div>
               </a>
             </Tooltip>
             <Tooltip text={dict.general.notImplementet}>
               <a className="link link-hover text54 text-accent">
-                {dict.login.ForgotPassword}
+                <div className="flex items-center mr-2">
+                  <div className="h-2.5 w-2.5  rounded-full mr-1"></div>
+                  {dict.login.ForgotPassword}
+                </div>
               </a>
             </Tooltip>
           </div>
           <div className="flex justify-center">
             <button
               type="submit"
-              className="btn btn-primary mt-4 text75 text-primary-content Textbold"
+              className="btn btn-primary buttonStyle mt-3 text75 text-primary-content Textbold hoverButtonPrim"
             >
               {dict.login.login}
             </button>
