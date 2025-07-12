@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 export default async function DashboardPage({ params }) {
-  const lang = params.lang || "de";
+  const lang = (await params.lang) || "de";
   const dict = await getDictionary(lang);
 
   const homeData = await getHomeData();
@@ -25,7 +25,7 @@ export default async function DashboardPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.home} />
 
-      <div className="py-18 bg-base-200 px-3 grid grid-cols-1 gap-2">
+      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
         <MedalModal
           count={homeData.streak}
           title={dict.home.streak.title}

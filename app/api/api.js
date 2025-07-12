@@ -1,9 +1,7 @@
-const FLASK_BASE_URL =
-  process.env.NEXT_PUBLIC_FLASK_API ||
-  "http://mux-team2.th-brandenburg.de:5000";
+const FLASK_BASE_URL = "http://192.168.178.44:5000";
 
-let testToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc1MTU0ODgzNSwianRpIjoiMjcwZDgwMDgtYjliYS00NjQ1LTk1ZDUtMTQyMzRlNzU0MzRhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE3NTE1NDg4MzUsImNzcmYiOiI2YTRiZWUyNi01ZGZhLTQ0ZmEtYTJkMy1iMDE4ZmI2OTgzY2MiLCJleHAiOjE3NTE1NDk3MzV9.x0crUjgeKWBSKQVbiAiVfTrPenJ2KcVEsVBFME6jhQs";
+//process.env.NEXT_PUBLIC_FLASK_API ||
+// "http://mux-team2.th-brandenburg.de:5000";
 
 export async function getRequestToken(token, path) {
   const res = await fetch(`${FLASK_BASE_URL}/${path}`, {
@@ -23,7 +21,6 @@ export async function getRequestToken(token, path) {
 
 export async function postRequest(path, obj) {
   console.log("postRequest Body", JSON.stringify(obj));
-  //log: postRequest Body {"username":"demo@thb.de","password":"demo2025"}
   const res = await fetch(`${FLASK_BASE_URL}/${path}`, {
     method: "POST",
     headers: {

@@ -25,12 +25,12 @@ export default function MealForm({ dict }) {
   return (
     <form
       action={pushMealData}
-      className="space-y-6 p-4"
+      className=""
       onSubmit={() =>
         showToast("success", 5, "Benutzer erfolgreich gespeichert!")
       }
     >
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-2">
         {mealOptions.map((item) =>
           item.value !== "none" ? (
             <label key={item.value} className="flex flex-col items-center">
@@ -44,17 +44,17 @@ export default function MealForm({ dict }) {
               />
               <div
                 onClick={() => handleClick(item.value)}
-                className={`w-16 h-16 flex items-center justify-center rounded-full cursor-pointer transition ${
+                className={`w-15 h-15 flex items-center justify-center rounded-full cursor-pointer transition  ${
                   meal === item.value
-                    ? "bg-accent text-accent-content"
-                    : "bg-base-200 text-base-content"
+                    ? "bg-accent text-accent-content hoverButtonRoundActive"
+                    : "bg-base-200 text-base-content hoverButtonRound"
                 }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 96 96"
-                  className="h-10 w-10"
+                  className="h-12 w-12"
                 >
                   <path d={item.icon} />
                 </svg>
@@ -72,22 +72,29 @@ export default function MealForm({ dict }) {
                 onChange={() => handleClick("none")}
                 className="hidden"
               />
-              <div
-                onClick={() => handleClick("none")}
-                className={`cursor-pointer underline text100 text ${
-                  meal === "none" ? "TextSelect" : "text-base-content"
-                }`}
-              >
-                {item.label}
+              <div className=" text100 text text-center mt-2 ">
+                <button
+                  onClick={() => handleClick("none")}
+                  className={`underline hover:text-accent hover:underline hover:font-semibold cursor-pointer active:text-secondary ${
+                    meal === "none" ? "TextSelect" : "text-base-content"
+                  }`}
+                >
+                  {item.label}
+                </button>
               </div>
             </label>
           )
         )}
       </div>
 
-      <button type="submit" className="btn btn-primary mt-4">
-        <div className="text75 Textbold">{dict.save}</div>
-      </button>
+      <div className="flex items-center justify-center">
+        <button
+          type="submit"
+          className="btn btn-primary buttonStyle mt-8 text75 text-primary-content Textbold hoverButtonPrim"
+        >
+          <div className="">{dict.save}</div>
+        </button>
+      </div>
     </form>
   );
 }

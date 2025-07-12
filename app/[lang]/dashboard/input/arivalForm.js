@@ -13,8 +13,8 @@ export default function ArrivalForm({ dict }) {
   };
 
   return (
-    <form action={pushArivalData} className="space-y-6 p-4">
-      <div className="flex justify-around gap-4">
+    <form action={pushArivalData} className="">
+      <div className="flex justify-evenly gap-2">
         {[
           {
             value: "walk",
@@ -25,7 +25,7 @@ export default function ArrivalForm({ dict }) {
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="currentColor"
-                className="h-24"
+                className="h-18"
               >
                 <path
                   strokeLinecap="round"
@@ -45,7 +45,7 @@ export default function ArrivalForm({ dict }) {
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="currentColor"
-                className="h-24"
+                className="h-18"
               >
                 <path
                   strokeLinecap="round"
@@ -65,7 +65,7 @@ export default function ArrivalForm({ dict }) {
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="none"
-                className="h-24"
+                className="h-18"
               >
                 <path
                   strokeLinecap="round"
@@ -85,7 +85,7 @@ export default function ArrivalForm({ dict }) {
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="none"
-                className="h-24"
+                className="h-18"
               >
                 <path
                   strokeLinecap="round"
@@ -106,39 +106,48 @@ export default function ArrivalForm({ dict }) {
               onChange={() => handleClick(item.value)}
               className="hidden"
             />
-            <div
+            <button
               onClick={() => handleClick(item.value)}
-              className={`w-16 h-16 flex items-center justify-center rounded-full cursor-pointer transition ${
+              className={`w-15 h-15 flex items-center justify-center rounded-full cursor-pointer transition  ${
                 transportation === item.value
-                  ? "bg-accent text-accent-content"
-                  : "bg-base-200 text-base-content"
+                  ? "bg-accent text-accent-content hoverButtonRoundActive"
+                  : "bg-base-200 text-base-content hoverButtonRound"
               }`}
             >
               {item.icon}
-            </div>
+            </button>
           </label>
         ))}
       </div>
 
       <div className="mt-6">
-        <label className="mb-2 text100 text">{dict.distance}</label>
-        <div className="text300 text">{distance}</div>
+        <div className="text100 text text-center w-full">{dict.distance}</div>
+        <div className="text300 text text-center mb-1">{distance}</div>
         <input
           type="range"
           name="distance"
-          min="1"
+          min="0"
           max="150"
           value={distance}
           onChange={(e) => setDistance(Number(e.target.value))}
-          className="w-full range"
+          className="w-full range range-xs"
         />
       </div>
 
-      <div className="underline text100 text">{dict.usual}</div>
+      <div className=" text100 text text-center mt-6 ">
+        <button className="underline hover:text-accent hover:underline hover:font-semibold cursor-pointer active:text-secondary">
+          {dict.usual}
+        </button>
+      </div>
 
-      <button type="submit" className="btn btn-primary ">
-        <div className="text75 Textbold">{dict.save}</div>
-      </button>
+      <div className="flex items-center justify-center">
+        <button
+          type="submit"
+          className="btn btn-primary buttonStyle mt-4 text75 text-primary-content Textbold hoverButtonPrim"
+        >
+          <div className="">{dict.save}</div>
+        </button>
+      </div>
     </form>
   );
 }

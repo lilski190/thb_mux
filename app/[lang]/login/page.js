@@ -13,7 +13,6 @@ export default async function LoginPage({ params }) {
   return (
     <div>
       <Toaster position="top-center" />
-
       <div className="bg-base-200 min-h-screen p-3">
         <div className="card bg-base-100 shadow-sm p-3 border-1 border-base-300 ">
           <div className="card-body ">

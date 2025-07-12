@@ -15,7 +15,7 @@ export default async function StatisticPage({ params }) {
   return (
     <div>
       <DashboardHeader title={dict.routes.statistic} />
-      <div className="py-24 bg-base-200 ">
+      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
         {statisticData.data.map((item, index) => {
           switch (item.type) {
             case "barchart":

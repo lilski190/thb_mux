@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const colorMode = cookieStore.get("colorMode")?.value || "main";
   const lang = params.lang || "de";
 

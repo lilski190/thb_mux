@@ -41,7 +41,7 @@ export default function NotificationFrom({ params, dict }) {
   return (
     <div>
       <form action={pushNotoficationData}>
-        <div className="flex justify-center gap-4 flex-wrap">
+        <div className="flex justify-center gap-1 flex-wrap">
           {dayKeys.map((day, index) => (
             <label key={day} className="flex flex-col items-center">
               <input
@@ -54,10 +54,10 @@ export default function NotificationFrom({ params, dict }) {
               />
               <div
                 onClick={(e) => handleCheckboxChange(day, checkboxes[day])}
-                className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition ${
+                className={`w-13 h-13 rounded-full flex items-center justify-center cursor-pointer transition ${
                   checkboxes[day]
-                    ? "bg-accent text-accent-content"
-                    : "bg-base-200 text-base-content"
+                    ? "bg-accent text-accent-content hoverButtonRoundActive"
+                    : "bg-base-200 text-base-content hoverButtonRound"
                 }`}
               >
                 <span className="text124 text">{dayLabels[index]}</span>
@@ -66,7 +66,7 @@ export default function NotificationFrom({ params, dict }) {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-2 mt-4">
+        <div className="flex items-center justify-start gap-2 mt-3 ml-3 mb-3">
           <input
             type="checkbox"
             onChange={handleSelectAll}
@@ -101,9 +101,14 @@ export default function NotificationFrom({ params, dict }) {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary">
-          <div className="text75 Textbold">{dict.save}</div>
-        </button>
+        <div className="flex items-center justify-center mb-24">
+          <button
+            type="submit"
+            className="btn btn-primary buttonStyle mt-8 text75 text-primary-content Textbold hoverButtonPrim"
+          >
+            <div className="">{dict.save}</div>
+          </button>
+        </div>
       </form>
     </div>
   );

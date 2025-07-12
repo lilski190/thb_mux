@@ -97,5 +97,9 @@ export default function BarChart({ ChartData, dict, labels }) {
     },
   };
 
-  return <Bar data={formattedData} options={options} />;
+  return (
+    <div className="pt-2 pr-3">
+      <Bar data={formattedData} options={options} />
+    </div>
+  );
 }

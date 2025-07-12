@@ -15,16 +15,18 @@ const Modal = ({ button, children, title, description, id, icon }) => {
 
       <dialog id={id} className="modal ">
         <div className="bg-base-200 w-full h-full flex items-center justify-center">
-          <div className="modal-box bg-base-100 ">
+          <div className="modal-box bg-base-100 h-[95%]  overflow-x-clip ">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-md btn-circle btn-ghost absolute right-2 top-2 text-lg font-light">
+              <button className="text btn btn-md border-none btn-circle btn-ghost absolute right-2 top-2 hoverButtonX">
                 ✕
               </button>
             </form>
-            <h3 className="title">{title}</h3>
-            <div className="text100 text">{description}</div>
-            {children}
+            <div className="h-full flex flex-col items-center justify-evenly">
+              <h3 className="title pt-[25%]">{title}</h3>
+              <div className="text100 text text-center">{description}</div>
+              <div className="">{children}</div>
+            </div>
           </div>
         </div>
       </dialog>

@@ -35,53 +35,33 @@ const Cloudchart = ({ data, labels, colors }) => {
   const marginClasses = ["-ml-0 z-10", "-ml-10 z-20", "-ml-10 z-30"];
 
   return (
-    <div className="p-4">
-      <div ref={chartRef}>
-        <div className="flex items-end justify-center w-full h-full">
-          {data.map((value, i) => {
-            const size = getSize(value);
-            const marginClass = marginClasses[i] || "";
+    <div className="pr-3 grid grid-cols-3 w-64">
+      {data.map((value, i) => {
+        const size = getSize(value);
+        const marginClass = marginClasses[i] || "";
 
-            return (
-              <div
-                key={i}
-                className={`w-[40%] relative flex flex-col items-center justify-end ${marginClass}`}
-                style={{ height: maxSize }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 96 96"
-                  style={{
-                    width: `${size}px`,
-                    color: "#5c4033", // oder deine Wunschfarbe
-                  }}
-                >
-                  <path d={ICONS.cloud} />
-                </svg>
-
-                {/* Zahl zentriert */}
-                <div
-                  className="absolute text-sm font-semibold"
-                  style={{
-                    color: colors[i],
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: `${size}px`,
-                    textAlign: "center",
-                  }}
-                >
-                  {value.toFixed(1)}
-                </div>
-
-                {/* Label */}
-                <div className="text text36">{labels[i]}</div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+        return (
+          <div
+            key={i}
+            className={
+              "bg-primary/30 w-40 flex items-center justify-center h-40"
+            }
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 96 96"
+              style={{
+                width: `${size}px`,
+                color: "#5c4033", // oder deine Wunschfarbe
+              }}
+              className=""
+            >
+              <path d={ICONS.cloud} />
+            </svg>
+          </div>
+        );
+      })}
     </div>
   );
 };

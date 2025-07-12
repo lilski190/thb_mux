@@ -98,5 +98,9 @@ export default function LineChart({ ChartData, dict, labels, color }) {
     },
   };
 
-  return <Line data={formattedData} options={options} />;
+  return (
+    <div className="mt-2 mr-3">
+      <Line data={formattedData} options={options} />
+    </div>
+  );
 }

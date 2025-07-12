@@ -13,8 +13,8 @@ export default async function InputPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.input} />
 
-      <div className="py-16 bg-base-200">
-        <div className="text text100">{dict.input.description}</div>
+      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
+        <div className="text text100 mb-4 px-2">{dict.input.description}</div>
         <Modal
           id="arival"
           button={dict.input.arivalTitle}

@@ -9,7 +9,7 @@ const MedalModal = ({ count, title, description }) => {
   return (
     <div className="">
       <div className="card bg-base-100 border border-base-300">
-        <div className="card-body">
+        <div className="py-3 pl-3">
           <div className="flex justify-between items-center">
             <div className="relative w-28  h-28">
               <svg
@@ -59,10 +59,10 @@ const MedalModal = ({ count, title, description }) => {
                 </svg>
               )}
             </div>
-            <div className="text350">{count}</div>
+            <div className="text350 mr-4 ml-4">{count}</div>
             <div className="w-1/2">
-              <div className="Textbold text100 text ">{title}</div>
-              <div className="text">{description}</div>
+              <div className="Textbold w-5/6 text100 text mb-1">{title}</div>
+              <div className="text w-5/6">{description}</div>
             </div>
           </div>
         </div>

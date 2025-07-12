@@ -261,3 +261,42 @@ body {
 .buttonStyle {
   height: 2.3rem;
 }
+
+.hoverButtonX {
+  font-size: var(--fs-124);
+  font-weight: 300;
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hoverButtonX:hover {
+  background-color: rgb(from var(--color-base-300) r g b / 10%);
+  transform: scale(2);
+  font-weight: 100;
+}
+
+.hoverButtonX:focus {
+  background-color: rgb(from var(--color-base-300) r g b / 50%);
+  transform: scale(2);
+  font-weight: 100;
+}
+
+.hoverButtonRound {
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hoverButtonRound:hover {
+  background-color: rgb(from var(--color-base-300) r g b / 50%);
+  transform: scale(1.1);
+}
+
+.hoverButtonRoundActive {
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hoverButtonRoundActive:hover {
+  background-color: rgb(from var(--color-accent) r g b / 90%);
+  transform: scale(1.1);
+}

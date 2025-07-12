@@ -6,10 +6,10 @@ import { cookies } from "next/headers";
 import statisticDummi from "@/app/dummidata/statistik.json";
 import HomeDummi from "@/app/dummidata/home.json";
 import ProfilDummi from "@/app/dummidata/profil.json";
-
-const path = "api/???";
+import { resolve } from "styled-jsx/css";
 
 export async function getHomeData() {
+  let path = "home";
   console.log("GET DATA FOR HOME");
 
   const cookieStore = await cookies();
@@ -21,17 +21,19 @@ export async function getHomeData() {
     return null;
   }
 
-  let response = HomeDummi.response.data;
+  let response = HomeDummi.response;
   //TODO: write usual_arival in cookies
-  //const data = await getRequestToken(path, token);
+  //const response = await getRequestToken(token, path);
 
   //COLROMODE Cookie setzen
+  console.log("home request result: ", response);
 
-  return response; //data;
+  return response.data;
 }
 
 export async function getStatisitcData() {
-  console.log("GET DATA FOR HOME");
+  console.log("GET DATA FOR STATISTICS");
+  let path = "statistics";
 
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
@@ -42,13 +44,14 @@ export async function getStatisitcData() {
     return null;
   }
 
-  //TODO MAKE REAL ACTION OR PATH REQUEST AND SAVE COOKIE!
-
-  //const data = await getRequestToken(path, token);
-  return statisticDummi.response; //data;
+  let response = statisticDummi.response;
+  //const response = await getRequestToken(token, path);
+  console.log("statistic response", response);
+  return response; //data;
 }
 
 export async function getProfilData() {
+  let path = "profile";
   console.log("GET DATA FOR HOME");
 
   const cookieStore = await cookies();
@@ -60,6 +63,10 @@ export async function getProfilData() {
     return null;
   }
 
+  let response = ProfilDummi.response;
+  //const response = await getRequestToken(token, path);
+  console.log("statistic response", response);
+  return response.data; //data;
+
   //const data = await getRequestToken(path, token);
-  return ProfilDummi.response.data;
 }

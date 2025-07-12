@@ -41,11 +41,11 @@ export default function BottomNav({ lang, dict }) {
         },
       ].map((item, idx) => {
         const content = (
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
             <div
               className={` rounded-xl ${
                 isActive(item.href) ? "bg-accent" : "bg-transparent"
-              }`}
+              } hover:bg-base-100/30 -mb-1`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export default function BottomNav({ lang, dict }) {
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="none"
-                className="w-10"
+                className="w-9"
               >
                 <path
                   strokeLinecap="round"

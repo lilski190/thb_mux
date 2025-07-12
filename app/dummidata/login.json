@@ -4,6 +4,7 @@
     "password": "demo1234"
   },
   "response": {
-    "token": "JWT TOKEN"
+    "token": "JWT TOKEN",
+    "colormode": "main"
   }
 }

@@ -2,7 +2,7 @@
   "home": {
     "title": "Home",
     "streak": {
-      "title": "Tage Streak",
+      "title": "Tage Streak -",
       "options": [
         "Ein solider Start!",
         "Heißer als mein Kompost im Sommer!",
@@ -23,7 +23,7 @@
       ]
     },
     "arivalTitel": "Anreise:",
-    "mealTitel": "Essenswahl",
+    "mealTitel": "Essenswahl:",
     "fbTitel": "Dein Fachbereich im Vergleich",
     "arival": {
       "bike": "Die Mehrheit ist heute mit dem Fahrrad angereist.",
