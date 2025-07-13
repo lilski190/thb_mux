@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 import Tooltip from "../components/tooltips/InformationTooltip";
 import { ICONS } from "@/lib/globals";
+import SystemLanguage from "../systemLang";
 
 export default async function Home({ params }) {
   const param = await params;
@@ -10,6 +11,7 @@ export default async function Home({ params }) {
 
   return (
     <div className="bg-base-200 h-screen flex items-center justify-center">
+      <SystemLanguage current={lang} />
       <div className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-2/3 flex items-center ">
         <div className="card-body flex flex-col items-center max-w-96 ">
           <div className="text-primary max-h-30 flex justify-center items-center w-full">

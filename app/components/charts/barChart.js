@@ -28,17 +28,24 @@ export default function BarChart({ ChartData, dict, labels }) {
   });
 
   useEffect(() => {
-    const rootStyles = getComputedStyle(document.documentElement);
-    const mainEl = document.querySelector(".main");
-    const mainStyles = mainEl ? getComputedStyle(mainEl) : null;
+    const rootEl = document.body; // oder document.documentElement
+    const classes = rootEl.classList;
+    let colorModeClass = null;
 
-    const fontSize = 10;
+    if (classes.contains("main")) colorModeClass = "main";
+    else if (classes.contains("dark")) colorModeClass = "dark";
+    else if (classes.contains("contrast")) colorModeClass = "contrast";
+
+    const rootStyles = getComputedStyle(rootEl);
     const fontColor =
-      mainStyles?.getPropertyValue("--color-base-content").trim() || "#000";
+      rootStyles.getPropertyValue("--color-base-content").trim() || "#000";
+    const chartColor =
+      rootStyles.getPropertyValue("--color-accent").trim() || "#94C09E";
 
     setFontSettings({
-      size: fontSize,
+      size: 10,
       color: fontColor,
+      bar: chartColor,
     });
   }, []);
 

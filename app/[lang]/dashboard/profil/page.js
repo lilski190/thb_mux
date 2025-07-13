@@ -25,8 +25,8 @@ export default async function ProfilPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.profil} />
 
-      <div className="py-16 bg-base-200 overflow-y-scroll">
-        <div className="w-full flex items-center justify-center">
+      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
+        <div className="w-full flex items-center justify-center mb-1.5">
           <div className="card bg-base-100 border border-base-300 p-0 m-0 w-24 h-24 rounded-full flex items-center justify-center">
             <div className="card-body h-24 w-24 m-0 p-0 ">
               <svg
@@ -48,8 +48,8 @@ export default async function ProfilPage({ params }) {
         </div>
 
         <div className="w-full">
-          <div className="card bg-base-100 border border-base-300 p-0 m-0 ">
-            <div className="card-body">
+          <div className="card bg-base-100 border border-base-300 p-0 m-0 mb-1.5">
+            <div className="p-3">
               <div className="flex justify-between items-center h-full ">
                 <div className="text-base-content flex items-center">
                   <div className="">
@@ -59,7 +59,7 @@ export default async function ProfilPage({ params }) {
                     {profilData.medal.type === "record" ? (
                       <div className="flex">
                         <Record
-                          duration={profilData.medal.duration}
+                          duration={12} //{profilData.medal.duration}
                           dict={dict.profil.record}
                         />
                       </div>
@@ -89,7 +89,9 @@ export default async function ProfilPage({ params }) {
           mode={colorMode}
         />
 
-        <div className="text text100"> {dict.profil.generallSettings}</div>
+        <div className="text text100 mt-1.5">
+          {dict.profil.generallSettings}
+        </div>
 
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal title={dict.profil.konto} icon="profil" />
@@ -107,7 +109,7 @@ export default async function ProfilPage({ params }) {
         >
           <LanguageSwitcher />
         </Modal>
-        <div className="text text100"> {dict.profil.info}</div>
+        <div className="text text100 mt-1.5"> {dict.profil.info}</div>
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal
             title={dict.profil.about}
@@ -119,16 +121,22 @@ export default async function ProfilPage({ params }) {
           <MenuModal title={dict.profil.help} icon="help" />
         </Tooltip>
         <MenuBar title={dict.profil.logout} />
-        <div className="text">
-          <div className="text-accent text100  underline ">
-            {dict.profil.data}
-          </div>
-          <div className="text-accent text100  underline ">
-            {dict.profil.impressum}
-          </div>
-          <div className="text-accent text100  underline ">
-            {dict.profil.agb}
-          </div>
+        <div className="text w-3/6">
+          <Tooltip text={dict.general.notImplementet}>
+            <div className="text-accent text100  underline hover:font-semibold">
+              {dict.profil.data}
+            </div>
+          </Tooltip>
+          <Tooltip text={dict.general.notImplementet}>
+            <div className="text-accent text100  underline hover:font-semibold">
+              {dict.profil.impressum}
+            </div>
+          </Tooltip>
+          <Tooltip text={dict.general.notImplementet}>
+            <div className="text-accent text100  underline hover:font-semibold">
+              {dict.profil.agb}
+            </div>
+          </Tooltip>
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@ export default async function LoginPage({ params }) {
             </div>
             <div className="title">{dict.login.title}</div>
             <div className="text mt-4 -mb-3">{dict.login.description}</div>
-            <LoginForm dict={dict} />
+            <LoginForm dict={dict} lang={lang} />
           </div>
 
           <div className="flex justify-evenly text65 mt-14">

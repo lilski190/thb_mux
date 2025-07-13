@@ -3,11 +3,11 @@ import { ICONS } from "@/lib/globals";
 
 const Record = ({ duration, dict }) => {
   let record = 0;
-  let band = "fill-[#f8333c]";
-  let star = "fill-[#FFDE77]";
-  let starShadow = "fill-[#E9AA05] stroke-[#E9AA05] stroke-1";
-  let body = "fill-[#FFCE35]";
-  let circle = "fill-none stroke-1 stroke-[#EAAB05]";
+  let band = "fill-[#EFE9E5]";
+  let star = "fill-[#EFE9E5]";
+  let starShadow = "fill-[#EFE9E5] stroke-[#EFE9E5] stroke-1";
+  let body = "fill-[#EFE9E5]";
+  let circle = "fill-none stroke-1 stroke-[#EFE9E5]";
 
   //.cls-1{fill:none;stroke:#deb87c;}.cls-1,.cls-2,.cls-3{stroke-miterlimit:10;}.cls-4{fill:#dab683;}.cls-2{fill:#efc11a;}.cls-2,.cls-3{stroke:#56542c;stroke-width:.1px;}.cls-5{fill:#f3ca91;}.cls-6{fill:#fffcf9;opacity:.5;}.cls-3{fill:#f8333c;}
   if (duration == 3) {
@@ -48,12 +48,13 @@ const Record = ({ duration, dict }) => {
     circle = "fill-none stroke-1 stroke-[#27731a]";
   }
   return (
-    <div className="flex text text100">
+    <div className="flex text text100 ">
       <div className="w-1/3">
         <svg
           id="Ebene_5"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 96 96"
+          className="w-38 -ml-5"
         >
           <path
             className={band}
@@ -83,7 +84,7 @@ const Record = ({ duration, dict }) => {
         </svg>
       </div>
       <div
-        className="w-2/3 "
+        className="w-2/3 mt-6 ml-4"
         dangerouslySetInnerHTML={{ __html: dict[record] }}
       ></div>
     </div>

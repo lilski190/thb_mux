@@ -9,7 +9,7 @@ const Cloudchart = ({ data, labels, colors }) => {
   const max = Math.max(...data);
 
   const maxSize = 180;
-  const minSize = 60;
+  const minSize = 50;
 
   const getSize = (value) => {
     if (max === 0) return minSize;
@@ -32,20 +32,16 @@ const Cloudchart = ({ data, labels, colors }) => {
   };
 
   // negative margin to create overlap
-  const marginClasses = ["-ml-0 z-10", "-ml-10 z-20", "-ml-10 z-30"];
 
   return (
-    <div className="pr-3 grid grid-cols-3 w-64">
+    <div className="pr-3 grid grid-cols-3 w-64 relative">
       {data.map((value, i) => {
         const size = getSize(value);
-        const marginClass = marginClasses[i] || "";
 
         return (
           <div
             key={i}
-            className={
-              "bg-primary/30 w-40 flex items-center justify-center h-40"
-            }
+            className={" w-40 flex items-center justify-center h-28 text"}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +49,32 @@ const Cloudchart = ({ data, labels, colors }) => {
               viewBox="0 0 96 96"
               style={{
                 width: `${size}px`,
-                color: "#5c4033", // oder deine Wunschfarbe
               }}
               className=""
             >
               <path d={ICONS.cloud} />
             </svg>
+          </div>
+        );
+      })}
+      {data.map((value, i) => {
+        const size = getSize(value);
+
+        return (
+          <div
+            key={value + i}
+            className={`${
+              i === 2 ? "pr-0 " : "pr-2"
+            } z-20 -mt-16 h-6 flex items-end justify-center Textbold `}
+            style={{
+              width: `${size}px`,
+              color: colors[i],
+              textAlign: "center",
+            }}
+          >
+            <div className={`${i === 1 ? "mr-3 " : ""} `}>
+              {value.toFixed(1)}
+            </div>
           </div>
         );
       })}

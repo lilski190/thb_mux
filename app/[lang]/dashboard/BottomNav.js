@@ -45,7 +45,7 @@ export default function BottomNav({ lang, dict }) {
             <div
               className={` rounded-xl ${
                 isActive(item.href) ? "bg-accent" : "bg-transparent"
-              } hover:bg-base-100/30 -mb-1`}
+              } hover:bg-base-100/30 -mb-0`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

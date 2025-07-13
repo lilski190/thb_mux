@@ -6,16 +6,12 @@ import { redirect } from "next/navigation";
 
 const path = "login";
 
-export async function loginAction(formData) {
+export async function loginAction(formData, lang) {
   console.log("Send login: ");
   const user = formData.get("email");
   const pw = formData.get("password");
 
   console.log("username", user, "pw", pw);
-
-  //logs:
-  //Send login:
-  //username demo@thb.de pw demo2025
 
   let obj = { username: user, password: pw };
   let result = await postRequest(path, obj);
@@ -34,9 +30,31 @@ export async function loginAction(formData) {
     cookieStore.set("colorMode", result?.colorMode || "main");
 
     // Weiterleitung zum Dashboard
-    redirect("/dashboard");
+    // redirect(`/${lang}/dashboard`);
+    return { success: true, message: "success" };
   } else {
     // Optional: Fehlerbehandlung
     console.log("Login fehlgeschlagen, Setze Dummi token");
   }
+}
+
+export async function logoutAction() {
+  const cookieStore = cookies();
+
+  // Cookie löschen, indem man es mit leerem Wert und maxAge 0 setzt
+  cookieStore.set("token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 0,
+    path: "/",
+  });
+
+  // Optional: andere Cookies wie colorMode auch löschen
+  cookieStore.set("colorMode", "", {
+    maxAge: 0,
+    path: "/",
+  });
+
+  // Weiterleitung zur Startseite
+  redirect("/");
 }

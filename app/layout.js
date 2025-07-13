@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import "./globals.css";
+import SystemLanguage from "./systemLang";
 
 export const metadata = {
   title: "SustainAble",
@@ -20,7 +21,10 @@ export default async function RootLayout({ children, params }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
-      <body className={`${colorMode} bg-base-200`}>{children}</body>
+      <body className={`${colorMode} bg-base-200`}>
+        <SystemLanguage />
+        {children}
+      </body>
     </html>
   );
 }

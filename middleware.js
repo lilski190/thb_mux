@@ -34,9 +34,6 @@ const AUTH_ROUTES = ["/login"];
 
 export function middleware(req) {
   const { pathname } = req.nextUrl;
-  if (PUBLIC_FILES.includes(pathname)) {
-    return NextResponse.next(); // KEINE Umleitung bei statischen Assets
-  }
 
   const pathSegments = pathname.split("/").filter(Boolean); // ['de', 'dashboard']
   const langInPath = pathSegments[0];
