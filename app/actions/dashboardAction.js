@@ -21,9 +21,9 @@ export async function getHomeData() {
     return null;
   }
 
-  let response = HomeDummi.response;
+  // let response = HomeDummi.response;
   //TODO: write usual_arival in cookies
-  //const response = await getRequestToken(token, path);
+  const response = await getRequestToken(token, path);
 
   //COLROMODE Cookie setzen
   console.log("home request result: ", response);
@@ -44,8 +44,8 @@ export async function getStatisitcData() {
     return null;
   }
 
-  let response = statisticDummi.response;
-  //const response = await getRequestToken(token, path);
+  // let response = statisticDummi.response;
+  const response = await getRequestToken(token, path);
   console.log("statistic response", response);
   return response; //data;
 }
@@ -63,8 +63,8 @@ export async function getProfilData() {
     return null;
   }
 
-  let response = ProfilDummi.response;
-  //const response = await getRequestToken(token, path);
+  //let response = ProfilDummi.response;
+  const response = await getRequestToken(token, path);
   console.log("statistic response", response);
   return response.data; //data;
 

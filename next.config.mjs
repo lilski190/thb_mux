@@ -4,9 +4,8 @@ import nextPWA from "next-pwa";
 const withPWA = nextPWA({
   dest: "public", // Service‑Worker & Workbox‑Files
   disable: process.env.NODE_ENV === "development", // im Dev‑Mode aus
-  register: true, // SW beim first load registrieren
-  skipWaiting: true, // neue SW sofort aktiv
-  swSrc: "public/sw.js", // dein eigener SW (Push‑Listener)
+  register: true,
+  skipWaiting: true,
 });
 
 /** @type {import('next').NextConfig} */

@@ -1,4 +1,4 @@
-const FLASK_BASE_URL = "http://192.168.178.44:5000";
+const FLASK_BASE_URL = "https://campertour.pl"; //"http://192.168.178.44:5000";
 
 //process.env.NEXT_PUBLIC_FLASK_API ||
 // "http://mux-team2.th-brandenburg.de:5000";
