@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # pwa 
-git rm --cached public/sw.js public/workbox-*.js
-echo "public/sw.js"        >> .gitignore
-echo "public/workbox-*.js" >> .gitignore
+git rm --cached public/sw.js
+git rm --cached public/workbox-*.js
+public/sw.js
+public/workbox-*.js
