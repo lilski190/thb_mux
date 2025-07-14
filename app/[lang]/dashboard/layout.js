@@ -8,7 +8,9 @@ export default async function Layout({ children, params }) {
 
   return (
     <div className="bg-base-200 h-screen">
-      <BottomNav lang={lang} dict={dict} />
+      <nav aria-label="Hauptnavigation">
+        <BottomNav lang={lang} dict={dict} />
+      </nav>
       <div className="">{children}</div>
     </div>
   );

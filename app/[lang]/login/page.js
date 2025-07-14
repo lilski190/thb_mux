@@ -16,7 +16,10 @@ export default async function LoginPage({ params }) {
       <div className="bg-base-200 min-h-screen p-3">
         <div className="card bg-base-100 shadow-sm p-3 border-1 border-base-300 ">
           <div className="card-body ">
-            <div className="text-primary h-20 flex justify-left items-center m-0 p-0">
+            <div
+              className="text-primary h-20 flex justify-left items-center m-0 p-0"
+              aria-hidden="true"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -32,12 +35,12 @@ export default async function LoginPage({ params }) {
                 />
               </svg>
             </div>
-            <div className="title">{dict.login.title}</div>
-            <div className="text mt-4 -mb-3">{dict.login.description}</div>
+            <h2 className="title">{dict.login.title}</h2>
+            <p className="text mt-4 -mb-3">{dict.login.description}</p>
             <LoginForm dict={dict} lang={lang} />
           </div>
 
-          <div className="flex justify-evenly text65 mt-14">
+          <div className="flex justify-evenly text65 mt-14" aria-hidden="true">
             <Tooltip text={dict.general.notImplementet}>
               <div className="hover:underline"> {dict.login.help}</div>
             </Tooltip>

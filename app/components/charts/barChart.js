@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useRef } from "react";
 
 ChartJS.register(
   CategoryScale,
@@ -21,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-export default function BarChart({ ChartData, dict, labels }) {
+export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
   const [fontSettings, setFontSettings] = useState({
     size: 10,
     color: "#000",
@@ -57,6 +58,11 @@ export default function BarChart({ ChartData, dict, labels }) {
       ...dataset,
       borderRadius: 3,
     })),
+  };
+
+  const data = {
+    labels: translatedLabels,
+    datasets: ChartData.map((ds) => ({ ...ds, borderRadius: 3 })),
   };
 
   const options = {
@@ -104,9 +110,39 @@ export default function BarChart({ ChartData, dict, labels }) {
     },
   };
 
+  const chartRef = useRef(null);
+  useEffect(() => {
+    const canvas = chartRef.current?.canvas; // <canvas> DOM‑Element
+    if (canvas instanceof HTMLCanvasElement) {
+      canvas.setAttribute("role", "img");
+      canvas.setAttribute(
+        "aria-label",
+        dict.altText || dict.title || "Liniendiagramm"
+      );
+      if (ariaDescribedBy)
+        canvas.setAttribute("aria-describedby", ariaDescribedBy);
+    }
+  }, [dict, ariaDescribedBy]);
+
   return (
-    <div className="pt-2 pr-3">
+    <figure className="pt-2 pr-3">
       <Bar data={formattedData} options={options} />
-    </div>
+      <table className="sr-only">
+        <thead>
+          <tr>
+            <th scope="col">{dict.colLabel || "Kategorie"}</th>
+            <th scope="col">{dict.colValue || "Wert"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {translatedLabels.map((lbl, i) => (
+            <tr key={lbl}>
+              <td>{lbl}</td>
+              <td>{ChartData[0].data[i]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
   );
 }

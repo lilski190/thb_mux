@@ -15,13 +15,20 @@ export default async function StatisticPage({ params }) {
   return (
     <div>
       <DashboardHeader title={dict.routes.statistic} />
-      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
+      <section
+        aria-labelledby="statistic-content"
+        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
+      >
         {statisticData.data.map((item, index) => {
           switch (item.type) {
             case "barchart":
               return (
                 <div key={item.type + "_" + index}>
-                  <StatisticModal title={dict.statistics.bar.title}>
+                  <StatisticModal
+                    title={dict.statistics.bar.title}
+                    sr={dict.statistics.bar.sr_description}
+                    id={dict.statistics.bar.id}
+                  >
                     <BarChart
                       ChartData={item.data}
                       dict={dict.statistics.bar}
@@ -33,7 +40,11 @@ export default async function StatisticPage({ params }) {
             case "linechart":
               return (
                 <div key={item.type + "_" + index}>
-                  <StatisticModal title={dict.statistics.line.title}>
+                  <StatisticModal
+                    title={dict.statistics.line.title}
+                    sr={dict.statistics.line.sr_description}
+                    id={dict.statistics.line.id}
+                  >
                     <LineChart
                       ChartData={item.data}
                       dict={dict.statistics.line}
@@ -45,11 +56,16 @@ export default async function StatisticPage({ params }) {
             case "cloud":
               return (
                 <div key={item.type + "_" + index}>
-                  <StatisticModal title={dict.statistics.cloud.title}>
+                  <StatisticModal
+                    title={dict.statistics.cloud.title}
+                    sr={dict.statistics.cloud.sr_description}
+                    id={dict.statistics.cloud.id}
+                  >
                     <Cloudchart
                       data={item.data}
                       labels={item.labels}
                       colors={item.colors}
+                      dict={dict.statistics.cloud}
                     />
                   </StatisticModal>
                 </div>
@@ -57,7 +73,11 @@ export default async function StatisticPage({ params }) {
             case "iconScale":
               return (
                 <div key={item.type + "_" + index}>
-                  <StatisticModal title={dict.statistics[item.title].title}>
+                  <StatisticModal
+                    title={dict.statistics[item.title].title}
+                    sr={dict.statistics[item.title].sr_description}
+                    id={dict.statistics[item.title].id}
+                  >
                     <IconScaleChart
                       data={item.data}
                       labels={item.labeles}
@@ -75,7 +95,7 @@ export default async function StatisticPage({ params }) {
               );
           }
         })}
-      </div>
+      </section>
     </div>
   );
 }

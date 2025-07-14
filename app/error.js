@@ -10,7 +10,7 @@ export default function Error({ error, reset }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center">
       <h1 className="text-3xl font-bold">
-        😵 Upps! Ein Fehler ist aufgetreten
+        TODO: Customize 😵 Upps! Ein Fehler ist aufgetreten
       </h1>
       <p className="mt-2 text-gray-600">Etwas ist schiefgelaufen.</p>
 

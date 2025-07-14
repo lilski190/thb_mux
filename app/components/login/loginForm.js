@@ -59,17 +59,18 @@ export default function LoginForm({ dict, lang }) {
   return (
     <form onSubmit={onSubmit} disabled={loading}>
       <fieldset className="fieldset">
+        <legend className="sr-only">{dict.login.sr_description}</legend>
         <div className="relative mt-3 text">
           <input
             type="text"
             name="email"
-            id="floating_outlined_mail"
+            id="email"
             className="input block px-2.5 pb-2 pt-2 w-full  bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info "
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_outlined_mail"
+            htmlFor="email"
             className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
             {dict.login.mail}
@@ -79,20 +80,20 @@ export default function LoginForm({ dict, lang }) {
           <input
             type="password"
             name="password"
-            id="floating_outlined_mail"
+            id="password"
             className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info"
             placeholder=" "
             required
           />
           <label
-            htmlFor="floating_outlined_mail"
+            htmlFor="password"
             className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
           >
             {dict.login.pw}
           </label>
         </div>
 
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between " aria-hidden="true">
           <Tooltip text={dict.general.notImplementet}>
             <a className="link link-hover text54 text-accent">
               <div className="flex items-center">
@@ -113,9 +114,13 @@ export default function LoginForm({ dict, lang }) {
         <div className="flex justify-center">
           <button
             type="submit"
+            disabled={loading}
+            aria-busy={loading}
             className="btn btn-primary buttonStyle mt-3 text75 text-primary-content Textbold hoverButtonPrim"
           >
-            {dict.login.login}
+            {loading
+              ? dict.login.loadingText || "Bitte warten..."
+              : dict.login.login}
           </button>
         </div>
       </fieldset>

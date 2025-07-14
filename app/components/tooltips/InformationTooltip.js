@@ -6,7 +6,7 @@ a
  */
 const Tooltip = ({ text, children }) => {
   return (
-    <div className="">
+    <div className=" " aria-hidden="true">
       <div className="tooltip tooltip-top z-20">
         <div className="tooltip-content w-32 rounded-md">
           <div className="">{text}</div>

@@ -3,6 +3,7 @@
     "title": "Home",
     "streak": {
       "title": "Tage Streak -",
+      "sr_title": "Anzahl der Streak tage",
       "options": [
         "Ein solider Start!",
         "Heißer als mein Kompost im Sommer!",
@@ -42,6 +43,9 @@
       "FBI": "Der Fachbereich Informatik hat heute am Meisten Daten eingetragen.",
       "FBT": "Der Fachbereich Technik hat heute am Meisten Daten eingetragen.",
       "FBW": "Der Fachbereich Wirtschaft hat heute am Meisten Daten eingetragen."
+    },
+    "sr_statistic": {
+      "value": "Anzahl an eingetragenen Daten des Fachbereiches"
     }
   },
   "profil": {
@@ -59,6 +63,7 @@
     "notifications": "Benachrichtigungseinstellungen",
     "darkmode": "Darkmode",
     "notificationForm": {
+      "legendDays": "Wähle deine Benachrichtigungstage",
       "title": "Benachrichtigungen",
       "description": "Wann möchtest du Push-Benachrichtigungen bekommen?",
       "options": ["Mo", "Di", "Mi", "Do", "Fr", "Alle"],
@@ -85,6 +90,7 @@
   "login": {
     "title": "Anmelden",
     "description": "Willkommen zurück! Melde dich mit deiner E-Mailadresse und Passwort an um fortzufahren.",
+    "sr_description": "Zum Anmelden bitte Email und Password eingeben",
     "login": "Einloggen",
     "help": "Hilfe",
     "setting": "Nutzerbedingungen",
@@ -97,6 +103,7 @@
   "general": {
     "projectName": "SustainAble",
     "projectSlogan": "Die Nachhaltigkeitsapp der Technischen Hochschule Brandenburg",
+    "logo_sr": "Logo der App SustainAble: Ein Blatt mit einem geschwungenen S in der Mitte",
     "login": "Einloggen",
     "register": "Registrieren",
     "notImplementet": "Diese Funktion ist noch nicht implememntiert :(",
@@ -114,6 +121,11 @@
   "statistics": {
     "line": {
       "title": "CO2-Ausstoß der THB im aktuellen Jahr in t",
+      "id": "linechart",
+      "sr_description": "Diese Statistik ist eine aufzählung der Co2 werte in einem Linechart über die Monate des Jahres...",
+      "altText": "Der alternativtext für diese Starittik...",
+      "colLabel": "Monat (Kategorie)",
+      "colValue": "Co2 Wert in Tonne",
       "labels": {
         "jan": "Januar",
         "feb": "Februar",
@@ -130,10 +142,20 @@
       }
     },
     "cloud": {
-      "title": "CO2-Ausstoß: Vergleich zwischen den Fakultäten in kg"
+      "id": "cloud",
+      "sr_description": "Diese Statistik ist eine darstellugn der co2 ausstöße der drei Fachbereiche",
+      "title": "CO2-Ausstoß: Vergleich zwischen den Fakultäten in kg",
+      "altTableLabel": "cloudlable",
+      "altText": "alternativer text für die statistik",
+      "colLabel": "Kategorie- Fachbereich",
+      "colValue": "Der totale Wert in tonnen"
     },
     "bar": {
       "title": "Von Studierenden der Fakultäten gemeldete Distanzen zur Hochschule (letzte 5 Tage)",
+      "id": "barchart",
+      "sr_description": "Dieser Chart ist eine Darstellung der gesammten eingetragenen daten der der deri fachbereiche...",
+      "colLabel": "Tag (Kategorie)",
+      "colValue": "Werte der drei Fachbereiche",
       "labels": {
         "mo": "Montag",
         "di": "Dienstag",
@@ -146,6 +168,12 @@
     },
     "iconArival": {
       "title": "Heutige Wahl der Verkehrsmittel für die Anreise zur THB",
+      "id": "arival",
+      "sr_description": "Diese Statistik zeigt die totale anzahl der Verkehrsmittel zu uni",
+      "altTableLabel": "arivallabler",
+      "altText": "alternativer text für die statistik",
+      "colLabel": "Kategorie- Verkehrsmittel",
+      "colValue": "Der totale Wert",
       "labels": {
         "bike": "Fahrrad",
         "train": "Öffis",
@@ -155,6 +183,12 @@
     },
     "iconMeal": {
       "title": "Heute in der App eingetragene THB-Mensagerichte",
+      "id": "meal",
+      "sr_description": "diese Darstellung zeigt die totale anzahl der ausgewählten  mahlzeiten",
+      "altTableLabel": "meallable",
+      "altText": "alternativer text für die statistik",
+      "colLabel": "Kategorie- Mahlzeiten",
+      "colValue": "Der totale Wert",
       "labels": {
         "vegetarian": "Vegetarisch",
         "vegan": "Vegan",
@@ -183,6 +217,7 @@
     },
     "arival": {
       "title": "Anreise",
+      "legendTransportation": "legende beschreibung der felder",
       "description": "Wie bist du heute zur THB gekommen?",
       "options": ["Zu Fuß", "Fahrrad", "Öffis", "Auto"],
       "distance": "Wie viele Kilometer hast du heute zurückgelegt?",

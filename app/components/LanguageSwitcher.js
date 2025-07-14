@@ -20,6 +20,7 @@ export default function LanguageSwitcher() {
     en: "English",
   };
 
+  //TODO: 14.07. make Barrierefrei and styling etc.
   return (
     <div className="flex items-center gap-4 p-2">
       <span className="font-medium">TODO STYLE:</span>

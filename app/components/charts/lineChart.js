@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import { useRef } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,7 +23,13 @@ ChartJS.register(
   Legend
 );
 
-export default function LineChart({ ChartData, dict, labels, color }) {
+export default function LineChart({
+  ChartData,
+  dict,
+  labels,
+  color,
+  ariaDescribedBy,
+}) {
   const [fontSettings, setFontSettings] = useState({
     size: 10,
     color: "#000",
@@ -52,6 +59,11 @@ export default function LineChart({ ChartData, dict, labels, color }) {
   }, []);
 
   const translatedLabels = labels.map((label) => dict.labels[label] || label);
+
+  const data = {
+    labels: translatedLabels,
+    datasets: ChartData.map((ds) => ({ ...ds, borderRadius: 3 })),
+  };
 
   const formattedData = {
     labels: translatedLabels,
@@ -104,9 +116,39 @@ export default function LineChart({ ChartData, dict, labels, color }) {
     },
   };
 
+  const chartRef = useRef(null);
+  useEffect(() => {
+    const canvas = chartRef.current?.canvas; // <canvas> DOM‑Element
+    if (canvas instanceof HTMLCanvasElement) {
+      canvas.setAttribute("role", "img");
+      canvas.setAttribute(
+        "aria-label",
+        dict.altText || dict.title || "Liniendiagramm"
+      );
+      if (ariaDescribedBy)
+        canvas.setAttribute("aria-describedby", ariaDescribedBy);
+    }
+  }, [dict, ariaDescribedBy]);
+
   return (
-    <div className="mt-2 mr-3">
+    <figure className="mt-2 mr-3">
       <Line data={formattedData} options={options} />
-    </div>
+      <table className="sr-only">
+        <thead>
+          <tr>
+            <th scope="col">{dict.colLabel || "Kategorie"}</th>
+            <th scope="col">{dict.colValue || "Wert"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {translatedLabels.map((lbl, i) => (
+            <tr key={lbl}>
+              <td>{lbl}</td>
+              <td>{ChartData[0].data[i]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
   );
 }

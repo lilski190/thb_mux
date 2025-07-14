@@ -25,11 +25,15 @@ export default async function DashboardPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.home} />
 
-      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
+      <section
+        aria-labelledby="dashboard-content"
+        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
+      >
         <MedalModal
           count={homeData.streak}
           title={dict.home.streak.title}
           description={dict.home.streak.options[homeData.streak]}
+          sr={dict.home.streak.sr_title}
         />
         <Link href={`/${lang}/dashboard/statistic`}>
           <HomeInputModal
@@ -50,9 +54,10 @@ export default async function DashboardPage({ params }) {
             data={homeData.comparrison}
             title={dict.home.fbTitel}
             description={dict.home.fbs}
+            sr={dict.home.sr_statistic}
           />
         </Link>
-      </div>
+      </section>
     </div>
   );
 }

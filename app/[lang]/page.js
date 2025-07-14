@@ -12,7 +12,7 @@ export default async function Home({ params }) {
   return (
     <div className="bg-base-200 h-screen flex items-center justify-center">
       <SystemLanguage current={lang} />
-      <div className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-2/3 flex items-center ">
+      <section className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-2/3 flex items-center ">
         <div className="card-body flex flex-col items-center max-w-96 ">
           <div className="text-primary max-h-30 flex justify-center items-center w-full">
             <svg
@@ -22,7 +22,10 @@ export default async function Home({ params }) {
               strokeWidth={1.5}
               stroke="none"
               className=""
+              role="img"
+              aria-labelledby="logo-title"
             >
+              <title id="logo-title">{dict.general.logo_sr}</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -30,24 +33,33 @@ export default async function Home({ params }) {
               />
             </svg>
           </div>
-          <h2 className="title titleBig pt-2">{dict.general.projectName}</h2>
-          <div className="text96 text-center w-full mt-4 mb-6">
+          <h1 className="title titleBig pt-2">{dict.general.projectName}</h1>
+          <p className="text96 text-center w-full mt-4 mb-6">
             {dict.general.projectSlogan}
-          </div>
+          </p>
           <div className="grid grid-cols-2  w-full mb-6 gap-4 ">
             <Tooltip text={dict.general.notImplementet} className="w-full grow">
-              <button className="btn buttonStyle btn-primary text96 w-full">
+              <button
+                type="button"
+                className=" buttonStyle text96 px-5 rounded-full w-full
+                disabled:bg-primary disabled:text-primary-content disabled:opacity-100  disabled:cursor-not-allowed"
+                disabled
+                aria-disabled="true"
+                aria-describedby="register-tip"
+              >
                 {dict.general.register}
               </button>
             </Tooltip>
-            <Link href={`/${lang}/login`} className="w-full grow">
-              <button className="btn btn-base-100 buttonStyle text96 w-full  hoverButtonBase">
-                {dict.general.login}
-              </button>
+            <Link
+              href={`/${lang}/login`}
+              className="btn btn-base-100 buttonStyle text96 w-full hoverButtonBase flex items-center justify-center"
+              role="button"
+            >
+              {dict.general.login}
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

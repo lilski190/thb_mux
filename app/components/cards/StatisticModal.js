@@ -1,16 +1,17 @@
 "use client";
 import React from "react";
 
-const StatisticModal = ({ title, children }) => {
+const StatisticModal = ({ title, children, sr, id }) => {
   return (
-    <div className="">
-      <div className="card bg-base-100 border border-base-300">
-        <div className="py-3 px-3">
-          <div className="text100 text">{title}</div>
-          <div className="">{children}</div>
-        </div>
-      </div>
-    </div>
+    <article className="card bg-base-100 border border-base-300 p-3">
+      <h3 className="text100 text">{title}</h3>
+      {sr && (
+        <p id={`${id}-summary`} className="sr-only">
+          {sr}
+        </p>
+      )}
+      <div className="">{children}</div>
+    </article>
   );
 };
 

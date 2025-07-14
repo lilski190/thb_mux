@@ -13,6 +13,7 @@ const BarColormode = ({ title, icon, mode }) => {
     formRef.current?.requestSubmit();
   };
 
+  //14.07.TODO: Make Barreirefrei
   return (
     <div className="w-full">
       <div className="card bg-base-100 border border-base-300 p-0 m-0">

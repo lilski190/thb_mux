@@ -8,6 +8,7 @@ export default async function InboxPage({ params }) {
   return (
     <div>
       <h1 className="mb-5 text-5xl font-bold">{dict.routes.inpox}</h1>
+      <p>{dict.general.notImplementet}</p>
     </div>
   );
 }

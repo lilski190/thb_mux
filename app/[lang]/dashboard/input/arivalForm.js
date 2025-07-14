@@ -1,151 +1,124 @@
 "use client";
-
 import { pushArivalData } from "@/app/actions/formAction";
 import { useState } from "react";
 import { ICONS } from "@/lib/globals";
 
 export default function ArrivalForm({ dict }) {
-  const [transportation, setTransportation] = useState(null);
-  const [distance, setDistance] = useState(5); // Standardwert
+  const [transportation, setTransportation] = useState("");
+  const [distance, setDistance] = useState(5);
 
-  const handleClick = (value) => {
-    setTransportation(value);
-  };
+  /* Hilfsfunktion für IDs */
+  const id = (val) => `transport-${val}`;
 
   return (
-    <form action={pushArivalData} className="">
-      <div className="flex justify-evenly gap-2">
-        {[
-          {
-            value: "walk",
-            icon: (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 96 96"
-                strokeWidth={3}
-                stroke="currentColor"
-                className="h-18"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={ICONS.walk}
-                />
-              </svg>
-            ),
-            label: dict.options[0],
-          },
-          {
-            value: "bike",
-            icon: (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 96 96"
-                strokeWidth={3}
-                stroke="currentColor"
-                className="h-18"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={ICONS.bike}
-                />
-              </svg>
-            ),
-            label: dict.options[1],
-          },
-          {
-            value: "train",
-            icon: (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 96 96"
-                strokeWidth={3}
-                stroke="none"
-                className="h-18"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={ICONS.train}
-                />
-              </svg>
-            ),
-            label: dict.options[2],
-          },
-          {
-            value: "car",
-            icon: (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 96 96"
-                strokeWidth={3}
-                stroke="none"
-                className="h-18"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={ICONS.car}
-                />
-              </svg>
-            ),
-            label: dict.options[3],
-          },
-        ].map((item) => (
-          <label key={item.value} className="flex flex-col items-center">
-            <input
-              type="radio"
-              name="transportation"
-              value={item.value}
-              checked={transportation === item.value}
-              onChange={() => handleClick(item.value)}
-              className="hidden"
-            />
-            <button
-              onClick={() => handleClick(item.value)}
-              className={`w-15 h-15 flex items-center justify-center rounded-full cursor-pointer transition  ${
-                transportation === item.value
-                  ? "bg-accent text-accent-content hoverButtonRoundActive"
-                  : "bg-base-200 text-base-content hoverButtonRound"
-              }`}
-            >
-              {item.icon}
-            </button>
-          </label>
-        ))}
-      </div>
+    <form action={pushArivalData} className="space-y-6">
+      {/* --------- Verkehrsmittel --------- */}
+      <fieldset
+        role="radiogroup"
+        aria-labelledby="legend-transport"
+        className="flex justify-evenly gap-3"
+      >
+        <legend id="legend-transport" className="sr-only">
+          {dict.legendTransportation}
+        </legend>
 
-      <div className="mt-6">
-        <div className="text100 text text-center w-full">{dict.distance}</div>
-        <div className="text300 text text-center mb-1">{distance}</div>
+        {["walk", "bike", "train", "car"].map((value, idx) => {
+          const isStroke = value === "walk" || value === "bike";
+          const isChecked = transportation === value;
+
+          return (
+            <div key={value} className="flex flex-col items-center">
+              {/* Visuell runder Icon-Button */}
+              <label htmlFor={id(value)} className="cursor-pointer">
+                <input
+                  type="radio"
+                  id={id(value)}
+                  name="transportation"
+                  value={value}
+                  checked={isChecked}
+                  onChange={() => setTransportation(value)}
+                  className="sr-only peer"
+                />
+
+                <span
+                  className={`
+                    w-16 h-16 flex items-center justify-center rounded-full
+                    transition
+                    peer-focus:ring-2 peer-focus:ring-info
+                    ${
+                      isChecked
+                        ? "bg-accent text-accent-content hoverButtonRoundActive peer-focus:ring-none"
+                        : "bg-base-200 text-base-content hover:bg-base-300/40 hoverButtonRound"
+                    }
+                  `}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 96 96"
+                    fill={isStroke ? "none" : "currentColor"}
+                    stroke={isStroke ? "currentColor" : "none"}
+                    strokeWidth={3}
+                    className="w-10 h-10"
+                    aria-hidden="true"
+                  >
+                    <path d={ICONS[value]} />
+                  </svg>
+                </span>
+              </label>
+
+              {/* Sichtbarer Klartext unter dem Icon */}
+              <span className="text-sm mt-1">{dict.options[idx]}</span>
+            </div>
+          );
+        })}
+      </fieldset>
+
+      {/* --------- Distanz-Slider --------- */}
+      <div className="text-center space-y-1">
+        <label htmlFor="distance-slider" className="text-lg font-medium">
+          {dict.distance}
+        </label>
+
+        {/* Live‑Ausgabe für Screenreader und Sicht */}
+        <output
+          id="distance-value"
+          aria-live="polite"
+          className="block text300 text text-center mb-1"
+        >
+          {distance}
+        </output>
+
         <input
           type="range"
+          id="distance-slider"
           name="distance"
           min="0"
           max="150"
           value={distance}
+          className="w-full range range-xs focus:outline-none focus:ring-2 focus:ring-info"
           onChange={(e) => setDistance(Number(e.target.value))}
-          className="w-full range range-xs"
+          aria-describedby="distance-value"
         />
       </div>
 
-      <div className=" text100 text text-center mt-6 ">
-        <button className="underline hover:text-accent hover:underline hover:font-semibold cursor-pointer active:text-secondary">
-          {dict.usual}
-        </button>
-      </div>
+      {/* --------- Gewohnheits-Link --------- */}
+      <button
+        type="button"
+        className="underline text-sm hover:text-accent focus:outline-none focus:ring-2 focus:ring-info w-full"
+        onClick={() => {
+          /* hier Aktion zum Setzen als Standard */
+        }}
+      >
+        {dict.usual}
+      </button>
 
-      <div className="flex items-center justify-center">
+      {/* --------- Speichern --------- */}
+      <div className="text-center">
         <button
           type="submit"
-          className="btn btn-primary buttonStyle mt-4 text75 text-primary-content Textbold hoverButtonPrim"
+          className="btn btn-primary buttonStyle text-base font-bold hoverButtonPrim"
         >
-          <div className="">{dict.save}</div>
+          {dict.save}
         </button>
       </div>
     </form>

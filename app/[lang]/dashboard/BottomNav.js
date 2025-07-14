@@ -54,6 +54,8 @@ export default function BottomNav({ lang, dict }) {
                 strokeWidth={3}
                 stroke="none"
                 className="w-9"
+                aria-hidden="true"
+                focusable="false"
               >
                 <path
                   strokeLinecap="round"
@@ -62,18 +64,23 @@ export default function BottomNav({ lang, dict }) {
                 />
               </svg>
             </div>
-            <div className={isActive(item.href) ? "font-bold" : ""}>
+            <span className={isActive(item.href) ? "font-bold" : ""}>
               {item.label}
-            </div>
+            </span>
           </div>
         );
 
         return item.tooltip ? (
-          <Tooltip key={idx} text={item.tooltip}>
+          <Tooltip key={idx} text={item.tooltip} aria-hidden="true">
             {content}
           </Tooltip>
         ) : (
-          <Link key={idx} href={item.href}>
+          <Link
+            key={idx}
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            tabIndex={0}
+          >
             {content}
           </Link>
         );

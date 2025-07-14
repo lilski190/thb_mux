@@ -7,7 +7,7 @@ import { ICONS } from "@/lib/globals";
 
 export default function MealForm({ dict }) {
   const { showToast } = useToast();
-  const [meal, setMeal] = useState(null);
+  const [meal, setMeal] = useState("");
 
   const handleClick = (value) => {
     setMeal(value);
@@ -19,80 +19,107 @@ export default function MealForm({ dict }) {
     { value: "fish", icon: ICONS.fish, label: dict.options[2] },
     { value: "meat", icon: ICONS.meat, label: dict.options[3] },
     { value: "salat", icon: ICONS.salat, label: dict.options[4] },
-    { value: "none", icon: null, label: dict.options[5] }, // Kein Icon hier
+    { value: "none", icon: null, label: dict.options[5] },
   ];
 
   return (
     <form
       action={pushMealData}
-      className=""
       onSubmit={() =>
         showToast("success", 5, "Benutzer erfolgreich gespeichert!")
       }
+      className="space-y-6"
     >
-      <div className="flex flex-wrap justify-center gap-2">
-        {mealOptions.map((item) =>
-          item.value !== "none" ? (
-            <label key={item.value} className="flex flex-col items-center">
-              <input
-                type="radio"
-                name="meal"
-                value={item.value}
-                checked={meal === item.value}
-                onChange={() => handleClick(item.value)}
-                className="hidden"
-              />
-              <div
-                onClick={() => handleClick(item.value)}
-                className={`w-15 h-15 flex items-center justify-center rounded-full cursor-pointer transition  ${
-                  meal === item.value
-                    ? "bg-accent text-accent-content hoverButtonRoundActive"
-                    : "bg-base-200 text-base-content hoverButtonRound"
-                }`}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 96 96"
-                  className="h-12 w-12"
+      <fieldset
+        role="radiogroup"
+        aria-labelledby="meal-choice-legend"
+        className="flex flex-wrap justify-center gap-4"
+      >
+        <legend id="meal-choice-legend" className="sr-only">
+          {dict.legendMeal}
+        </legend>
+
+        {mealOptions.map((item) => {
+          const inputId = `meal-${item.value}`;
+          const isSelected = meal === item.value;
+
+          if (item.value !== "none") {
+            return (
+              <div key={item.value} className="flex flex-col items-center">
+                <input
+                  type="radio"
+                  id={inputId}
+                  name="meal"
+                  value={item.value}
+                  checked={isSelected}
+                  onChange={() => handleClick(item.value)}
+                  className="sr-only peer"
+                />
+                <label
+                  htmlFor={inputId}
+                  className={`
+                    w-16 h-16 flex items-center justify-center rounded-full cursor-pointer
+                    transition peer-focus:ring-2 peer-focus:ring-info
+                    ${
+                      isSelected
+                        ? "bg-accent text-accent-content"
+                        : "bg-base-200 text-base-content hover:bg-base-300/40"
+                    }
+                  `}
+                  aria-label={item.label}
                 >
-                  <path d={item.icon} />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 96 96"
+                    fill="currentColor"
+                    className="h-10 w-10"
+                    aria-hidden="true"
+                  >
+                    <path d={item.icon} />
+                  </svg>
+                </label>
+                <span className="text-sm mt-1">{item.label}</span>
               </div>
-              <span className="mt-1 hidden">{item.label}</span>
-            </label>
-          ) : (
-            // Sonderbehandlung für "none"
-            <label key="none" className="flex flex-col items-center mt-4">
-              <input
-                type="radio"
-                name="meal"
-                value="none"
-                checked={meal === "none"}
-                onChange={() => handleClick("none")}
-                className="hidden"
-              />
-              <div className=" text100 text text-center mt-2 ">
-                <button
-                  onClick={() => handleClick("none")}
-                  className={`underline hover:text-accent hover:underline hover:font-semibold cursor-pointer active:text-secondary ${
-                    meal === "none" ? "TextSelect" : "text-base-content"
-                  }`}
+            );
+          } else {
+            return (
+              <div key={item.value} className="flex flex-col items-center mt-2">
+                <input
+                  type="radio"
+                  id={inputId}
+                  name="meal"
+                  value="none"
+                  checked={isSelected}
+                  onChange={() => handleClick("none")}
+                  className="sr-only peer"
+                />
+                <label
+                  htmlFor={inputId}
+                  className={`
+                    underline text-sm mt-2 cursor-pointer transition
+                    peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-info
+                    ${
+                      isSelected
+                        ? "text-accent font-semibold"
+                        : "text-base-content hover:text-accent"
+                    }
+                  `}
                 >
                   {item.label}
-                </button>
+                </label>
               </div>
-            </label>
-          )
-        )}
-      </div>
+            );
+          }
+        })}
+      </fieldset>
 
-      <div className="flex items-center justify-center">
+      {/* Submit-Button */}
+      <div className="flex justify-center">
         <button
           type="submit"
-          className="btn btn-primary buttonStyle mt-8 text75 text-primary-content Textbold hoverButtonPrim"
+          className="btn btn-primary buttonStyle mt-4 text-base font-bold text-primary-content hoverButtonPrim"
         >
-          <div className="">{dict.save}</div>
+          {dict.save}
         </button>
       </div>
     </form>

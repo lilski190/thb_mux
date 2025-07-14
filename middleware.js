@@ -11,24 +11,9 @@ const PUBLIC_FILES = [
   // weitere statische Dateien hier
 ];
 
-const PUBLIC_ROUTES = [
-  "/",
-  "/about",
-  "/examples",
-  "/tutorial",
-  "/join",
-  "/impressum",
-  "/collection",
-];
+const PUBLIC_ROUTES = ["/"];
 
-const PROTECTED_ROUTES = [
-  "/dashboard",
-  "/styleguide",
-  "/templates",
-  "/content",
-  "/create",
-  "/management",
-];
+const PROTECTED_ROUTES = ["/dashboard"];
 
 const AUTH_ROUTES = ["/login"];
 

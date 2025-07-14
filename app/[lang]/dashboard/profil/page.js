@@ -25,18 +25,28 @@ export default async function ProfilPage({ params }) {
     <div>
       <DashboardHeader title={dict.routes.profil} />
 
-      <div className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5">
-        <div className="w-full flex items-center justify-center mb-1.5">
-          <div className="card bg-base-100 border border-base-300 p-0 m-0 w-24 h-24 rounded-full flex items-center justify-center">
-            <div className="card-body h-24 w-24 m-0 p-0 ">
+      <section
+        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
+        aria-label={dict.profil.sectionLabel || "Profilübersicht"}
+      >
+        {/* Profilbild */}
+        <div className="w-full flex items-center justify-center mb-1.5 mt-2">
+          <div
+            className="card bg-base-100 border border-base-300 p-0 m-0 w-24 h-24 rounded-full flex items-center justify-center"
+            role="img"
+            aria-label={dict.profil.avatarLabel || "Benutzeravatar"}
+          >
+            <div className="card-body h-24 w-24 m-0 p-0" aria-hidden="true">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 96 96"
                 strokeWidth={3}
                 stroke="none"
-                className=""
+                className="w-full h-full"
               >
+                <title>{dict.profil.avatarTitle || "Profil-Icon"}</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -47,30 +57,39 @@ export default async function ProfilPage({ params }) {
           </div>
         </div>
 
+        {/* Begrüßung & Medaille */}
         <div className="w-full">
-          <div className="card bg-base-100 border border-base-300 p-0 m-0 mb-1.5">
+          <article
+            className="card bg-base-100 border border-base-300 p-0 m-0 mb-1.5"
+            aria-label={dict.profil.cardLabel || "Benutzerdetails"}
+          >
             <div className="p-3">
-              <div className="flex justify-between items-center h-full ">
-                <div className="text-base-content flex items-center">
-                  <div className="">
-                    <div className="text text150">
-                      {dict.profil.welcome} {profilData.name}!
-                    </div>
-                    {profilData.medal.type === "record" ? (
-                      <div className="flex">
-                        <Record
-                          duration={12} //{profilData.medal.duration}
-                          dict={dict.profil.record}
-                        />
-                      </div>
-                    ) : (
-                      <div>{dict.general.notImplementet}</div>
-                    )}
+              <header className="text-base-content">
+                <h3 className="text text150">
+                  {dict.profil.welcome} {profilData.name}!
+                </h3>
+              </header>
+
+              <div className="mt-2">
+                {profilData.medal.type === "record" ? (
+                  <div
+                    className="flex"
+                    role="group"
+                    aria-label={dict.profil.record.title}
+                  >
+                    <Record
+                      duration={profilData.medal.duration}
+                      dict={dict.profil.record}
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div role="note" className="text text100 text-base-content">
+                    {dict.general.notImplementet}
+                  </div>
+                )}
               </div>
             </div>
-          </div>
+          </article>
         </div>
 
         <Modal
@@ -89,9 +108,7 @@ export default async function ProfilPage({ params }) {
           mode={colorMode}
         />
 
-        <div className="text text100 mt-1.5">
-          {dict.profil.generallSettings}
-        </div>
+        <h4 className="text text100 mt-1.5">{dict.profil.generallSettings}</h4>
 
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal title={dict.profil.konto} icon="profil" />
@@ -109,7 +126,7 @@ export default async function ProfilPage({ params }) {
         >
           <LanguageSwitcher />
         </Modal>
-        <div className="text text100 mt-1.5"> {dict.profil.info}</div>
+        <h4 className="text text100 mt-1.5"> {dict.profil.info}</h4>
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal
             title={dict.profil.about}
@@ -121,7 +138,7 @@ export default async function ProfilPage({ params }) {
           <MenuModal title={dict.profil.help} icon="help" />
         </Tooltip>
         <MenuBar title={dict.profil.logout} />
-        <div className="text w-3/6">
+        <div className="text w-3/6" aria-hidden="true">
           <Tooltip text={dict.general.notImplementet}>
             <div className="text-accent text100  underline hover:font-semibold">
               {dict.profil.data}
@@ -138,7 +155,7 @@ export default async function ProfilPage({ params }) {
             </div>
           </Tooltip>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

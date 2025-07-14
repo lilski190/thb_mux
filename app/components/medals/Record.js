@@ -10,46 +10,52 @@ const Record = ({ duration, dict }) => {
   let circle = "fill-none stroke-1 stroke-[#EFE9E5]";
 
   //.cls-1{fill:none;stroke:#deb87c;}.cls-1,.cls-2,.cls-3{stroke-miterlimit:10;}.cls-4{fill:#dab683;}.cls-2{fill:#efc11a;}.cls-2,.cls-3{stroke:#56542c;stroke-width:.1px;}.cls-5{fill:#f3ca91;}.cls-6{fill:#fffcf9;opacity:.5;}.cls-3{fill:#f8333c;}
-  if (duration == 3) {
+  if (duration >= 3 && duration < 7) {
     record = 1;
     star = "fill-[#cd7f32]";
     starShadow = "fill-[#965A38] stroke-[#965A38] stroke-1";
     body = "fill-[#b87333]";
     circle = "fill-none stroke-1 stroke-[#965A38]";
+    band = "fill-[#f8333c]";
   } else if (duration >= 7 && duration < 14) {
     record = 2;
     star = "fill-[#c0c0c0]";
     starShadow = "fill-[#b0b0b0] stroke-[#b0b0b0] stroke-1";
     body = "fill-[#d9d9d9]";
     circle = "fill-none stroke-1 stroke-[#b0b0b0]";
+    band = "fill-[#f8333c]";
   } else if (duration >= 14 && duration < 21) {
     record = 3;
     star = "fill-[#FFDE77]";
     starShadow = "fill-[#E9AA05] stroke-[#E9AA05] stroke-1";
     body = "fill-[#FFCE35]";
     circle = "fill-none stroke-1 stroke-[#EAAB05]";
+    band = "fill-[#f8333c]";
   } else if (duration >= 21 && duration < 28) {
     record = 4;
     star = "fill-[#4f83ff]"; // Hellblau, strahlend
     starShadow = "fill-[#1942a6] stroke-[#1942a6] stroke-1"; // Weicher Glanz
     body = "fill-[#82b1ff]"; // Helles Königsblau
     circle = "fill-none stroke-1 stroke-[#1942a6]"; // Gleicher Ton w
+    band = "fill-[#f8333c]";
   } else if (duration >= 28 && duration < 35) {
     record = 5;
     star = "fill-[#9b111e]";
     starShadow = "fill-[#7c0a02] stroke-[#7c0a02] stroke-1";
     body = "fill-[#c40233]";
     circle = "fill-none stroke-1 stroke-[#7c0a02]";
+    band = "fill-[#f8333c]";
   } else if (duration >= 35) {
     record = 6;
     star = "fill-[#2F9A6E]";
     starShadow = "fill-[#27731a] stroke-[#27731a] stroke-1";
     body = "fill-[#2F9A6E]";
     circle = "fill-none stroke-1 stroke-[#27731a]";
+    band = "fill-[#f8333c]";
   }
   return (
     <div className="flex text text100 ">
-      <div className="w-1/3">
+      <div className="w-1/3" aria-hidden="true">
         <svg
           id="Ebene_5"
           xmlns="http://www.w3.org/2000/svg"
@@ -83,10 +89,10 @@ const Record = ({ duration, dict }) => {
           />
         </svg>
       </div>
-      <div
+      <p
         className="w-2/3 mt-6 ml-4"
         dangerouslySetInnerHTML={{ __html: dict[record] }}
-      ></div>
+      ></p>
     </div>
   );
 };
