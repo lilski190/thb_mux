@@ -112,7 +112,9 @@
     "FBW": "Fachbereich Wirtschaft",
     "loadring_sr": "Wird geladen...",
     "save": "Speichern",
-    "sr_lang": "Sprache Auswählen"
+    "sr_lang": "Sprache Auswählen",
+    "sr_color": "Farbmodus Wählen",
+    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
     "home": "Home",

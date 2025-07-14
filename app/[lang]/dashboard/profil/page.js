@@ -110,6 +110,7 @@ export default async function ProfilPage({ params }) {
           title={dict.profil.darkmode}
           icon="colormode"
           mode={colorMode}
+          dict={dict}
         />
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal title={dict.profil.konto} icon="profil" />
