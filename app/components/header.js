@@ -10,7 +10,7 @@ const DashboardHeader = ({ title }) => {
     >
       <div className="flex items-center justify-between">
         <div
-          className="text-primary w-32 flex justify-left items-center -mt-3"
+          className="text-primary w-38 flex justify-left items-center -mt-3"
           aria-hidden="true"
         >
           <svg

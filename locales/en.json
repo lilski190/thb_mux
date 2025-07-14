@@ -96,13 +96,15 @@
   },
   "general": {
     "projectName": "SustainAble",
-    "projectSlogan": "The sustainability app of THB",
+    "projectSlogan": "The sustainability app of   </br>  THB",
     "login": "Login",
     "register": "Register",
     "notImplementet": "This feature is not implemented yet :(",
     "FBI": "Computer Science Department",
     "FBT": "Technology Department",
-    "FBW": "Business Department"
+    "FBW": "Business Department",
+    "save": "Save",
+    "sr_lang": "Select Language"
   },
   "routes": {
     "home": "Home",

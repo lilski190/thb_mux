@@ -60,7 +60,7 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
   // negative margin to create overlap
 
   return (
-    <div className="pr-3 grid grid-cols-3 w-64 relative">
+    <div className="p-3 grid grid-cols-3 w-64 relative">
       {data.map((value, i) => {
         const size = getSize(value);
 
@@ -77,6 +77,7 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
               viewBox="0 0 96 96"
               style={{
                 width: `${size}px`,
+                color: colors[i],
               }}
               className=""
             >
@@ -96,10 +97,10 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
             key={value + i}
             className={`${
               i === 2 ? "pr-0 " : "pr-2"
-            } z-20 -mt-16 h-6 flex items-end justify-center Textbold `}
+            } z-20 -mt-16 h-6 flex items-end justify-center  text text80`}
             style={{
               width: `${size}px`,
-              color: colors[i],
+
               textAlign: "center",
             }}
           >

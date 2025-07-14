@@ -92,6 +92,10 @@ export default async function ProfilPage({ params }) {
           </article>
         </div>
 
+        <h4 className="text text100 mt-4 mb-2 ml-1 ">
+          {dict.profil.generallSettings}
+        </h4>
+
         <Modal
           id="notofication"
           button={dict.profil.notifications}
@@ -107,9 +111,6 @@ export default async function ProfilPage({ params }) {
           icon="colormode"
           mode={colorMode}
         />
-
-        <h4 className="text text100 mt-1.5">{dict.profil.generallSettings}</h4>
-
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal title={dict.profil.konto} icon="profil" />
         </Tooltip>
@@ -124,9 +125,9 @@ export default async function ProfilPage({ params }) {
           description={dict.profil.lang.description}
           icon="language"
         >
-          <LanguageSwitcher />
+          <LanguageSwitcher dict={dict} />
         </Modal>
-        <h4 className="text text100 mt-1.5"> {dict.profil.info}</h4>
+        <h4 className="text text100  mt-4 mb-2 ml-1 "> {dict.profil.info}</h4>
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal
             title={dict.profil.about}

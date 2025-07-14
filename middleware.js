@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
-const SUPPORTED_LANGUAGES = ["de", "en"];
+const SUPPORTED_LANGUAGES = ["de", "en", "sp", "pl", "ar"];
 
 const PUBLIC_FILES = [
   "/favicon.ico",

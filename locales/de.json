@@ -102,14 +102,17 @@
   },
   "general": {
     "projectName": "SustainAble",
-    "projectSlogan": "Die Nachhaltigkeitsapp der Technischen Hochschule Brandenburg",
+    "projectSlogan": "Die Nachhaltigkeitsapp der </br> Technischen Hochschule Brandenburg",
     "logo_sr": "Logo der App SustainAble: Ein Blatt mit einem geschwungenen S in der Mitte",
     "login": "Einloggen",
     "register": "Registrieren",
     "notImplementet": "Diese Funktion ist noch nicht implememntiert :(",
     "FBI": "Fachbereich Informatik",
     "FBT": "Fachbereich Technik",
-    "FBW": "Fachbereich Wirtschaft"
+    "FBW": "Fachbereich Wirtschaft",
+    "loadring_sr": "Wird geladen...",
+    "save": "Speichern",
+    "sr_lang": "Sprache Auswählen"
   },
   "routes": {
     "home": "Home",

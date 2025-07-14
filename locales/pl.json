@@ -1,0 +1,243 @@
+{
+  "home": {
+    "title": "Strona główna",
+    "streak": {
+      "title": "Dni z rzędu -",
+      "sr_title": "Liczba dni z rzędu",
+      "options": [
+        "Solidny start!",
+        "Goręcej niż mój kompost latem!",
+        "Jeszcze jedno powiedzenie",
+        "I jeszcze jedno powiedzenie",
+        "Ostatnie powiedzenie",
+        "Tydzień 2: Solidny start!",
+        "Tydzień 2: Goręcej niż mój kompost latem!",
+        "Tydzień 2: Jeszcze jedno powiedzenie",
+        "Tydzień 2: I jeszcze jedno powiedzenie",
+        "Tydzień 2: Ostatnie powiedzenie",
+        "Tydzień 3: Solidny start!",
+        "Tydzień 3: Goręcej niż mój kompost latem!",
+        "Tydzień 3: Jeszcze jedno powiedzenie",
+        "Tydzień 3: I jeszcze jedno powiedzenie",
+        "Tydzień 3: Ostatnie powiedzenie",
+        "Powiedzenie mówiące, że osoba jest tak niesamowita ze streakami, że nawet na to nie byliśmy przygotowani"
+      ]
+    },
+    "arivalTitel": "Przyjazd:",
+    "mealTitel": "Wybór jedzenia:",
+    "fbTitel": "Twój wydział w porównaniu",
+    "arival": {
+      "bike": "Większość osób dziś przyjechała rowerem.",
+      "train": "Większość osób dziś przyjechała komunikacją miejską.",
+      "car": "Większość osób dziś przyjechała samochodem.",
+      "walk": "Większość osób dziś przyszła pieszo."
+    },
+    "meal": {
+      "vegetarian": "Większość osób wybrała dziś danie wegetariańskie w stołówce.",
+      "vegan": "Większość osób wybrała dziś danie wegańskie w stołówce.",
+      "fish": "Większość osób wybrała dziś danie z rybą w stołówce.",
+      "meat": "Większość osób wybrała dziś danie z mięsem w stołówce.",
+      "salat": "Większość osób wybrała dziś sałatkę w stołówce."
+    },
+    "fbs": {
+      "FBI": "Wydział Informatyki wprowadził dziś najwięcej danych.",
+      "FBT": "Wydział Techniki wprowadził dziś najwięcej danych.",
+      "FBW": "Wydział Ekonomii wprowadził dziś najwięcej danych."
+    },
+    "sr_statistic": {
+      "value": "Liczba danych wprowadzonych przez wydział"
+    }
+  },
+  "profil": {
+    "welcome": "Cześć",
+    "record": [
+      "Tutaj widzisz swoje rekordy",
+      "Ustanowiłeś nowy rekord. <strong>Trzy dni</strong> nieprzerwanych wpisów – tak trzymaj!",
+      "Ustanowiłeś nowy rekord. <strong>Tydzień</strong> nieprzerwanych wpisów – tak trzymaj!",
+      "Ustanowiłeś nowy rekord. <strong>Dwa tygodnie</strong> nieprzerwanych wpisów – tak trzymaj!",
+      "Ustanowiłeś nowy rekord. <strong>Trzy tygodnie</strong> nieprzerwanych wpisów – tak trzymaj!",
+      "Ustanowiłeś nowy rekord. <strong>Miesiąc</strong> nieprzerwanych wpisów – tak trzymaj!",
+      "Jesteś <strong>tak niesamowity</strong>, że nie mamy dla Ciebie medalu..."
+    ],
+    "settings": "Ustawienia",
+    "notifications": "Ustawienia powiadomień",
+    "darkmode": "Tryb ciemny",
+    "notificationForm": {
+      "legendDays": "Wybierz dni powiadomień",
+      "title": "Powiadomienia",
+      "description": "Kiedy chcesz otrzymywać powiadomienia push?",
+      "options": ["Pon", "Wt", "Śr", "Czw", "Pt", "Wszystkie"],
+      "save": "Zapisz"
+    },
+    "generallSettings": "Ustawienia ogólne",
+    "konto": "Ustawienia konta",
+    "authorization": "Uprawnienia",
+    "language": "Język",
+    "lang": {
+      "title": "Ustawienia języka",
+      "description": "Wybierz preferowany język",
+      "options": ["de", "en"],
+      "save": "Zapisz"
+    },
+    "info": "Informacje",
+    "about": "O SustainAble",
+    "help": "Pomoc",
+    "logout": "Wyloguj się",
+    "data": "Ochrona danych",
+    "impressum": "Impressum",
+    "agb": "Regulamin"
+  },
+  "login": {
+    "title": "Zaloguj się",
+    "description": "Witamy ponownie! Zaloguj się za pomocą e‑maila i hasła, aby kontynuować.",
+    "sr_description": "Aby się zalogować, wpisz email i hasło",
+    "login": "Zaloguj się",
+    "help": "Pomoc",
+    "setting": "Warunki użytkowania",
+    "cookies": "Prywatność i ciasteczka",
+    "mail": "Adres e‑mail",
+    "pw": "Hasło",
+    "stayLoggedIn": "Pozostań zalogowany",
+    "ForgotPassword": "Zapomniałeś hasła?"
+  },
+  "general": {
+    "projectName": "SustainAble",
+    "projectSlogan": "Aplikacja ekologiczna Politechniki Brandenburgskiej",
+    "logo_sr": "Logo aplikacji SustainAble: liść z zakrzywioną literą S w środku",
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się",
+    "notImplementet": "Ta funkcja nie została jeszcze wdrożona :(",
+    "FBI": "Wydział Informatyki",
+    "FBT": "Wydział Techniki",
+    "FBW": "Wydział Ekonomii",
+    "loadring_sr": "Ładowanie...",
+    "save": "Zapisz",
+    "sr_lang": "Wybierz język"
+  },
+  "routes": {
+    "home": "Strona główna",
+    "input": "Wprowadzenie",
+    "statistic": "Statystyki",
+    "inbox": "Skrzynka odbiorcza",
+    "profil": "Profil"
+  },
+  "statistics": {
+    "line": {
+      "title": "Emisja CO2 THB w bieżącym roku w tonach",
+      "id": "linechart",
+      "sr_description": "Ten wykres pokazuje wartości CO2 w formie wykresu liniowego w ciągu miesięcy...",
+      "altText": "Alternatywny tekst dla tej statystyki...",
+      "colLabel": "Miesiąc (kategoria)",
+      "colValue": "Wartość CO2 w tonach",
+      "labels": {
+        "jan": "Styczeń",
+        "feb": "Luty",
+        "mar": "Marzec",
+        "apr": "Kwiecień",
+        "mai": "Maj",
+        "jun": "Czerwiec",
+        "jul": "Lipiec",
+        "aug": "Sierpień",
+        "sep": "Wrzesień",
+        "okt": "Październik",
+        "nov": "Listopad",
+        "dez": "Grudzień"
+      }
+    },
+    "cloud": {
+      "id": "cloud",
+      "sr_description": "Ta statystyka przedstawia emisje CO2 według wydziałów",
+      "title": "Emisja CO2: porównanie między wydziałami w kg",
+      "altTableLabel": "etykietaChmury",
+      "altText": "Alternatywny tekst dla statystyki",
+      "colLabel": "Kategoria – Wydział",
+      "colValue": "Całkowita wartość w tonach"
+    },
+    "bar": {
+      "title": "Odległości zgłoszone przez studentów wydziałów na uczelnię (ostatnie 5 dni)",
+      "id": "barchart",
+      "sr_description": "Ten wykres pokazuje wszystkie dane wprowadzone przez trzy wydziały...",
+      "colLabel": "Dzień (kategoria)",
+      "colValue": "Wartości trzech wydziałów",
+      "labels": {
+        "mo": "Pon",
+        "di": "Wt",
+        "mi": "Śr",
+        "don": "Czw",
+        "fr": "Pt",
+        "sa": "Sob",
+        "so": "Nie"
+      }
+    },
+    "iconArival": {
+      "title": "Środki transportu użyte dziś do przyjazdu na THB",
+      "id": "arival",
+      "sr_description": "Ta statystyka pokazuje całkowitą liczbę środków transportu na uczelnię",
+      "altTableLabel": "etykietaPrzyjazdu",
+      "altText": "Alternatywny tekst dla statystyki",
+      "colLabel": "Kategoria – Środek transportu",
+      "colValue": "Całkowita wartość",
+      "labels": {
+        "bike": "Rower",
+        "train": "Komunikacja miejska",
+        "car": "Samochód",
+        "walk": "Pieszo"
+      }
+    },
+    "iconMeal": {
+      "title": "Dania stołówki THB zarejestrowane dziś w aplikacji",
+      "id": "meal",
+      "sr_description": "Ten wykres pokazuje całkowitą liczbę wybranych posiłków",
+      "altTableLabel": "etykietaPosiłku",
+      "altText": "Alternatywny tekst dla statystyki",
+      "colLabel": "Kategoria – Posiłek",
+      "colValue": "Całkowita wartość",
+      "labels": {
+        "vegetarian": "Wegetariańskie",
+        "vegan": "Wegańskie",
+        "fish": "Ryba",
+        "meat": "Mięso",
+        "salat": "Sałatka"
+      }
+    }
+  },
+  "input": {
+    "description": "Pomóż nam zmierzyć ślad ekologiczny uczelni, odpowiadając krótko na pytanie:",
+    "mealTitel": "Wybór jedzenia",
+    "arivalTitle": "Przyjazd",
+    "meal": {
+      "title": "Wybór jedzenia",
+      "description": "Co zjadłeś dziś w stołówce?",
+      "options": [
+        "Wegańskie",
+        "Wegetariańskie",
+        "Ryba",
+        "Mięso",
+        "Sałatka",
+        "Dziś nie jadłem w stołówce"
+      ],
+      "save": "Zapisz"
+    },
+    "arival": {
+      "title": "Przyjazd",
+      "legendTransportation": "legenda opisująca pola",
+      "description": "Jak dziś przyjechałeś na THB?",
+      "options": ["Pieszo", "Rowerem", "Komunikacją miejską", "Samochodem"],
+      "distance": "Ile kilometrów pokonałeś dziś?",
+      "usual": "Jak zwykle",
+      "save": "Zapisz"
+    }
+  },
+  "toast": {
+    "login": {
+      "info": "Dawno się nie logowałeś.",
+      "success": "Pomyślnie zalogowano",
+      "error": {
+        "notRegistert": "Nie ma takiego adresu e‑mail",
+        "serverError": "Serwer padł lub coś poszło nie tak",
+        "anotherError": "Wystąpiły inne błędy"
+      },
+      "warning": "Użytkownik jest zalogowany gdzie indziej"
+    }
+  }
+}

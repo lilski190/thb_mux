@@ -7,7 +7,7 @@ export default function SystemLanguage({ current }) {
   const [sysLang, setSysLang] = useState("");
   const router = useRouter();
 
-  const allowedLangs = ["de", "en"];
+  const allowedLangs = ["de", "en", "sp", "pl", "ar"];
 
   useEffect(() => {
     const systemLangFull = navigator.language; // z. B. "de-DE"

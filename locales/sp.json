@@ -1,0 +1,243 @@
+{
+  "home": {
+    "title": "Inicio",
+    "streak": {
+      "title": "Días seguidos -",
+      "sr_title": "Número de días seguidos",
+      "options": [
+        "¡Un buen comienzo!",
+        "¡Más caliente que mi compost en verano!",
+        "Otra frase más",
+        "Y otra frase más",
+        "La última frase más",
+        "Semana 2 ¡Un buen comienzo!",
+        "Semana 2 ¡Más caliente que mi compost en verano!",
+        "Semana 2 Otra frase más",
+        "Semana 2 Y otra frase más",
+        "Semana 2 La última frase más",
+        "Semana 3 ¡Un buen comienzo!",
+        "Semana 3 ¡Más caliente que mi compost en verano!",
+        "Semana 3 Otra frase más",
+        "Semana 3 Y otra frase más",
+        "Semana 3 La última frase más",
+        "Una frase que dice que la persona es demasiado buena con las rachas, así que ya no estábamos preparados para eso"
+      ]
+    },
+    "arivalTitel": "Llegada:",
+    "mealTitel": "Elección de comida:",
+    "fbTitel": "Tu facultad en comparación",
+    "arival": {
+      "bike": "La mayoría vino hoy en bicicleta.",
+      "train": "La mayoría vino hoy en transporte público.",
+      "car": "La mayoría vino hoy en coche.",
+      "walk": "La mayoría vino hoy caminando."
+    },
+    "meal": {
+      "vegetarian": "La mayoría eligió el plato vegetariano en el comedor.",
+      "vegan": "La mayoría eligió el plato vegano en el comedor.",
+      "fish": "La mayoría eligió un plato con pescado en el comedor.",
+      "meat": "La mayoría eligió un plato con carne en el comedor.",
+      "salat": "La mayoría eligió una ensalada en el comedor."
+    },
+    "fbs": {
+      "FBI": "La facultad de informática introdujo hoy la mayor cantidad de datos.",
+      "FBT": "La facultad de tecnología introdujo hoy la mayor cantidad de datos.",
+      "FBW": "La facultad de economía introdujo hoy la mayor cantidad de datos."
+    },
+    "sr_statistic": {
+      "value": "Cantidad de datos introducidos por la facultad"
+    }
+  },
+  "profil": {
+    "welcome": "Hola",
+    "record": [
+      "Aquí puedes ver tus récords",
+      "Has establecido un nuevo récord. <strong>Tres días</strong> de entradas continuas: ¡sigue así!",
+      "Has establecido un nuevo récord. <strong>Una semana</strong> de entradas continuas: ¡sigue así!",
+      "Has establecido un nuevo récord. <strong>Dos semanas</strong> de entradas continuas: ¡sigue así!",
+      "Has establecido un nuevo récord. <strong>Tres semanas</strong> de entradas continuas: ¡sigue así!",
+      "Has establecido un nuevo récord. <strong>Un mes</strong> de entradas continuas: ¡sigue así!",
+      "Eres <strong>tan increíble</strong> que ya no tenemos medallas para ti..."
+    ],
+    "settings": "Configuraciones",
+    "notifications": "Configuración de notificaciones",
+    "darkmode": "Modo oscuro",
+    "notificationForm": {
+      "legendDays": "Elige tus días de notificación",
+      "title": "Notificaciones",
+      "description": "¿Cuándo deseas recibir notificaciones push?",
+      "options": ["Lu", "Ma", "Mi", "Ju", "Vi", "Todos"],
+      "save": "Guardar"
+    },
+    "generallSettings": "Configuración general",
+    "konto": "Configuración de cuenta",
+    "authorization": "Permisos",
+    "language": "Idioma",
+    "lang": {
+      "title": "Configuración de idioma",
+      "description": "Elige tu idioma preferido",
+      "options": ["de", "en"],
+      "save": "Guardar"
+    },
+    "info": "Información",
+    "about": "Sobre SustainAble",
+    "help": "Ayuda",
+    "logout": "Cerrar sesión",
+    "data": "Protección de datos",
+    "impressum": "Aviso legal",
+    "agb": "Términos y condiciones"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "description": "¡Bienvenido de nuevo! Inicia sesión con tu correo electrónico y contraseña para continuar.",
+    "sr_description": "Introduce correo electrónico y contraseña para iniciar sesión",
+    "login": "Iniciar sesión",
+    "help": "Ayuda",
+    "setting": "Términos de uso",
+    "cookies": "Privacidad y cookies",
+    "mail": "Correo electrónico",
+    "pw": "Contraseña",
+    "stayLoggedIn": "Mantener sesión iniciada",
+    "ForgotPassword": "¿Olvidaste tu contraseña?"
+  },
+  "general": {
+    "projectName": "SustainAble",
+    "projectSlogan": "La app de sostenibilidad de la </br> Universidad Técnica de Brandeburgo",
+    "logo_sr": "Logo de la app SustainAble: Una hoja con una S curvada en el centro",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "notImplementet": "Esta función aún no está implementada :(",
+    "FBI": "Facultad de Informática",
+    "FBT": "Facultad de Tecnología",
+    "FBW": "Facultad de Economía",
+    "loadring_sr": "Cargando...",
+    "save": "Guardar",
+    "sr_lang": "Seleccionar idioma"
+  },
+  "routes": {
+    "home": "Inicio",
+    "input": "Entrada",
+    "statistic": "Estadísticas",
+    "inbox": "Bandeja de entrada",
+    "profil": "Perfil"
+  },
+  "statistics": {
+    "line": {
+      "title": "Emisiones de CO2 de la THB en el año actual en toneladas",
+      "id": "linechart",
+      "sr_description": "Esta estadística muestra los valores de CO2 en un gráfico de líneas a lo largo de los meses del año...",
+      "altText": "Texto alternativo para esta estadística...",
+      "colLabel": "Mes (categoría)",
+      "colValue": "Valor de CO2 en toneladas",
+      "labels": {
+        "jan": "Enero",
+        "feb": "Febrero",
+        "mar": "Marzo",
+        "apr": "Abril",
+        "mai": "Mayo",
+        "jun": "Junio",
+        "jul": "Julio",
+        "aug": "Agosto",
+        "sep": "Septiembre",
+        "okt": "Octubre",
+        "nov": "Noviembre",
+        "dez": "Diciembre"
+      }
+    },
+    "cloud": {
+      "id": "cloud",
+      "sr_description": "Esta estadística representa las emisiones de CO2 por facultad",
+      "title": "Emisión de CO2: Comparación entre facultades en kg",
+      "altTableLabel": "etiquetaNube",
+      "altText": "Texto alternativo para la estadística",
+      "colLabel": "Categoría - Facultad",
+      "colValue": "Valor total en toneladas"
+    },
+    "bar": {
+      "title": "Distancias reportadas por estudiantes de las facultades hacia la universidad (últimos 5 días)",
+      "id": "barchart",
+      "sr_description": "Este gráfico muestra todos los datos ingresados por las tres facultades...",
+      "colLabel": "Día (categoría)",
+      "colValue": "Valores de las tres facultades",
+      "labels": {
+        "mo": "Lunes",
+        "di": "Martes",
+        "mi": "Miércoles",
+        "don": "Jueves",
+        "fr": "Viernes",
+        "sa": "Sábado",
+        "so": "Domingo"
+      }
+    },
+    "iconArival": {
+      "title": "Medios de transporte usados hoy para llegar a la THB",
+      "id": "arival",
+      "sr_description": "Esta estadística muestra el número total de medios de transporte hacia la universidad",
+      "altTableLabel": "etiquetaLlegada",
+      "altText": "Texto alternativo para la estadística",
+      "colLabel": "Categoría - Medio de transporte",
+      "colValue": "Valor total",
+      "labels": {
+        "bike": "Bicicleta",
+        "train": "Transporte público",
+        "car": "Coche",
+        "walk": "A pie"
+      }
+    },
+    "iconMeal": {
+      "title": "Platos del comedor de la THB registrados hoy en la app",
+      "id": "meal",
+      "sr_description": "Esta visualización muestra el número total de comidas seleccionadas",
+      "altTableLabel": "etiquetaComida",
+      "altText": "Texto alternativo para la estadística",
+      "colLabel": "Categoría - Comida",
+      "colValue": "Valor total",
+      "labels": {
+        "vegetarian": "Vegetariano",
+        "vegan": "Vegano",
+        "fish": "Pescado",
+        "meat": "Carne",
+        "salat": "Ensalada"
+      }
+    }
+  },
+  "input": {
+    "description": "Ayúdanos a medir la huella ecológica de la universidad respondiendo brevemente la siguiente pregunta:",
+    "mealTitel": "Elección de comida",
+    "arivalTitle": "Llegada",
+    "meal": {
+      "title": "Elección de comida",
+      "description": "¿Qué comiste hoy en el comedor?",
+      "options": [
+        "Vegano",
+        "Vegetariano",
+        "Pescado",
+        "Carne",
+        "Ensalada",
+        "Hoy no comí en el comedor"
+      ],
+      "save": "Guardar"
+    },
+    "arival": {
+      "title": "Llegada",
+      "legendTransportation": "leyenda que describe los campos",
+      "description": "¿Cómo llegaste hoy a la THB?",
+      "options": ["A pie", "Bicicleta", "Transporte público", "Coche"],
+      "distance": "¿Cuántos kilómetros recorriste hoy?",
+      "usual": "Como siempre",
+      "save": "Guardar"
+    }
+  },
+  "toast": {
+    "login": {
+      "info": "Hace mucho que no inicias sesión.",
+      "success": "Inicio de sesión exitoso",
+      "error": {
+        "notRegistert": "El correo no existe",
+        "serverError": "El servidor se ha caído o algo así",
+        "anotherError": "Hay otros errores"
+      },
+      "warning": "El usuario ya ha iniciado sesión en otro lugar"
+    }
+  }
+}

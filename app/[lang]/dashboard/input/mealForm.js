@@ -72,13 +72,13 @@ export default function MealForm({ dict }) {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 96 96"
                     fill="currentColor"
-                    className="h-10 w-10"
+                    className="h-15 w-15"
                     aria-hidden="true"
                   >
                     <path d={item.icon} />
                   </svg>
                 </label>
-                <span className="text-sm mt-1">{item.label}</span>
+                <span className="text text80 mt-3">{item.label}</span>
               </div>
             );
           } else {
@@ -96,7 +96,7 @@ export default function MealForm({ dict }) {
                 <label
                   htmlFor={inputId}
                   className={`
-                    underline text-sm mt-2 cursor-pointer transition
+                    underline text80  text-center mt-2 cursor-pointer transition
                     peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-info
                     ${
                       isSelected

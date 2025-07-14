@@ -24,7 +24,9 @@ ChartJS.register(
 
 export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
   const [fontSettings, setFontSettings] = useState({
-    size: 10,
+    size: 15,
+    family: `"Athiti", sans-serif`,
+    weight: "400",
     color: "#000",
   });
 
@@ -44,8 +46,10 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
       rootStyles.getPropertyValue("--color-accent").trim() || "#94C09E";
 
     setFontSettings({
-      size: 10,
+      size: 15,
       color: fontColor,
+      family: `"Athiti", sans-serif`,
+      weight: "400",
       bar: chartColor,
     });
   }, []);
@@ -74,6 +78,8 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
           color: fontSettings.color,
           font: {
             size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
           },
         },
       },
@@ -91,7 +97,11 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
         },
         ticks: {
           color: fontSettings.color,
-          font: { size: fontSettings.size },
+          font: {
+            size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
+          },
         },
       },
       y: {
@@ -104,7 +114,11 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
         },
         ticks: {
           color: fontSettings.color,
-          font: { size: fontSettings.size },
+          font: {
+            size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
+          },
         },
       },
     },

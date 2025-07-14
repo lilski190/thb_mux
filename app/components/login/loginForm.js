@@ -57,7 +57,7 @@ export default function LoginForm({ dict, lang }) {
   };
 
   return (
-    <form onSubmit={onSubmit} disabled={loading}>
+    <form onSubmit={onSubmit} disabled={loading} className="px-10">
       <fieldset className="fieldset">
         <legend className="sr-only">{dict.login.sr_description}</legend>
         <div className="relative mt-3 text">

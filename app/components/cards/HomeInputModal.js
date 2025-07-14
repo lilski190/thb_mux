@@ -11,11 +11,11 @@ const HomeInputModal = ({ icon, title, description }) => {
   }
   return (
     <div
-      className="card bg-base-100 border border-base-300 "
+      className="card bg-base-100 border border-base-300"
       role="group"
       aria-labelledby="input-title"
     >
-      <div className="py-3 pl-4 pr-1 hover:bg-base-300/10">
+      <div className="py-6 pl-4 pr-1 hover:bg-base-300/10">
         <div className="flex justify-between items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,10 +34,10 @@ const HomeInputModal = ({ icon, title, description }) => {
           </svg>
 
           <div className="w-1/2 ml-4">
-            <h3 className="Textbold text100 text " id="input-title">
+            <h3 className="Textbold text124 text " id="input-title">
               {title}
             </h3>
-            <p className="text">{description}</p>
+            <p className="text96">{description}</p>
           </div>
           <div className="text-base-300" aria-hidden="true">
             <svg

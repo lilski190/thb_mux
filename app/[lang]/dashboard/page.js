@@ -27,10 +27,10 @@ export default async function DashboardPage({ params }) {
 
       <section
         aria-labelledby="dashboard-content"
-        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
+        className="py-20 bg-base-200 px-3 flex flex-col justify-evenly min-h-screen gap-2"
       >
         <MedalModal
-          count={homeData.streak}
+          count={13} //{homeData.streak}
           title={dict.home.streak.title}
           description={dict.home.streak.options[homeData.streak]}
           sr={dict.home.streak.sr_title}

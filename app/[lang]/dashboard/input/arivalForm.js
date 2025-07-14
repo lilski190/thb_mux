@@ -58,7 +58,7 @@ export default function ArrivalForm({ dict }) {
                     fill={isStroke ? "none" : "currentColor"}
                     stroke={isStroke ? "currentColor" : "none"}
                     strokeWidth={3}
-                    className="w-10 h-10"
+                    className="w-15 h-15"
                     aria-hidden="true"
                   >
                     <path d={ICONS[value]} />
@@ -67,7 +67,7 @@ export default function ArrivalForm({ dict }) {
               </label>
 
               {/* Sichtbarer Klartext unter dem Icon */}
-              <span className="text-sm mt-1">{dict.options[idx]}</span>
+              <span className="text text80 mt-3">{dict.options[idx]}</span>
             </div>
           );
         })}
@@ -104,7 +104,7 @@ export default function ArrivalForm({ dict }) {
       {/* --------- Gewohnheits-Link --------- */}
       <button
         type="button"
-        className="underline text-sm hover:text-accent focus:outline-none focus:ring-2 focus:ring-info w-full"
+        className="underline text80 hover:text-accent focus:outline-none focus:ring-2 focus:ring-info w-full"
         onClick={() => {
           /* hier Aktion zum Setzen als Standard */
         }}

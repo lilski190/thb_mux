@@ -12,7 +12,7 @@ const MedalModal = ({ count, title, description, sr }) => {
       aria-label={` ${count} ${title} `}
       role="region"
     >
-      <div className="py-3 pl-3">
+      <div className="py-6 pl-3">
         <div className="flex justify-between items-center">
           <div className="relative w-28  h-28" aria-hidden="true">
             <svg
@@ -67,8 +67,8 @@ const MedalModal = ({ count, title, description, sr }) => {
             <span className="sr-only">{sr}</span>
           </div>
           <div className="w-1/2">
-            <h3 className="Textbold w-5/6 text100 text mb-1">{title}</h3>
-            <p className="text w-5/6">{description}</p>
+            <h3 className="Textbold w-5/6 text96 text">{title}</h3>
+            <p className="text96 w-5/6">{description}</p>
           </div>
         </div>
       </div>

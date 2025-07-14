@@ -22,8 +22,8 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
       role="group"
       aria-labelledby="stat-title"
     >
-      <div className="py-3 pl-5 pr-1  hover:bg-base-300/10">
-        <h3 className="Textbold font-bold mb-2">{title}</h3>
+      <div className="py-6 pl-5 pr-1  hover:bg-base-300/10">
+        <h3 className="Textbold font-bold mb-3 text124">{title}</h3>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 justify-start h-24">
             <figure
@@ -73,7 +73,7 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
                 </tbody>
               </table>
             </figure>
-            <p className="text w-3/6 ml-3 pb-4">{description[bestfb]}</p>
+            <p className="text96 w-3/6 ml-3 pb-4">{description[bestfb]}</p>
           </div>
           <div className="text-base-300 pb-8" aria-hidden="true">
             <svg

@@ -31,9 +31,11 @@ export default function LineChart({
   ariaDescribedBy,
 }) {
   const [fontSettings, setFontSettings] = useState({
-    size: 10,
+    size: 15,
     color: "#000",
     bar: "#94C09E",
+    family: `"Athiti", sans-serif`,
+    weight: "400",
   });
 
   useEffect(() => {
@@ -52,9 +54,11 @@ export default function LineChart({
       rootStyles.getPropertyValue("--color-accent").trim() || "#94C09E";
 
     setFontSettings({
-      size: 10,
+      size: 15,
       color: fontColor,
       bar: chartColor,
+      family: `"Athiti", sans-serif`,
+      weight: "400",
     });
   }, []);
 
@@ -87,6 +91,8 @@ export default function LineChart({
           color: fontSettings.color,
           font: {
             size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
           },
         },
       },
@@ -99,7 +105,11 @@ export default function LineChart({
         },
         ticks: {
           color: fontSettings.color,
-          font: { size: fontSettings.size },
+          font: {
+            size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
+          },
         },
       },
       y: {
@@ -110,7 +120,11 @@ export default function LineChart({
         },
         ticks: {
           color: fontSettings.color,
-          font: { size: fontSettings.size },
+          font: {
+            size: fontSettings.size,
+            family: fontSettings.family,
+            weight: fontSettings.weight,
+          },
         },
       },
     },

@@ -17,7 +17,7 @@ export default async function StatisticPage({ params }) {
       <DashboardHeader title={dict.routes.statistic} />
       <section
         aria-labelledby="statistic-content"
-        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
+        className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-4"
       >
         {statisticData.data.map((item, index) => {
           switch (item.type) {
