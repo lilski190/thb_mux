@@ -4,6 +4,7 @@ import Tooltip from "../components/tooltips/InformationTooltip";
 import { ICONS } from "@/lib/globals";
 import SystemLanguage from "../systemLang";
 import { IntroOverlay } from "../components/modals/IntroOverlay";
+import InstallButton from "../components/buttons/InstallButton";
 
 export default async function Home({ params }) {
   const param = await params;
@@ -64,6 +65,7 @@ export default async function Home({ params }) {
               {dict.general.login}
             </Link>
           </div>
+          <InstallButton />
         </div>
       </section>
     </div>
