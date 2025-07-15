@@ -7,7 +7,7 @@ const InstallButton = ({}) => {
 
   if (!isInstallable) return null;
   return (
-    <button onClick={installApp} className="btn btn-primary my-5">
+    <button onClick={installApp} className="btn btn-info my-5">
       App installieren
     </button>
   );
