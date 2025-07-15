@@ -112,7 +112,8 @@
     "FBW": "Facultad de Economía",
     "loadring_sr": "Cargando...",
     "save": "Guardar",
-    "sr_lang": "Seleccionar idioma"
+    "sr_lang": "Seleccionar idioma",
+    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
     "home": "Inicio",

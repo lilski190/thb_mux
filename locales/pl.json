@@ -112,7 +112,8 @@
     "FBW": "Wydział Ekonomii",
     "loadring_sr": "Ładowanie...",
     "save": "Zapisz",
-    "sr_lang": "Wybierz język"
+    "sr_lang": "Wybierz język",
+    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
     "home": "Strona główna",

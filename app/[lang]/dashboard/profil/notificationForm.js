@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { pushNotoficationData } from "@/app/actions/formAction";
+import { useToast } from "@/app/components/modals/Toast";
 
-export default function NotificationForm({ params, dict }) {
+export default function NotificationForm({ params, dict, closeModal }) {
   const [checkboxes, setCheckboxes] = useState({
     mo: false,
     di: false,
@@ -11,6 +12,22 @@ export default function NotificationForm({ params, dict }) {
     don: false,
     fr: false,
   });
+
+  const { showToast } = useToast();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    try {
+      const result = await pushNotoficationData(formData);
+      showToast("success", 3, result || "Erfolgreich gespeichert");
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      showToast("error", 3, "Fehler beim Speichern");
+    }
+    closeModal?.()
+  };
 
   const allChecked = Object.values(checkboxes).every(Boolean);
 
@@ -34,7 +51,7 @@ export default function NotificationForm({ params, dict }) {
   };
 
   return (
-    <form action={pushNotoficationData} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <fieldset
         className="flex flex-wrap justify-center gap-2"
         aria-labelledby="weekday-group-label"

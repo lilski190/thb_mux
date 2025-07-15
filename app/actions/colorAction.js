@@ -3,13 +3,13 @@
 
 import { cookies } from "next/headers";
 
-export async function setColorMode(formData) {
-  const cm = formData.get("colormode");
+export async function setColorMode(colormode) {
+  const cm = colormode;
   console.log("set Cookie", cm);
   const cookieStore = await cookies();
   cookieStore.set("colorMode", cm || "main");
   //TODO save color mode request
-  return true;
+  return "DEFALUT SAVE MESSAGE";
 }
 
 export async function setLang(lang) {
@@ -19,5 +19,5 @@ export async function setLang(lang) {
   cookieStore.set("dir", dir || "dir");
   //TODO save lang
   //lang = "de" || "en" || "sp" || "pl" || "ar"
-  return true;
+  return "DEFALUT SAVE MESSAGE";
 }

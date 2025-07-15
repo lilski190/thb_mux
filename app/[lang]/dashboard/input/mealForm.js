@@ -5,9 +5,23 @@ import { pushMealData } from "@/app/actions/formAction";
 import { useToast } from "@/app/components/modals/Toast";
 import { ICONS } from "@/lib/globals";
 
-export default function MealForm({ dict }) {
+export default function MealForm({ dict, closeModal }) {
   const { showToast } = useToast();
   const [meal, setMeal] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    try {
+      const result = await pushMealData(formData);
+      showToast("success", 3, result || "Erfolgreich gespeichert");
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      showToast("error", 3, "Fehler beim Speichern");
+    }
+    closeModal?.()
+  };
 
   const handleClick = (value) => {
     setMeal(value);
@@ -23,13 +37,7 @@ export default function MealForm({ dict }) {
   ];
 
   return (
-    <form
-      action={pushMealData}
-      onSubmit={() =>
-        showToast("success", 5, "Benutzer erfolgreich gespeichert!")
-      }
-      className="space-y-6"
-    >
+    <form onSubmit={handleSubmit} className="space-y-6">
       <fieldset
         role="radiogroup"
         aria-labelledby="meal-choice-legend"
@@ -38,14 +46,16 @@ export default function MealForm({ dict }) {
         <legend id="meal-choice-legend" className="sr-only">
           {dict.legendMeal}
         </legend>
-
         {mealOptions.map((item) => {
           const inputId = `meal-${item.value}`;
           const isSelected = meal === item.value;
 
           if (item.value !== "none") {
             return (
-              <div key={item.value} className="flex flex-col items-center">
+              <div
+                key={item.value}
+                className="flex flex-col items-center w-1/4"
+              >
                 <input
                   type="radio"
                   id={inputId}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, cloneElement } from "react";
 import MenuModal from "../cards/MenuModal";
 
 const Modal = ({ button, children, title, description, id, icon }) => {
@@ -8,7 +8,6 @@ const Modal = ({ button, children, title, description, id, icon }) => {
 
   const openModal = () => {
     dialogRef.current?.showModal();
-    // Fokus ins Modal setzen
     setTimeout(() => {
       const firstFocusable = dialogRef.current?.querySelector(
         "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])"
@@ -19,7 +18,7 @@ const Modal = ({ button, children, title, description, id, icon }) => {
 
   const closeModal = () => {
     dialogRef.current?.close();
-    buttonRef.current?.focus(); // Fokus zurück
+    buttonRef.current?.focus();
   };
 
   return (
@@ -55,6 +54,7 @@ const Modal = ({ button, children, title, description, id, icon }) => {
                 ✕
               </button>
             </form>
+
             <div className="h-full flex flex-col items-center justify-evenly">
               <h3 id={`${id}-title`} className="title pt-[25%] text-center">
                 {title}
@@ -65,7 +65,13 @@ const Modal = ({ button, children, title, description, id, icon }) => {
               >
                 {description}
               </div>
-              <div>{children}</div>
+
+              {/* 🔥 WICHTIG: dem Kind closeModal mitgeben */}
+              <div>
+                {React.isValidElement(children)
+                  ? cloneElement(children, { closeModal })
+                  : children}
+              </div>
             </div>
           </div>
         </div>

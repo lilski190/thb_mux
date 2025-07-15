@@ -2,20 +2,36 @@
 import React, { useRef, useState } from "react";
 import { ICONS } from "@/lib/globals";
 import { setColorMode } from "@/app/actions/colorAction";
+import { useToast } from "@/app/components/modals/Toast";
 
 const BarColormode = ({ title, icon, mode, dict }) => {
   const formRef = useRef(null);
   const [selectedMode, setSelectedMode] = useState(mode);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const { showToast } = useToast();
+
+  const handleSave = async (modeToSave) => {
+    setIsSaving(true);
+    try {
+      let result = await setColorMode(modeToSave);
+      showToast("success", 3, result || "Erfolgreich gespeichert");
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      showToast("error", 3, "Fehler beim Speichern");
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const handleChange = (e) => {
     const value = e.target.value;
     setSelectedMode(value);
-    formRef.current?.requestSubmit();
+    handleSave(value); // Direkt speichern mit dem neuen Wert
   };
-
   return (
     <div className="w-full mb-2">
-      <form ref={formRef} action={setColorMode}>
+      <form>
         <fieldset
           className="flex gap-4 w-full"
           aria-labelledby="color-group-label"
@@ -46,6 +62,7 @@ const BarColormode = ({ title, icon, mode, dict }) => {
                       ? "border border-primary border-3"
                       : "hover:bg-base-200/40 border border-3 border-base-300"
                   }
+                    ${isSaving ? "opacity-50 pointer-events-none" : ""}
                 `}
             >
               <svg
@@ -87,6 +104,7 @@ const BarColormode = ({ title, icon, mode, dict }) => {
                       ? "border border-primary border-3"
                       : "hover:bg-base-200/40 border border-3 border-base-300"
                   }
+                    ${isSaving ? "opacity-50 pointer-events-none" : ""}
                 `}
             >
               <svg
@@ -128,6 +146,7 @@ const BarColormode = ({ title, icon, mode, dict }) => {
                       ? "border border-primary border-3"
                       : "hover:bg-base-200/40 border border-3 border-base-300"
                   }
+                    ${isSaving ? "opacity-50 pointer-events-none" : ""}
                 `}
             >
               <svg

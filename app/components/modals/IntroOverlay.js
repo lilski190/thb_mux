@@ -14,7 +14,7 @@ export function IntroOverlay({ altText, name }) {
 
   return (
     <div
-      className="fixed inset-0 bg-base-200 z-50 flex flex-col items-center justify-center h-screen w-screen"
+      className="fixed inset-0 bg-[#fbedda] z-50 flex flex-col items-center justify-center h-screen w-screen"
       role="alert"
       aria-live="assertive"
       aria-label={altText}

@@ -4,10 +4,13 @@ import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 // ➜ Passe ggf. den Importpfad an:
 import { setLang } from "../actions/colorAction";
+import { useToast } from "@/app/components/modals/Toast";
 
-export default function LanguageSwitcher({ dict }) {
+export default function LanguageSwitcher({ dict, closeModal }) {
   const pathname = usePathname();
   const router = useRouter();
+
+  const { showToast } = useToast();
 
   // Aktuelle Sprache aus der URL ermitteln
   const currentLang = pathname.split("/")[1] || "de";
@@ -31,15 +34,20 @@ export default function LanguageSwitcher({ dict }) {
     setIsSaving(true);
     try {
       // 1) Action ausführen (z. B. in der DB / Session speichern)
-      await setLang(selectedLang);
+      let result = await setLang(selectedLang);
+      showToast("success", 3, result || "Erfolgreich gespeichert");
 
       // 2) URL umschreiben
       const segments = pathname.split("/").filter(Boolean);
       segments[0] = selectedLang;
       router.push(`/${segments.join("/")}`);
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      showToast("error", 3, "Fehler beim Speichern");
     } finally {
       setIsSaving(false);
     }
+    closeModal?.();
   };
 
   return (

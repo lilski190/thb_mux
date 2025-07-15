@@ -104,7 +104,8 @@
     "FBT": "Technology Department",
     "FBW": "Business Department",
     "save": "Save",
-    "sr_lang": "Select Language"
+    "sr_lang": "Select Language",
+    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
     "home": "Home",

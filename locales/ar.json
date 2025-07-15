@@ -112,7 +112,8 @@
     "FBW": "قسم الاقتصاد",
     "loadring_sr": "جار التحميل...",
     "save": "حفظ",
-    "sr_lang": "اختر اللغة"
+    "sr_lang": "اختر اللغة",
+    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
     "home": "الرئيسية",

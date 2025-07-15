@@ -2,16 +2,33 @@
 import { pushArivalData } from "@/app/actions/formAction";
 import { useState } from "react";
 import { ICONS } from "@/lib/globals";
+import { useToast } from "@/app/components/modals/Toast";
 
-export default function ArrivalForm({ dict }) {
+export default function ArrivalForm({ dict, closeModal }) {
   const [transportation, setTransportation] = useState("");
   const [distance, setDistance] = useState(5);
+
+  const { showToast } = useToast();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    try {
+      const result = await pushArivalData(formData);
+      showToast("success", 3, result || "Erfolgreich gespeichert");
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      showToast("error", 3, "Fehler beim Speichern");
+    }
+    closeModal?.();
+  };
 
   /* Hilfsfunktion für IDs */
   const id = (val) => `transport-${val}`;
 
   return (
-    <form action={pushArivalData} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       {/* --------- Verkehrsmittel --------- */}
       <fieldset
         role="radiogroup"

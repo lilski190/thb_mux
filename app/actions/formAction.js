@@ -60,7 +60,7 @@ export async function pushMealData(formData) {
   console.log("response MEAl post", response);
 
   //const data = await getRequestToken(path, token);
-  return "DATEN GELADEN ;)"; //data;
+  return "DATEN GELADEN DEFAULT MESSAGE"; //data;
 }
 
 export async function pushNotoficationData(formData) {
@@ -91,5 +91,5 @@ export async function pushNotoficationData(formData) {
   console.log("response NOTOFICATINS post", response);
 
   //const data = await getRequestToken(path, token);
-  return "DATEN GELADEN ;)"; //data;
+  return "DATEN GESPEICHERT DEFAULT MESSAGE"; //data;
 }
