@@ -10,16 +10,13 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 export default async function DashboardPage({ params }) {
-  const lang = (await params.lang) || "de";
+  const param = await params;
+  const cookieStore = await cookies();
+  const cookieLang = cookieStore.get("lang")?.value;
+  const lang = cookieLang || "de";
   const dict = await getDictionary(lang);
 
   const homeData = await getHomeData();
-  if (homeData.personal.lang != lang) {
-    redirect(`/${homeData.personal.lang}/dashboard`);
-  }
-  if (homeData?.personal?.colorMode) {
-    //   await setColorMode(homeData?.personal?.colorMode);
-  }
 
   return (
     <div>

@@ -3,6 +3,7 @@
     "title": "Home",
     "streak": {
       "title": "Days Streak -",
+      "sr_title": "Anzahl der Streak tage",
       "options": [
         "A solid start!",
         "Hotter than my compost in summer!",
@@ -42,6 +43,9 @@
       "FBI": "The Computer Science department logged the most data today.",
       "FBT": "The Technology department logged the most data today.",
       "FBW": "The Business department logged the most data today."
+    },
+    "sr_statistic": {
+      "value": "Anzahl an eingetragenen Daten des Fachbereiches"
     }
   },
   "profil": {

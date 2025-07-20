@@ -23,7 +23,7 @@ export default async function RootLayout({ children, params }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${colorMode} bg-base-200`}>
-        <SystemLanguage />
+        <SystemLanguage current={lang} />
         {children}
       </body>
     </html>

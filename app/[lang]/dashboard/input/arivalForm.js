@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ICONS } from "@/lib/globals";
 import { useToast } from "@/app/components/modals/Toast";
 
-export default function ArrivalForm({ dict, closeModal }) {
+export default function ArrivalForm({ dict, closeModal, usual }) {
   const [transportation, setTransportation] = useState("");
   const [distance, setDistance] = useState(5);
 
@@ -123,7 +123,8 @@ export default function ArrivalForm({ dict, closeModal }) {
         type="button"
         className="underline text80 hover:text-accent focus:outline-none focus:ring-2 focus:ring-info w-full"
         onClick={() => {
-          /* hier Aktion zum Setzen als Standard */
+          if (usual?.key) setTransportation(usual.key);
+          if (typeof usual?.value === "number") setDistance(usual.value);
         }}
       >
         {dict.usual}

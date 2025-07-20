@@ -28,6 +28,7 @@ export async function loginAction(formData, lang) {
     });
 
     cookieStore.set("colorMode", result?.colorMode || "main");
+    cookieStore.set("lang", result?.lang || "de");
 
     // Weiterleitung zum Dashboard
     // redirect(`/${lang}/dashboard`);
@@ -40,7 +41,7 @@ export async function loginAction(formData, lang) {
 
 export async function logoutAction() {
   const cookieStore = cookies();
-
+  let lastLang = cookieStore.get("lang")?.value || "de";
   // Cookie löschen, indem man es mit leerem Wert und maxAge 0 setzt
   cookieStore.set("token", "", {
     httpOnly: true,
@@ -55,6 +56,10 @@ export async function logoutAction() {
     path: "/",
   });
 
-  // Weiterleitung zur Startseite
-  redirect("/");
+  cookieStore.set("lang", "", {
+    maxAge: 0,
+    path: "/",
+  });
+
+  redirect(`/${lastLang}/`);
 }

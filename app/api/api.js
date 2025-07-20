@@ -12,6 +12,7 @@ export async function getRequestToken(token, path) {
   });
 
   if (!res.ok) {
+    console.error("Res fehler", res);
     throw new Error("Fehler beim Senden der Daten");
   }
 

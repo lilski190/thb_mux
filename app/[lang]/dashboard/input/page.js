@@ -3,11 +3,19 @@ import ArivalFrom from "./arivalForm";
 import MealFrom from "./mealForm";
 import Modal from "@/app/components/modals/Modal";
 import DashboardHeader from "@/app/components/header";
+import { getInputData } from "@/app/actions/dashboardAction";
 
 export default async function InputPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";
   const dict = await getDictionary(lang);
+
+  const inputData = await getInputData();
+  let usualArival = { key: "walk", value: 0 };
+
+  if (inputData.usual_arival) {
+    usualArival = inputData.usual_arival;
+  }
 
   return (
     <div>
@@ -21,7 +29,7 @@ export default async function InputPage({ params }) {
           title={dict.input.arival.title}
           description={dict.input.arival.description}
         >
-          <ArivalFrom dict={dict.input.arival} />
+          <ArivalFrom dict={dict.input.arival} usual={usualArival} />
         </Modal>
         <Modal
           id="meal"

@@ -4,24 +4,34 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SystemLanguage({ current }) {
-  const [sysLang, setSysLang] = useState("");
   const router = useRouter();
-
   const allowedLangs = ["de", "en", "sp", "pl", "ar"];
 
   useEffect(() => {
-    const systemLangFull = navigator.language; // z. B. "de-DE"
-    const systemLang = systemLangFull.split("-")[0]; // → "de"
+    // Hole bevorzugte Sprache aus Cookie
+    const cookieLang = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("lang="))
+      ?.split("=")[1];
 
-    console.log("Systemsprache:", systemLang, "Aktuelle Route:", current);
+    // Hole System-Sprache als Fallback
+    const systemLangFull = navigator.language || "de-DE";
+    const systemLang = systemLangFull.split("-")[0];
 
-    // Wenn System-Sprache unterschiedlich und erlaubt → redirect
-    if (systemLang !== current && allowedLangs.includes(systemLang)) {
-      router.replace(`/${systemLang}`);
+    // Entscheide, welche Sprache verwendet werden soll
+    const preferredLang = allowedLangs.includes(cookieLang)
+      ? cookieLang
+      : allowedLangs.includes(systemLang)
+      ? systemLang
+      : "de"; // Standardfallback
+
+    console.log("Preferred Lang:", preferredLang, "| Aktuelle Route:", current);
+
+    // Redirect nur, wenn preferredLang ≠ aktuelle Sprachroute
+    if (current && preferredLang !== current) {
+      router.replace(`/${preferredLang}`);
     }
-
-    setSysLang(systemLangFull); // Für Anzeige im UI
   }, [current, router]);
 
-  return <div></div>;
+  return null;
 }

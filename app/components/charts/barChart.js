@@ -130,8 +130,8 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
     if (canvas instanceof HTMLCanvasElement) {
       canvas.setAttribute("role", "img");
       canvas.setAttribute(
-        "aria-label",
-        dict.altText || dict.title || "Liniendiagramm"
+        dict.altText || dict.title || "Balkendiagramm",
+        "aria-label"
       );
       if (ariaDescribedBy)
         canvas.setAttribute("aria-describedby", ariaDescribedBy);

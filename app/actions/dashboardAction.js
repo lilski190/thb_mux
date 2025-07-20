@@ -24,9 +24,35 @@ export async function getHomeData() {
   // let response = HomeDummi.response;
   //TODO: write usual_arival in cookies
   const response = await getRequestToken(token, path);
+  if (response.data.usual_arival != undefined) {
+    console.log("usual_arival", response.data.usual_arival);
+  }
 
   //COLROMODE Cookie setzen
   console.log("home request result: ", response);
+
+  return response.data;
+}
+
+export async function getInputData() {
+  let path = "home";
+  console.log("GET DATA FOR HOME");
+
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
+
+  if (!token) {
+    console.warn("No token found");
+    redirect("/login");
+    return null;
+  }
+
+  // let response = HomeDummi.response;
+  //TODO: write usual_arival in cookies
+  const response = await getRequestToken(token, path);
+
+  //COLROMODE Cookie setzen
+  console.log("input request result: ", response);
 
   return response.data;
 }
