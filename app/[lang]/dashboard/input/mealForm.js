@@ -5,7 +5,7 @@ import { pushMealData } from "@/app/actions/formAction";
 import { useToast } from "@/app/components/modals/Toast";
 import { ICONS } from "@/lib/globals";
 
-export default function MealForm({ dict, closeModal }) {
+export default function MealForm({ dict, closeModal, toast }) {
   const { showToast } = useToast();
   const [meal, setMeal] = useState("");
 
@@ -15,12 +15,29 @@ export default function MealForm({ dict, closeModal }) {
 
     try {
       const result = await pushMealData(formData);
-      showToast("success", 3, result || "Erfolgreich gespeichert");
+
+      if (result?.success) {
+        showToast(
+          "success",
+          3,
+          toast?.success || result.message || "Mahlzeit erfolgreich gespeichert"
+        );
+      } else {
+        let msg =
+          result?.message === "mealType is invalid"
+            ? toast?.invalid || "Ungültiger Mahlzeitentyp"
+            : result?.message === "Missing Authorization Header"
+            ? toast?.msg || "Nicht eingeloggt"
+            : toast?.general || result?.message || "Fehler beim Speichern";
+
+        showToast("error", 3, msg);
+      }
     } catch (error) {
-      console.error("Fehler beim Speichern:", error);
-      showToast("error", 3, "Fehler beim Speichern");
+      console.error("Fehler beim Speichern (unexpected):", error);
+      showToast("error", 3, "Ein unerwarteter Fehler ist aufgetreten");
     }
-    closeModal?.()
+
+    closeModal?.();
   };
 
   const handleClick = (value) => {
@@ -98,7 +115,7 @@ export default function MealForm({ dict, closeModal }) {
                   type="radio"
                   id={inputId}
                   name="meal"
-                  value="none"
+                  value="0"
                   checked={isSelected}
                   onChange={() => handleClick("none")}
                   className="sr-only peer"

@@ -103,7 +103,10 @@ export default async function ProfilPage({ params }) {
           description={dict.profil.notificationForm.description}
           icon="notification"
         >
-          <NotificationFrom dict={dict.profil.notificationForm} />
+          <NotificationFrom
+            dict={dict.profil.notificationForm}
+            toast={dict.toast.notifications}
+          />
         </Modal>
 
         <BarColormode
@@ -111,6 +114,7 @@ export default async function ProfilPage({ params }) {
           icon="colormode"
           mode={colorMode}
           dict={dict}
+          toast={dict.toast.color}
         />
         <Tooltip text={dict.general.notImplementet}>
           <MenuModal title={dict.profil.konto} icon="profil" />

@@ -3,8 +3,8 @@ import { ICONS } from "@/lib/globals";
 
 const IconScaleChart = ({ data, labels, dict, ariaDescribedBy }) => {
   const max = Math.max(...data);
-  const maxSize = 90;
-  const minSize = 40;
+  const maxSize = 80;
+  const minSize = 30;
 
   const items = data
     .map((value, i) => ({ value, label: labels[i] }))

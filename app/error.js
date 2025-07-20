@@ -1,25 +1,63 @@
-"use client"; // wichtig! Muss ein Client Component sein
+"use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getDictionary } from "@/lib/getDictionary";
 
-export default function Error({ error, reset }) {
+export default function ErrorPage({ error, reset }) {
+  const [dict, setDict] = useState(null);
+
   useEffect(() => {
     console.error("Ein unerwarteter Fehler ist aufgetreten:", error);
+
+    // Sprache aus der URL extrahieren (z. B. /de/xyz)
+    const pathname = window.location.pathname;
+    const lang = pathname.split("/")[1] || "de";
+
+    getDictionary(lang)
+      .then(setDict)
+      .catch(() => {
+        setDict({
+          errors: {
+            errorAltText: "Fehler beim Laden der Seite",
+            error: "Fehler",
+            errorDescription:
+              "Es ist ein Fehler aufgetreten. Bitte lade die Seite neu.",
+          },
+        });
+      });
   }, [error]);
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center">
-      <h1 className="text-3xl font-bold">
-        TODO: Customize 😵 Upps! Ein Fehler ist aufgetreten
-      </h1>
-      <p className="mt-2 text-gray-600">Etwas ist schiefgelaufen.</p>
+  if (!dict) return null;
 
-      <button
-        onClick={() => reset()}
-        className="mt-6 px-4 py-2 bg-blue-600 text-white rounded"
+  const altText = dict.errors.errorAltText || "Error loading page";
+  const title = dict.errors.error || "Error";
+  const description =
+    dict.errors.errorDescription ||
+    "There was an error, please reload the page.";
+
+  return (
+    <div className="bg-base-200 h-screen">
+      <section
+        className="fixed inset-0 bg-[#fbedda] z-50 flex flex-col items-start justify-start h-screen w-screen"
+        role="alert"
+        aria-live="assertive"
+        aria-label={title}
       >
-        Seite neu laden
-      </button>
+        <img
+          src="/error.gif"
+          alt={altText}
+          className="w-full mt-6"
+          aria-hidden="true"
+        />
+        <header className="px-10 mt-4 w-full">
+          <h1 className="title titleBig text.center" tabIndex={-1}>
+            {title}
+          </h1>
+        </header>
+        <p className="px-10 text96 text-center w-full mt-3 my-6">
+          {description}
+        </p>
+      </section>
     </div>
   );
 }

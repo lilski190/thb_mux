@@ -1,15 +1,43 @@
 import Link from "next/link";
+import { getDictionary } from "@/lib/getDictionary";
 
-export default function NotFound() {
+export default async function NotFound({ params }) {
+  const param = await params;
+  const lang = param?.lang || "de";
+  const dict = await getDictionary(lang);
+  let altText = dict.errors.notFoundAltText || "Page not found";
+  let title = dict.errors.notFound || "404 Not Found";
+  let link = dict.errors.LinkNotFound || "Back to homepage";
+  let description =
+    dict.errors.notFoundDescription ||
+    "This page does not exist. Please check the URL or return to the homepage.";
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center">
-      <h1 className="text-4xl font-bold">
-        404 - Seite nicht gefunden TODO: CUSTOMIZE
-      </h1>
-      <p className="mt-4">Die angeforderte Seite existiert nicht. CUSTOMIZE</p>
-      <Link href="/" className="mt-6 text-blue-600 underline">
-        Zurück zur Startseite
-      </Link>
+    <div className="bg-base-200 h-screen">
+      <section
+        className="fixed inset-0 bg-[#fbedda] z-50 flex flex-col items-center justify-start h-screen w-screen"
+        role="alert"
+        aria-live="assertive"
+        aria-label={title}
+      >
+        <img
+          src="/notfound.gif"
+          alt={altText}
+          className="w-full mt-6"
+          aria-hidden="true"
+        />
+        <header className="px-10 mt-4 w-full">
+          <h1 className="title titleBig text-center" tabIndex={-1}>
+            {title}
+          </h1>
+        </header>
+        <p className="px-10 text96 text-center w-full mt-3 my-6">
+          {description}
+        </p>
+        <Link href={`/`} className="btn btn-primary mx-10">
+          {link}
+        </Link>
+      </section>
     </div>
   );
 }

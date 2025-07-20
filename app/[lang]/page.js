@@ -5,19 +5,31 @@ import { ICONS } from "@/lib/globals";
 import SystemLanguage from "../systemLang";
 import { IntroOverlay } from "../components/modals/IntroOverlay";
 import InstallButton from "../components/buttons/InstallButton";
+import { cookies } from "next/headers";
 
 export default async function Home({ params }) {
   const param = await params;
   const lang = param.lang || "de";
   const dict = await getDictionary(lang);
 
+  // 1. Token aus Cookies holen
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+  let userLoggedIn = false;
+  if (token != undefined) {
+    userLoggedIn = true;
+  }
+
   return (
     <div className="bg-base-200 h-screen flex items-center justify-center">
       <IntroOverlay
         altText={dict.general.loading_sr}
         name={dict.general.projectName}
+        userLoggedIn={userLoggedIn}
+        lang={lang}
       />
       <SystemLanguage current={lang} />
+
       <section className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-1/3 flex items-center ">
         <div className="flex flex-col items-center justify-between max-w-96 my-10 ">
           <div className="text-primary max-h-30 flex justify-center items-center w-full">

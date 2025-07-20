@@ -1,11 +1,11 @@
 {
-  "name": "Meine App SustainAble",
-  "short_name": "Sustainable App",
+  "name": "SustainAble",
+  "short_name": "SustainAble",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "description": "Meine coole Next.js Sustainable PWA",
+  "theme_color": "#fbedda",
+  "background_color": "#fbedda",
+  "description": "Die Nachhaltigkeitsapp der Technischen Hochschule Brandenburg",
   "icons": [
     {
       "src": "/icons/icon-small.svg",

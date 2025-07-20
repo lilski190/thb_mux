@@ -12,8 +12,19 @@ export async function getRequestToken(token, path) {
   });
 
   if (!res.ok) {
-    console.error("Res fehler", res);
-    throw new Error("Fehler beim Senden der Daten");
+    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    let errorMsg = ` (${res.status})`;
+
+    try {
+      const json = JSON.parse(errorText);
+      if (json.error) {
+        errorMsg = json.error;
+      }
+    } catch (_) {
+      // keine gültige JSON-Antwort, ignoriere
+    }
+
+    throw new Error(errorMsg);
   }
 
   const data = await res.json();
@@ -31,10 +42,21 @@ export async function postRequest(path, obj) {
   });
 
   if (!res.ok) {
-    const errorText = await res.text(); // manchmal ist die Antwort kein JSON
-    console.error("HTTP-Fehler:", res.status, errorText);
-    throw new Error(`HTTP-Fehler: ${res.status} - ${errorText}`);
+    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    let errorMsg = `(${res.status})`;
+
+    try {
+      const json = JSON.parse(errorText);
+      if (json.error) {
+        errorMsg = json.error;
+      }
+    } catch (_) {
+      // keine gültige JSON-Antwort, ignoriere
+    }
+
+    throw new Error(errorMsg);
   }
+
   let data;
   try {
     data = await res.json();
@@ -57,7 +79,19 @@ export async function postRequestToken(token, path, obj) {
   });
 
   if (!res.ok) {
-    throw new Error("Fehler beim Senden der Daten");
+    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    let errorMsg = ` (${res.status})`;
+
+    try {
+      const json = JSON.parse(errorText);
+      if (json.error) {
+        errorMsg = json.error;
+      }
+    } catch (_) {
+      // keine gültige JSON-Antwort, ignoriere
+    }
+
+    throw new Error(errorMsg);
   }
 
   const data = await res.json();

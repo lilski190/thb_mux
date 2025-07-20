@@ -23,7 +23,9 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
       aria-labelledby="stat-title"
     >
       <div className="py-6 pl-5 pr-1  hover:bg-base-300/10">
-        <h3 className="Textbold font-bold mb-3 text124">{title}</h3>
+        <h3 className="Textbold font-bold mb-3 text124 text124 text">
+          {title}
+        </h3>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 justify-start h-24">
             <figure

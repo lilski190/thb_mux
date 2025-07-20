@@ -60,15 +60,18 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
   // negative margin to create overlap
 
   return (
-    <div className="p-3 grid grid-cols-3 w-64 relative">
+    <div className=" w-2/3 grid  grid-cols-3 relative overflow-visible">
       {data.map((value, i) => {
         const size = getSize(value);
 
         return (
           <div
             key={i}
-            className={" w-40 flex items-center justify-center h-28 text"}
+            className={" flex items-end justify-center h-32 text px-4"}
             aria-hidden="true"
+            style={{
+              width: `${size}px`,
+            }}
           >
             <svg
               aria-hidden="true"
@@ -77,8 +80,10 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
               viewBox="0 0 96 96"
               style={{
                 width: `${size}px`,
+
                 color: colors[i],
               }}
+              strokeWidth={1}
               className=""
             >
               <path d={ICONS.cloud} />
@@ -97,7 +102,7 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
             key={value + i}
             className={`${
               i === 2 ? "pr-0 " : "pr-2"
-            } z-20 -mt-16 h-6 flex items-end justify-center  text text80`}
+            } z-20 -mt-18 h-6 flex items-end justify-center  text text80`}
             style={{
               width: `${size}px`,
 

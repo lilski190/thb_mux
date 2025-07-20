@@ -29,7 +29,11 @@ export default async function InputPage({ params }) {
           title={dict.input.arival.title}
           description={dict.input.arival.description}
         >
-          <ArivalFrom dict={dict.input.arival} usual={usualArival} />
+          <ArivalFrom
+            dict={dict.input.arival}
+            usual={usualArival}
+            toast={dict.toast.arival}
+          />
         </Modal>
         <Modal
           id="meal"
@@ -37,7 +41,7 @@ export default async function InputPage({ params }) {
           title={dict.input.meal.title}
           description={dict.input.meal.description}
         >
-          <MealFrom dict={dict.input.meal} />
+          <MealFrom dict={dict.input.meal} toast={dict.toast.meal} />
         </Modal>
       </div>
     </div>

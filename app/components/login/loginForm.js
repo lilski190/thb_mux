@@ -12,11 +12,19 @@ async function handleLogin(formData, dict, showToast, router, lang) {
   const password = formData.get("password");
 
   if (!email || !email.includes("@")) {
-    showToast("error", 3, dict.login.invalidEmail || "Ungültige E-Mail");
+    showToast(
+      "error",
+      3,
+      dict.toast.login.error.invalidEMail || "Ungültige E-Mail"
+    );
     return;
   }
   if (!password || password.length < 6) {
-    showToast("error", 3, dict.login.shortPassword || "Passwort zu kurz");
+    showToast(
+      "error",
+      3,
+      dict.toast.login.error.invalidPassword || "Passwort zu kurz"
+    );
     return;
   }
 
@@ -28,19 +36,28 @@ async function handleLogin(formData, dict, showToast, router, lang) {
         res.message.toLowerCase().trim() === "success");
 
     if (success) {
-      showToast("success", 3, dict.login.success || "Login erfolgreich!");
+      showToast("success", 3, dict.toast.login.success || "Login erfolgreich!");
       // Kurze Pause, damit Toast sichtbar wird
       await new Promise((resolve) => setTimeout(resolve, 100));
       router.push(`/${lang}/dashboard`);
     } else {
-      showToast(
-        "error",
-        3,
-        res.message || dict.login.failed || "Login fehlgeschlagen"
-      );
+      let message =
+        res.message || dict.toast.login.error.general || "Login fehlgeschlagen";
+      showToast("error", 3, res.message);
+      if (message === "Incorrect password") {
+        message = dict.toast.login.error.incorrectPassword;
+        showToast("error", 3, message);
+      } else if (message === "Incorrect username") {
+        message = dict.toast.login.error.incorrectUsername;
+        showToast("error", 3, message);
+      }
     }
   } catch (error) {
-    showToast("error", 3, dict.login.errorGeneral || "Fehler beim Login");
+    showToast(
+      "error",
+      3,
+      dict.toast.login.error.general || "Fehler beim Login"
+    );
   }
 }
 

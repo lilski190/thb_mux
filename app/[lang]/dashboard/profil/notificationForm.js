@@ -4,7 +4,7 @@ import { useState } from "react";
 import { pushNotoficationData } from "@/app/actions/formAction";
 import { useToast } from "@/app/components/modals/Toast";
 
-export default function NotificationForm({ params, dict, closeModal }) {
+export default function NotificationForm({ params, dict, closeModal, toast }) {
   const [checkboxes, setCheckboxes] = useState({
     mo: false,
     di: false,
@@ -21,12 +21,29 @@ export default function NotificationForm({ params, dict, closeModal }) {
 
     try {
       const result = await pushNotoficationData(formData);
-      showToast("success", 3, result || "Erfolgreich gespeichert");
+
+      if (result?.success) {
+        showToast(
+          "success",
+          3,
+          toast?.success || result.message || "Benachrichtigungen gespeichert"
+        );
+      } else {
+        let msg =
+          result?.message === "notifications array is invalid"
+            ? toast?.invalid || "Ungültige Benachrichtigungsdaten"
+            : result?.message === "Missing Authorization Header"
+            ? toast?.msg || "Nicht eingeloggt"
+            : toast?.general || result?.message || "Fehler beim Speichern";
+
+        showToast("error", 3, msg);
+      }
     } catch (error) {
-      console.error("Fehler beim Speichern:", error);
-      showToast("error", 3, "Fehler beim Speichern");
+      console.error("Fehler beim Speichern (unexpected):", error);
+      showToast("error", 3, "Ein unerwarteter Fehler ist aufgetreten");
     }
-    closeModal?.()
+
+    closeModal?.();
   };
 
   const allChecked = Object.values(checkboxes).every(Boolean);

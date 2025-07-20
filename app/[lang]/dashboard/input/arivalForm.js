@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ICONS } from "@/lib/globals";
 import { useToast } from "@/app/components/modals/Toast";
 
-export default function ArrivalForm({ dict, closeModal, usual }) {
+export default function ArrivalForm({ dict, closeModal, usual, toast }) {
   const [transportation, setTransportation] = useState("");
   const [distance, setDistance] = useState(5);
 
@@ -16,11 +16,28 @@ export default function ArrivalForm({ dict, closeModal, usual }) {
 
     try {
       const result = await pushArivalData(formData);
-      showToast("success", 3, result || "Erfolgreich gespeichert");
+
+      if (result?.success) {
+        showToast(
+          "success",
+          3,
+          toast?.success || result.message || "Erfolgreich gespeichert"
+        );
+      } else {
+        let msg =
+          result?.message === "transportationType is invalid"
+            ? toast?.error || "Ungültiger Transporttyp"
+            : result?.message === "Missing Authorization Header"
+            ? toast?.msg || "Nicht eingeloggt"
+            : toast?.general || result?.message || "Fehler beim Speichern";
+
+        showToast("error", 3, msg);
+      }
     } catch (error) {
-      console.error("Fehler beim Speichern:", error);
-      showToast("error", 3, "Fehler beim Speichern");
+      console.error("Fehler beim Speichern (unexpected):", error);
+      showToast("error", 3, "Ein unerwarteter Fehler ist aufgetreten");
     }
+
     closeModal?.();
   };
 

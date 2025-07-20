@@ -1,60 +1,62 @@
-// app/actions/setColorMode.ts
 "use server";
 
 import { cookies } from "next/headers";
 import { postRequestToken } from "../api/api";
+import { redirect } from "next/navigation"; // redirect richtig importieren
 
 export async function setColorMode(colormode) {
-  let path = "settings/colorMode";
-  const cm = colormode;
-  console.log("set Cookie", cm);
+  const path = "settings/colorMode";
+  const cm = colormode || "main";
   const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
 
-  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
   if (!token) {
     console.warn("No token found");
     redirect("/login");
     return null;
   }
 
-  let obj = {
-    colorMode: cm || "main",
-  };
-  let response = await postRequestToken(token, path, obj);
-  console.log("response COLORMODE post", response);
+  const obj = { colorMode: cm };
 
-  if (response != undefined) {
-    cookieStore.set("colorMode", cm || "main");
+  try {
+    const response = await postRequestToken(token, path, obj);
+    console.log("response COLORMODE post", response);
+
+    cookieStore.set("colorMode", cm);
+
+    return { success: true, message: "Farbmodus gespeichert" };
+  } catch (error) {
+    console.error("Fehler beim Speichern des Farbmodus:", error.message);
+    return { success: false, message: error.message };
   }
-
-  return true;
 }
 
 export async function setLang(lang) {
-  console.log("set Lang", lang);
-  let path = "settings/lang";
-  let dir = lang === "ar" ? "rtl" : "dir";
+  const path = "settings/lang";
+  const chosenLang = lang || "de";
+  const dir = chosenLang === "ar" ? "rtl" : "dir";
 
   const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
 
-  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
   if (!token) {
     console.warn("No token found");
     redirect("/login");
     return null;
   }
 
-  let obj = {
-    lang: lang || "de",
-  };
+  const obj = { lang: chosenLang };
 
-  let response = await postRequestToken(token, path, obj);
-  console.log("response LANG post", response);
+  try {
+    const response = await postRequestToken(token, path, obj);
+    console.log("response LANG post", response);
 
-  if (response != undefined) {
-    cookieStore.set("dir", dir || "dir");
-    cookieStore.set("lang", lang || "de");
+    cookieStore.set("dir", dir);
+    cookieStore.set("lang", chosenLang);
+
+    return { success: true, message: "Sprache gespeichert" };
+  } catch (error) {
+    console.error("Fehler beim Speichern der Sprache:", error.message);
+    return { success: false, message: error.message };
   }
-
-  return true;
 }

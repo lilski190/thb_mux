@@ -235,11 +235,51 @@
       "info": "Du hast dich lange nicht mehr eingeloggt.",
       "success": "Erfolgreich eingeloggt",
       "error": {
+        "invalidEMail": "Die E-Mail ist ungültig",
+        "invalidPassword": "Das Passwort ist ungültig",
+        "general": "Fehler beim Login",
         "notRegistert": "Die Email exestiert nicht",
         "serverError": "Der Server ist abgestürzt oder so",
-        "anotherError": "Es gibt noch weitere errors"
-      },
-      "warning": "User ist bereit woanders eingeloggt"
+        "anotherError": "Es gibt noch weitere errors",
+        "incorrectPassword": "Das Passwort ist falsch",
+        "incorrectUsername": "Die E-Mail ist falsch"
+      }
+    },
+    "arival": {
+      "general": "Fehler beim Speichern der Anreise",
+      "success": "Anfahrt erfolgreich gespeichert",
+      "error": "Das Transportmittel ist ungültig",
+      "msg": "Es gab einen Fehler mit der Autorisierung"
+    },
+    "meal": {
+      "general": "Fehler beim Speichern der Mahlzeit",
+      "success": "Mahlzeit erfolgreich gespeichert",
+      "error": "Der Mahlzeiten typ ist ungültig",
+      "msg": "Es gab einen Fehler mit der Autorisierung"
+    },
+    "notifications": {
+      "general": "Fehler beim Speichern der Notifikationen",
+      "success": "Notofications erfolgreich gespeichert",
+      "error": "Notofications sind ungültig",
+      "msg": "Es gab einen Fehler mit der Autorisierung"
+    },
+    "color": {
+      "general": "Fehler beim Speichern des Farbmodus",
+      "success": "Farbmodus erfolgreich gespeichert",
+      "error": "Farbmodus ist ungültig",
+      "msg": "Es gab einen Fehler mit der Autorisierung"
     }
+  },
+  "errors": {
+    "error": "Es gab einen Fehler",
+    "errorDescription": "Bitte versuche es später noch einmal, oder lade die Seite erneut",
+    "errorAltText": "Fehler beim Laden der Seite",
+    "notFound": "Diese Seite exestiert nicht",
+    "notFoundDescription": "Die Seite die du suchst, konnte nicht gefunden werden. Bitte überprüfe die URL oder gehe zurück zur Startseite.",
+    "notFoundAltText": "404 Fehler - Seite nicht gefunden",
+    "LinkNotFound": "Zurück zur Startseite",
+    "loading": "Wird geladen",
+    "loadingDescription": "Bitte warten, während die Daten geladen werden.",
+    "loadingAltText": "Lade Daten"
   }
 }

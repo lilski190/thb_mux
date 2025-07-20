@@ -13,29 +13,33 @@ export async function loginAction(formData, lang) {
 
   console.log("username", user, "pw", pw);
 
-  let obj = { username: user, password: pw };
-  let result = await postRequest(path, obj);
-  //TODO: DEBUG LOGIN
-  console.log("Reasult", result);
-  if (result?.access_token) {
-    // JWT Cookie für 6 Stunden setzen
-    const cookieStore = await cookies();
-    cookieStore.set("token", result.access_token, {
-      httpOnly: true, // schützt vor JS-Zugriff
-      secure: process.env.NODE_ENV === "production", // nur über HTTPS in Produktion
-      maxAge: 6 * 60 * 60, // 6 Stunden in Sekunden
-      path: "/",
-    });
+  const obj = { username: user, password: pw };
 
-    cookieStore.set("colorMode", result?.colorMode || "main");
-    cookieStore.set("lang", result?.lang || "de");
+  try {
+    const result = await postRequest(path, obj);
+    console.log("Result", result);
 
-    // Weiterleitung zum Dashboard
-    // redirect(`/${lang}/dashboard`);
-    return { success: true, message: "success" };
-  } else {
-    // Optional: Fehlerbehandlung
-    console.log("Login fehlgeschlagen, Setze Dummi token");
+    if (result?.access_token) {
+      const cookieStore = await cookies();
+
+      cookieStore.set("token", result.access_token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 6 * 60 * 60,
+        path: "/",
+      });
+
+      cookieStore.set("colorMode", result?.colorMode || "main");
+      cookieStore.set("lang", result?.lang || "de");
+
+      return { success: true, message: "success" };
+    } else {
+      console.warn("Login fehlgeschlagen: Kein access_token");
+      return { success: false, message: "Login fehlgeschlagen" };
+    }
+  } catch (error) {
+    console.error("Fehler beim Login:", error.message);
+    return { success: false, message: error.message || "Unbekannter Fehler" };
   }
 }
 

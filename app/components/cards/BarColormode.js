@@ -4,7 +4,7 @@ import { ICONS } from "@/lib/globals";
 import { setColorMode } from "@/app/actions/colorAction";
 import { useToast } from "@/app/components/modals/Toast";
 
-const BarColormode = ({ title, icon, mode, dict }) => {
+const BarColormode = ({ title, icon, mode, dict, toast }) => {
   const formRef = useRef(null);
   const [selectedMode, setSelectedMode] = useState(mode);
   const [isSaving, setIsSaving] = useState(false);
@@ -13,12 +13,27 @@ const BarColormode = ({ title, icon, mode, dict }) => {
 
   const handleSave = async (modeToSave) => {
     setIsSaving(true);
+
     try {
-      let result = await setColorMode(modeToSave);
-      showToast("success", 3, result || "Erfolgreich gespeichert");
+      const result = await setColorMode(modeToSave);
+
+      if (result?.success) {
+        showToast(
+          "success",
+          3,
+          toast?.success || result.message || "Farbmodus gespeichert"
+        );
+      } else {
+        let msg =
+          result?.message === "Missing Authorization Header"
+            ? toast?.auth || "Nicht eingeloggt"
+            : toast?.general || result?.message || "Fehler beim Speichern";
+
+        showToast("error", 3, msg);
+      }
     } catch (error) {
-      console.error("Fehler beim Speichern:", error);
-      showToast("error", 3, "Fehler beim Speichern");
+      console.error("Fehler beim Speichern (unexpected):", error);
+      showToast("error", 3, "Ein unerwarteter Fehler ist aufgetreten");
     } finally {
       setIsSaving(false);
     }
