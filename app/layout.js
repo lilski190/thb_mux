@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import "./globals.css";
 import SystemLanguage from "./systemLang";
+import OneSignalInit from "./components/OneSignalInit";
 
 export const metadata = {
   title: "SustainAble",
@@ -21,8 +22,13 @@ export default async function RootLayout({ children, params }) {
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <script
+          src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+          defer
+        ></script>
       </head>
       <body className={`${colorMode} bg-base-200`}>
+        <OneSignalInit />
         <SystemLanguage current={lang} />
         {children}
       </body>
