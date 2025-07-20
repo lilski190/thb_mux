@@ -1,5 +1,6 @@
 "use client";
 
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "../modals/Toast";
@@ -47,6 +48,11 @@ export default function LoginForm({ dict, lang }) {
   const { showToast } = useToast();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -76,21 +82,37 @@ export default function LoginForm({ dict, lang }) {
             {dict.login.mail}
           </label>
         </div>
+
         <div className="relative mt-1 text -mb-1">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"} // <-- toggle type
             name="password"
             id="password"
-            className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info"
+            className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info pr-10" // padding für Icon
             placeholder=" "
             required
           />
           <label
             htmlFor="password"
-            className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-focus:dark:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+            className="absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-base-100  px-2 peer-focus:px-2 peer-focus:text-info peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1"
           >
             {dict.login.pw}
           </label>
+          {/* Auge-Icon */}
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute top-2 right-3 text-gray-500 hover:text-info"
+            aria-label={
+              showPassword
+                ? dict.login.hidePassword || "Passwort verbergen"
+                : dict.login.showPassword || "Passwort anzeigen"
+            }
+          >
+            <div className="mt-0.5">
+              {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
+            </div>
+          </button>
         </div>
 
         <div className="flex items-center justify-between " aria-hidden="true">

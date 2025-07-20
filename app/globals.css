@@ -300,3 +300,24 @@ body {
   background-color: rgb(from var(--color-accent) r g b / 90%);
   transform: scale(1.1);
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 3px solid #f0f0f0;
+}
+
+/* Scrollbar-Styling für Firefox */
+* {
+  scrollbar-width: thin; /* oder auto, thin, none */
+  scrollbar-color: #999 #f0f0f0; /* Daumenfarbe + Trackfarbe */
+}

@@ -30,7 +30,7 @@ const DashboardHeader = ({ title }) => {
           </svg>
         </div>
         <h2 className="title pt-5"> {title}</h2>
-        <div className="w-32" aria-hidden="true"></div>
+        <div className="w-38" aria-hidden="true"></div>
       </div>
     </header>
   );

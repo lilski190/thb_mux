@@ -67,7 +67,7 @@ const MedalModal = ({ count, title, description, sr }) => {
             <span className="sr-only">{sr}</span>
           </div>
           <div className="w-1/2">
-            <h3 className="Textbold w-5/6 text96 text">{title}</h3>
+            <h3 className="Textbold w-5/6 text124 text">{title}</h3>
             <p className="text96 w-5/6">{description}</p>
           </div>
         </div>
