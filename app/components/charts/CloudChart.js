@@ -8,8 +8,8 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
   const chartRef = useRef();
   const max = Math.max(...data);
 
-  const maxSize = 180;
-  const minSize = 50;
+  const maxSize = 200;
+  const minSize = 30;
 
   const items = data
     .map((value, i) => ({ value, label: labels[i] }))
@@ -67,7 +67,7 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
         return (
           <div
             key={i}
-            className={" flex items-end justify-center h-32 text px-4"}
+            className={" flex items-end justify-center h-24 text px-4"}
             aria-hidden="true"
             style={{
               width: `${size}px`,
@@ -102,7 +102,7 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
             key={value + i}
             className={`${
               i === 2 ? "pr-0 " : "pr-2"
-            } z-20 -mt-18 h-6 flex items-end justify-center  text text80`}
+            } z-20 -mt-8 h-6 flex items-end justify-center  text text80`}
             style={{
               width: `${size}px`,
 
