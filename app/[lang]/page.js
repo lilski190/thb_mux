@@ -15,9 +15,12 @@ export default async function Home({ params }) {
   // 1. Token aus Cookies holen
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
+  const cookieLang = cookieStore.get("lang")?.value;
+  let loggedInLang = false;
   let userLoggedIn = false;
   if (token != undefined) {
     userLoggedIn = true;
+    loggedInLang = cookieLang;
   }
 
   return (
@@ -28,7 +31,7 @@ export default async function Home({ params }) {
         userLoggedIn={userLoggedIn}
         lang={lang}
       />
-      <SystemLanguage current={lang} />
+      <SystemLanguage current={lang} loggedInLang={loggedInLang} />
 
       <section className="card w-full bg-base-100 shadow-sm m-4 border-1 border-base-300 min-h-1/3 flex items-center ">
         <div className="flex flex-col items-center justify-between max-w-96 my-10 ">

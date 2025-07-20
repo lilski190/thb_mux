@@ -29,6 +29,7 @@ export default function LineChart({
   labels,
   color,
   ariaDescribedBy,
+  rtl,
 }) {
   const [fontSettings, setFontSettings] = useState({
     size: 15,
@@ -99,6 +100,7 @@ export default function LineChart({
     },
     scales: {
       x: {
+        reverse: rtl,
         grid: { display: false },
         border: {
           color: fontSettings.color, // <-- Achsenlinie (x-Achse)

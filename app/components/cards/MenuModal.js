@@ -47,7 +47,7 @@ const MenuModal = ({ icon, title, dict, color }) => {
                 viewBox="0 0 96 96"
                 strokeWidth={6}
                 stroke="currentColor"
-                className="w-6"
+                className="w-6 rtl:scale-x-[-1]"
                 aria-hidden="true"
                 focusable="false"
               >

@@ -25,12 +25,17 @@ export async function loginAction(formData, lang) {
       cookieStore.set("token", result.access_token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        maxAge: 6 * 60 * 60,
+        maxAge: 15 * 60,
         path: "/",
       });
 
       cookieStore.set("colorMode", result?.colorMode || "main");
       cookieStore.set("lang", result?.lang || "de");
+      let dir = "ltr";
+      if (result?.lang === "ar") {
+        dir = "rtl";
+      }
+      cookieStore.set("dir", dir || "ltr");
 
       return { success: true, message: "success" };
     } else {
@@ -44,7 +49,7 @@ export async function loginAction(formData, lang) {
 }
 
 export async function logoutAction() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   let lastLang = cookieStore.get("lang")?.value || "de";
   // Cookie löschen, indem man es mit leerem Wert und maxAge 0 setzt
   cookieStore.set("token", "", {
@@ -61,6 +66,11 @@ export async function logoutAction() {
   });
 
   cookieStore.set("lang", "", {
+    maxAge: 0,
+    path: "/",
+  });
+
+  cookieStore.set("dir", "", {
     maxAge: 0,
     path: "/",
   });

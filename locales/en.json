@@ -2,67 +2,68 @@
   "home": {
     "title": "Home",
     "streak": {
-      "title": "Days Streak -",
-      "sr_title": "Anzahl der Streak tage",
+      "title": "Day Streak",
+      "sr_title": "Number of streak days",
       "options": [
+        "One giant leap for you, one small step for the planet.",
+        "You'll always meet twice in life – hopefully more often here.",
+        "You're doing great!",
+        "Climate hero in training.",
         "A solid start!",
+        "You're unstoppable – like an e-bike with tailwind.",
+        "With you, even the CO₂ footprint retires.",
+        "Three weeks already? You're like seasonal leek: underrated but valuable.",
+        "You're so green, even photosynthesis asks you for tips.",
         "Hotter than my compost in summer!",
-        "Another quote",
-        "And another one",
-        "The last quote (for now)",
-        "Week 2 A solid start!",
-        "Week 2 Hotter than my compost in summer!",
-        "Week 2 Another quote",
-        "Week 2 And another one",
-        "Week 2 The last quote (for now)",
-        "Week 3 A solid start!",
-        "Week 3 Hotter than my compost in summer!",
-        "Week 3 Another quote",
-        "Week 3 And another one",
-        "Week 3 The last quote (for now)",
-        "A quote saying this person is too good at streaks – we weren’t prepared for this level"
+        "If you get any cooler, you'll solve global warming on your own!",
+        "We didn’t think anyone would get this far. But here you are.",
+        "We're still working on a trophy.",
+        "If you keep going this strong, we'll need a new roof – solar-powered, of course.",
+        "The climate conference is calling – they want you as keynote speaker.",
+        "We tried to come up with a line, but you left us speechless."
       ]
     },
     "arivalTitel": "Arrival:",
-    "mealTitel": "Meal Choice",
+    "mealTitel": "Meal Choice:",
     "fbTitel": "Your Department in Comparison",
     "arival": {
-      "bike": "The majority came by bike today.",
-      "train": "The majority used public transport today.",
-      "car": "The majority came by car today.",
-      "walk": "The majority walked today."
+      "bike": "Most people came by bike today.",
+      "train": "Most people used public transport today.",
+      "car": "Most people came by car today.",
+      "walk": "Most people walked today."
     },
     "meal": {
-      "vegetarian": "Most people had the vegetarian dish in the cafeteria today.",
-      "vegan": "Most people had the vegan dish in the cafeteria today.",
+      "vegetarian": "Most people had the vegetarian meal in the cafeteria today.",
+      "vegan": "Most people had the vegan meal in the cafeteria today.",
       "fish": "Most people had a fish dish in the cafeteria today.",
-      "meat": "Most people had a meat dish in the cafeteria today.",
+      "meat": "Most people had the meat dish in the cafeteria today.",
       "salat": "Most people had a salad in the cafeteria today."
     },
     "fbs": {
-      "FBI": "The Computer Science department logged the most data today.",
-      "FBT": "The Technology department logged the most data today.",
-      "FBW": "The Business department logged the most data today."
+      "FBI": "The Computer Science department submitted the most data today.",
+      "FBT": "The Engineering department submitted the most data today.",
+      "FBW": "The Business department submitted the most data today."
     },
     "sr_statistic": {
-      "value": "Anzahl an eingetragenen Daten des Fachbereiches"
+      "value": "Number of entries by the department"
     }
   },
   "profil": {
     "welcome": "Hey",
     "record": [
       "Here you can see your records",
-      "You’ve set a new record. <strong>Three days</strong> of consistent input: keep it up!",
-      "You’ve set a new record. <strong>One week</strong> of consistent input: keep it up!",
-      "You’ve set a new record. <strong>Two weeks</strong> of consistent input: keep it up!",
-      "You’ve set a new record. <strong>Three weeks</strong> of consistent input: keep it up!",
-      "You’ve set a new record. <strong>One month</strong> of consistent input: keep it up!",
-      "You're <strong>so amazing</strong>, we don’t even have a medal for you anymore..."
+      "You've set a new record. <strong>Three days</strong> in a row – keep it up!",
+      "You've set a new record. <strong>One week</strong> of consistent entries – stay on it!",
+      "You've set a new record. <strong>Two weeks</strong> of consistent entries – respect!",
+      "You've set a new record. <strong>Three weeks</strong> of consistent entries – impressive!",
+      "You've set a new record. <strong>One month</strong> of consistent entries – nothing can stop you!",
+      "You're <strong>so AMAZING</strong> we ran out of medals for you..."
     ],
     "settings": "Settings",
     "notifications": "Notification Settings",
     "darkmode": "Dark Mode",
     "notificationForm": {
+      "legendDays": "Select the weekdays you're at the university so you only receive reminders when they’re relevant to you.",
       "title": "Notifications",
       "description": "When would you like to receive push notifications?",
       "options": ["Mon", "Tue", "Wed", "Thu", "Fri", "All"],
@@ -74,42 +75,46 @@
     "language": "Language",
     "lang": {
       "title": "Language Settings",
-      "description": "Choose your preferred language",
-      "options": ["de", "en"],
+      "description": "Choose your preferred language.",
+      "options": ["de", "en", "sp", "pl", "ar"],
       "save": "Save"
     },
     "info": "Information",
     "about": "About SustainAble",
     "help": "Help",
-    "logout": "Log out",
+    "logout": "Logout",
     "data": "Privacy Policy",
-    "impressum": "Imprint",
-    "agb": "Terms & Conditions"
+    "impressum": "Legal Notice",
+    "agb": "Terms and Conditions"
   },
   "login": {
     "title": "Login",
-    "description": "Welcome back! Log in with your email and password to continue.",
+    "description": "Welcome back! Sign in with your email and password to continue.",
+    "sr_description": "Please enter email and password to log in.",
     "login": "Login",
     "help": "Help",
     "setting": "User Terms",
     "cookies": "Privacy and Cookies",
     "mail": "Email Address",
     "pw": "Password",
-    "stayLoggedIn": "Stay logged in",
-    "ForgotPassword": "Forgot password?"
+    "stayLoggedIn": "Stay Logged In",
+    "ForgotPassword": "Forgot Password?"
   },
   "general": {
     "projectName": "SustainAble",
-    "projectSlogan": "The sustainability app of   </br>  THB",
+    "projectSlogan": "The sustainability app of </br> Brandenburg University of Applied Sciences",
+    "logo_sr": "Logo of the SustainAble app: A leaf with a curved S in the center",
     "login": "Login",
     "register": "Register",
-    "notImplementet": "This feature is not implemented yet :(",
-    "FBI": "Computer Science Department",
-    "FBT": "Technology Department",
-    "FBW": "Business Department",
+    "notImplementet": "This feature is not yet implemented",
+    "FBI": "Department of Computer Science",
+    "FBT": "Department of Engineering",
+    "FBW": "Department of Business",
+    "loadring_sr": "Loading...",
     "save": "Save",
-    "sr_lang": "Select Language",
-    "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
+    "sr_lang": "Select language",
+    "sr_color": "Choose color mode",
+    "colormodes": ["Light", "Dark", "High Contrast"]
   },
   "routes": {
     "home": "Home",
@@ -120,7 +125,12 @@
   },
   "statistics": {
     "line": {
-      "title": "THB’s CO2 emissions this year in tons",
+      "title": "CO₂ Emissions of THB This Year (in t)",
+      "id": "linechart",
+      "sr_description": "This statistic shows a line chart of CO₂ emissions over the months from February to June. It started at 5 tons at the beginning of the year and steadily increased with a slight dip in April.",
+      "altText": "Line chart showing CO₂ emissions from February to June this year.",
+      "colLabel": "Month",
+      "colValue": "CO₂ Value in Tons",
       "labels": {
         "jan": "January",
         "feb": "February",
@@ -137,10 +147,20 @@
       }
     },
     "cloud": {
-      "title": "CO2 Emissions: Comparison between faculties in kg"
+      "id": "cloud",
+      "sr_description": "This visualization shows the CO₂ emissions in kilograms of the three departments as colored clouds. Each department is represented by a cloud in its faculty color. The size of the cloud corresponds to the amount of emissions: the bigger the cloud, the higher the emissions. The exact value is shown in the center of each cloud.",
+      "title": "CO₂ Emissions: Faculty Comparison in kg",
+      "altTableLabel": "cloudlabel",
+      "altText": "CO₂ emissions of the three departments as differently sized colored clouds with values in kilograms in the center.",
+      "colLabel": "Department",
+      "colValue": "Total Value in Tons"
     },
     "bar": {
-      "title": "Distances to the university reported by students (last 5 days)",
+      "title": "Distances Reported by Faculty Students to THB (Last 5 Days)",
+      "id": "barchart",
+      "sr_description": "This bar chart shows the total distances traveled by the three departments over five days. Each day displays three bars – one for each department. The taller the bar, the more kilometers were traveled on that day by that department.",
+      "colLabel": "Day",
+      "colValue": "Values of the Three Departments",
       "labels": {
         "mo": "Monday",
         "di": "Tuesday",
@@ -152,16 +172,28 @@
       }
     },
     "iconArival": {
-      "title": "Today's choice of transportation to THB",
+      "title": "Today's Choice of Transport to THB",
+      "id": "arival",
+      "sr_description": "This visual statistic shows the number of transportation modes used to reach the university. Instead of bars, icons such as a car, bicycle, or walking person are shown in different sizes. The bigger the icon, the more frequently that mode was used.",
+      "altTableLabel": "arivallabel",
+      "altText": "Visualization of transport modes to the university using differently sized icons: car, bike, and pedestrian.",
+      "colLabel": "Transportation",
+      "colValue": "Total Value",
       "labels": {
         "bike": "Bike",
-        "train": "Public transport",
+        "train": "Public Transport",
         "car": "Car",
         "walk": "Walking"
       }
     },
     "iconMeal": {
-      "title": "Today's THB cafeteria meals logged in the app",
+      "title": "Today's Reported Cafeteria Meals in the App",
+      "id": "meal",
+      "sr_description": "This diagram shows the meal choices across the three departments. Instead of bars, icons – a leaf for vegetarian, a fish for fish dishes, and a steak for meat – are displayed in varying sizes. The larger the icon, the more people chose that meal.",
+      "altTableLabel": "meallabel",
+      "altText": "Visualization of meal choices with icons for vegetarian, fish, and meat in different sizes.",
+      "colLabel": "Meals",
+      "colValue": "Total Value",
       "labels": {
         "vegetarian": "Vegetarian",
         "vegan": "Vegan",
@@ -172,7 +204,7 @@
     }
   },
   "input": {
-    "description": "Help us measure the ecological footprint of the university by briefly answering today’s question:",
+    "description": "Help us measure the ecological footprint of the university by answering this short question:",
     "mealTitel": "Meal Choice",
     "arivalTitle": "Arrival",
     "meal": {
@@ -190,23 +222,64 @@
     },
     "arival": {
       "title": "Arrival",
-      "description": "How did you get to THB today?",
-      "options": ["Walking", "Bike", "Public transport", "Car"],
+      "legendTransportation": "Legend describing the fields",
+      "description": "How did you come to THB today?",
+      "options": ["Walking", "Bike", "Public Transport", "Car"],
       "distance": "How many kilometers did you travel today?",
-      "usual": "Same as always",
+      "usual": "Same as usual",
       "save": "Save"
     }
   },
   "toast": {
     "login": {
       "info": "You haven’t logged in for a while.",
-      "success": "Successfully logged in",
+      "success": "Logged in successfully",
       "error": {
+        "invalidEMail": "The email is invalid",
+        "invalidPassword": "The password is invalid",
+        "general": "Login error",
         "notRegistert": "This email does not exist",
         "serverError": "The server crashed or something",
-        "anotherError": "There are other errors"
-      },
-      "warning": "User is already logged in elsewhere"
+        "anotherError": "There are more errors",
+        "incorrectPassword": "The password is incorrect",
+        "incorrectUsername": "The email is incorrect"
+      }
+    },
+    "arival": {
+      "general": "Error saving arrival",
+      "success": "Arrival successfully saved",
+      "error": "The transport type is invalid",
+      "msg": "There was an authorization error"
+    },
+    "meal": {
+      "general": "Error saving meal",
+      "success": "Meal successfully saved",
+      "error": "Meal type is invalid",
+      "msg": "There was an authorization error"
+    },
+    "notifications": {
+      "general": "Error saving notifications",
+      "success": "Notifications saved successfully",
+      "error": "Notifications are invalid",
+      "msg": "There was an authorization error"
+    },
+    "color": {
+      "general": "Error saving color mode",
+      "success": "Color mode saved successfully",
+      "error": "Color mode is invalid",
+      "msg": "There was an authorization error"
     }
+  },
+  "errors": {
+    "error": "An error occurred",
+    "errorDescription": "Please try again later or refresh the page.",
+    "errorAltText": "Error loading the page",
+    "notFound": "This page does not exist",
+    "notFoundDescription": "The page you are looking for could not be found. Please check the URL or return to the homepage.",
+    "notFoundAltText": "404 Error - Page not found",
+    "LinkNotFound": "Back to Home",
+    "loading": "Loading",
+    "loadingDescription": "Please wait while the data is being loaded.",
+    "loadingAltText": "Loading data"
   }
 }

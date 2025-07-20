@@ -64,8 +64,8 @@ export default async function ProfilPage({ params }) {
             aria-label={dict.profil.cardLabel || "Benutzerdetails"}
           >
             <div className="p-3">
-              <header className="text-base-content">
-                <h3 className="text text150">
+              <header className="text-base-content rtl:text-right text-left">
+                <h3 className="text text150" dir="ltr">
                   {dict.profil.welcome} {profilData.name}!
                 </h3>
               </header>

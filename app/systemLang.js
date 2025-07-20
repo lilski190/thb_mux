@@ -3,17 +3,15 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SystemLanguage({ current }) {
+export default function SystemLanguage({ current, loggedInLang }) {
   const router = useRouter();
   const allowedLangs = ["de", "en", "sp", "pl", "ar"];
 
   useEffect(() => {
-    // Hole bevorzugte Sprache aus Cookie
-    const cookieLang = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("lang="))
-      ?.split("=")[1];
-
+    let cookieLang = undefined;
+    if (loggedInLang || loggedInLang != undefined) {
+      cookieLang = loggedInLang;
+    }
     // Hole System-Sprache als Fallback
     const systemLangFull = navigator.language || "de-DE";
     const systemLang = systemLangFull.split("-")[0];

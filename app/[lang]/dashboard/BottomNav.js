@@ -11,7 +11,10 @@ export default function BottomNav({ lang, dict }) {
   const isActive = (path) => pathname === path;
 
   return (
-    <div className="h-16 bg-base-300 w-full fixed bottom-0 z-50 flex justify-evenly items-center text">
+    <div
+      className="h-16 bg-base-300 w-full fixed bottom-0 z-50 flex justify-evenly items-center text "
+      dir="ltr"
+    >
       {[
         {
           href: `/${lang}/dashboard`,

@@ -110,7 +110,10 @@ export default function MealForm({ dict, closeModal, toast }) {
             );
           } else {
             return (
-              <div key={item.value} className="flex flex-col items-center mt-2">
+              <div
+                key={item.value}
+                className="flex flex-col items-center mt-2 w-full"
+              >
                 <input
                   type="radio"
                   id={inputId}

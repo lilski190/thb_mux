@@ -22,7 +22,13 @@ ChartJS.register(
   Legend
 );
 
-export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
+export default function BarChart({
+  ChartData,
+  dict,
+  labels,
+  ariaDescribedBy,
+  rtl,
+}) {
   const [fontSettings, setFontSettings] = useState({
     size: 15,
     family: `"Athiti", sans-serif`,
@@ -89,6 +95,7 @@ export default function BarChart({ ChartData, dict, labels, ariaDescribedBy }) {
     },
     scales: {
       x: {
+        reverse: rtl,
         grid: {
           display: false,
         },

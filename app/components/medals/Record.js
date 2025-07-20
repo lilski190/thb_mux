@@ -60,7 +60,7 @@ const Record = ({ duration, dict }) => {
           id="Ebene_5"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 96 96"
-          className="w-38 -ml-5"
+          className="w-38 -ml-5 rtl:-mr-5"
         >
           <path
             className={band}
@@ -90,7 +90,7 @@ const Record = ({ duration, dict }) => {
         </svg>
       </div>
       <p
-        className="w-2/3 mt-6 ml-4"
+        className="w-2/3 mt-6 ml-4 rtl:mr-4"
         dangerouslySetInnerHTML={{ __html: dict[record] }}
       ></p>
     </div>

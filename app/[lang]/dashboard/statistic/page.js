@@ -12,12 +12,16 @@ export default async function StatisticPage({ params }) {
   const lang = param.lang || "de";
   const dict = await getDictionary(lang);
   const statisticData = await getStatisitcData();
+  let rtl = false;
+  if (lang === "ar") {
+    rtl = true;
+  }
   return (
-    <div>
+    <div className="max-w-screen">
       <DashboardHeader title={dict.routes.statistic} />
       <section
         aria-labelledby="statistic-content"
-        className="py-20 bg-base-200 px-3  grid grid-cols-1 gap-4 min-h-screen gap-2 max-w-screen"
+        className="py-24 bg-base-200 px-3  grid grid-cols-1 gap-4 min-h-screen gap-2 max-w-screen"
       >
         {statisticData.data.map((item, index) => {
           switch (item.type) {
@@ -33,6 +37,7 @@ export default async function StatisticPage({ params }) {
                       ChartData={item.data}
                       dict={dict.statistics.bar}
                       labels={item.label}
+                      rtl={rtl}
                     />
                   </StatisticModal>
                 </div>
@@ -49,6 +54,7 @@ export default async function StatisticPage({ params }) {
                       ChartData={item.data}
                       dict={dict.statistics.line}
                       labels={item.label}
+                      rtl={rtl}
                     />
                   </StatisticModal>
                 </div>

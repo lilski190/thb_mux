@@ -2,25 +2,25 @@
   "home": {
     "title": "Home",
     "streak": {
-      "title": "Tage Streak -",
-      "sr_title": "Anzahl der Streak tage",
+      "title": "Tage Streak ",
+      "sr_title": "Anzahl der Streak Tag",
       "options": [
+        "Ein großer Schritt für dich, ein kleiner Schritt für den Planeten.",
+        "Man sieht sich immer zwei Mal im Leben (hier aber hoffentlich öfter).",
+        "Du schlägst dich ganz schön gut!",
+        "Klimaretter:in in Ausbildung",
         "Ein solider Start!",
+        "Du bist nicht zu stoppen – wie ein E-Bike mit Rückenwind.",
+        "Mit dir geht selbst der CO₂-Fußabdruck in Rente.",
+        "Schon drei Wochen? Du bist wie ein saisonaler Lauch: unterschätzt, aber wertvoll.",
+        "Du bist so grün, selbst Photosynthese fragt nach Tipps.",
         "Heißer als mein Kompost im Sommer!",
-        "Noch ein Spruch",
-        "Und noch ein Spruch",
-        "Der letzte noch ein Spruch",
-        "Woche 2 Ein solider Start!",
-        "Woche 2 Heißer als mein Kompost im Sommer!",
-        "Woche 2 Noch ein Spruch",
-        "Woche 2 Und noch ein Spruch",
-        "Woche 2 Der letzte noch ein Spruch",
-        "Woche 3 Ein solider Start!",
-        "Woche 3 Heißer als mein Kompost im Sommer!",
-        "Woche 3 Noch ein Spruch",
-        "Woche 3 Und noch ein Spruch",
-        "Woche 3 Der letzte noch ein Spruch",
-        "Ein spruch der Besagt das die Person zu krass ist mit den Streaks, sodass wir darauf gar nicht mehr vorbereitet waren"
+        "Wenn du noch cooler wirst, regelst du die Erderwärmung von ganz allein!",
+        "Wir dachten, so weit kommt niemand. Aber da bist du ja.",
+        "Wir arbeiten noch an einem Pokal.",
+        "Wenn du noch weiter durch die Decke gehst, brauchen wir ein neues Dach – aus Solarzellen natürlich.",
+        "Die Klimakonferenz ruft – die wollen dich als Keynote-Speaker:in.",
+        "Wir wollten einen Spruch schreiben, aber du hast uns sprachlos gemacht."
       ]
     },
     "arivalTitel": "Anreise:",
@@ -51,32 +51,32 @@
   "profil": {
     "welcome": "Hey",
     "record": [
-      "Hier siehtst du deine Recods",
+      "Hier siehst du deine Rekorde",
       "Du hast einen neuen Rekord aufgestellt. <strong>Drei Tage</strong> lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. <strong>Eine Woche</strong> lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. <strong>Zwei Woche</strong> lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. <strong>Drei Woche</strong>lückenlose Eingabe: weiter so!",
-      "Du hast einen neuen Rekord aufgestellt. <strong>Einen Monat</strong> lückenlose Eingabe: weiter so!",
-      "Du bist <strong>so Krass</strong>, das wir keine Medallie mehr für dich haben.."
+      "Du hast einen neuen Rekord aufgestellt. <strong>Eine Woche</strong> lückenlose Eingabe: bleib dran!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Zwei Wochen</strong> lückenlose Eingabe: Respekt!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Drei Wochen</strong>lückenlose Eingabe: beeindruckende Leistung!",
+      "Du hast einen neuen Rekord aufgestellt. <strong>Einen Monat</strong> lückenlose Eingabe: Nichts kann dich aufhalten!",
+      "Du bist <strong>so KRASS</strong>, dass wir keine Medaille mehr für dich haben..."
     ],
     "settings": "Einstellungen",
     "notifications": "Benachrichtigungseinstellungen",
     "darkmode": "Darkmode",
     "notificationForm": {
-      "legendDays": "Wähle deine Benachrichtigungstage",
+      "legendDays": "Wähle die Wochentage aus, an denen du an der Hochschule bist, so erhältst du nur dann Erinnerungen, wenn sie wirklich relevant für dich sind.",
       "title": "Benachrichtigungen",
       "description": "Wann möchtest du Push-Benachrichtigungen bekommen?",
       "options": ["Mo", "Di", "Mi", "Do", "Fr", "Alle"],
       "save": "Speichern"
     },
-    "generallSettings": "Allgemeine Einsgellungen",
+    "generallSettings": "Allgemeine Einstellungen",
     "konto": "Kontoeinstellungen",
     "authorization": "Berechtigungen",
     "language": "Sprache",
     "lang": {
       "title": "Spracheinstellungen",
-      "description": "Wähle deine Bevorzugte sprache aus",
-      "options": ["de", "en"],
+      "description": "Wähle deine bevorzugte Sprache aus.",
+      "options": ["de", "en", "sp", "pl", "ar"],
       "save": "Speichern"
     },
     "info": "Informationen",
@@ -106,14 +106,14 @@
     "logo_sr": "Logo der App SustainAble: Ein Blatt mit einem geschwungenen S in der Mitte",
     "login": "Einloggen",
     "register": "Registrieren",
-    "notImplementet": "Diese Funktion ist noch nicht implememntiert :(",
+    "notImplementet": "Diese Funktion ist noch nicht implememntiert",
     "FBI": "Fachbereich Informatik",
     "FBT": "Fachbereich Technik",
     "FBW": "Fachbereich Wirtschaft",
     "loadring_sr": "Wird geladen...",
     "save": "Speichern",
-    "sr_lang": "Sprache Auswählen",
-    "sr_color": "Farbmodus Wählen",
+    "sr_lang": "Sprache auswählen",
+    "sr_color": "Farbmodus wählen",
     "colormodes": ["Hell", "Dunkel", "Hohe Kontraste"]
   },
   "routes": {
@@ -125,12 +125,12 @@
   },
   "statistics": {
     "line": {
-      "title": "CO2-Ausstoß der THB im aktuellen Jahr in t",
+      "title": "CO₂-Ausstoß der THB im aktuellen Jahr in t",
       "id": "linechart",
-      "sr_description": "Diese Statistik ist eine aufzählung der Co2 werte in einem Linechart über die Monate des Jahres...",
-      "altText": "Der alternativtext für diese Starittik...",
-      "colLabel": "Monat (Kategorie)",
-      "colValue": "Co2 Wert in Tonne",
+      "sr_description": "Diese Statistik ist eine Aufzählung des CO₂-Ausstoß in einem Liniendiagramm über die Monate des Jahres Februar bis Juni. Zu Beginn des Jahres lag es bei 5 Tonnen und ist dann mit einem kleinen Abstieg im April kontinuierlich gestiegen",
+      "altText": "Diese Statistik zeigt eine Aufzählung des CO₂-Ausstoßes in einem Liniendiagramm für die Monate Februar bis Juni diesen Jahres",
+      "colLabel": "Monat",
+      "colValue": "CO₂-Wert in Tonnen",
       "labels": {
         "jan": "Januar",
         "feb": "Februar",
@@ -148,18 +148,18 @@
     },
     "cloud": {
       "id": "cloud",
-      "sr_description": "Diese Statistik ist eine darstellugn der co2 ausstöße der drei Fachbereiche",
+      "sr_description": "Diese Visualisierung zeigt den CO₂-Ausstoß in Kilogramm der drei Fachbereiche als farbige Wolken. Jeder Fachbereich ist durch eine Wolke in seiner jeweiligen Fakultätsfarbe dargestellt. Die Größe der Wolke steht für die Höhe des CO₂-Ausstoßes: Je größer die Wolke, desto höher der Ausstoß. In der Mitte jeder Wolke ist der genaue Ausstoßwert in Kilogramm angegeben",
       "title": "CO2-Ausstoß: Vergleich zwischen den Fakultäten in kg",
       "altTableLabel": "cloudlable",
-      "altText": "alternativer text für die statistik",
-      "colLabel": "Kategorie- Fachbereich",
-      "colValue": "Der totale Wert in tonnen"
+      "altText": "CO₂-Ausstoß der drei Fachbereiche als unterschiedlich große, farbige Wolken mit Kilogramm-Angabe im Zentrum.",
+      "colLabel": "Fachbereich",
+      "colValue": "Der totale Wert in Tonnen"
     },
     "bar": {
       "title": "Von Studierenden der Fakultäten gemeldete Distanzen zur Hochschule (letzte 5 Tage)",
       "id": "barchart",
-      "sr_description": "Dieser Chart ist eine Darstellung der gesammten eingetragenen daten der der deri fachbereiche...",
-      "colLabel": "Tag (Kategorie)",
+      "sr_description": "Dieses Balkendiagramm zeigt die täglich zurückgelegten Gesamtdistanzen der drei Fachbereiche über einen Zeitraum von fünf Tagen. Für jeden Tag sind drei Balken zu sehen – jeweils einer pro Fachbereich. Je höher ein Balken, desto mehr Kilometer wurden von dem entsprechenden Fachbereich an diesem Tag insgesamt zurückgelegt.",
+      "colLabel": "Tag",
       "colValue": "Werte der drei Fachbereiche",
       "labels": {
         "mo": "Montag",
@@ -174,10 +174,10 @@
     "iconArival": {
       "title": "Heutige Wahl der Verkehrsmittel für die Anreise zur THB",
       "id": "arival",
-      "sr_description": "Diese Statistik zeigt die totale anzahl der Verkehrsmittel zu uni",
+      "sr_description": "Diese visuelle Statistik zeigt die Anzahl der genutzten Verkehrsmittel zur Universität. Statt Balken werden Icons – etwa ein Auto, ein Fahrrad oder eine laufende Person – in unterschiedlichen Größen dargestellt. Die Größe jedes Icons steht für die Häufigkeit der Nutzung: Je größer das Icon, desto häufiger wird das entsprechende Verkehrsmittel gewählt.",
       "altTableLabel": "arivallabler",
-      "altText": "alternativer text für die statistik",
-      "colLabel": "Kategorie- Verkehrsmittel",
+      "altText": "Visualisierung der genutzten Verkehrsmittel zur Universität mit unterschiedlich großen Icons: Auto, Fahrrad und Fußgänger.",
+      "colLabel": "Verkehrsmittel",
       "colValue": "Der totale Wert",
       "labels": {
         "bike": "Fahrrad",
@@ -189,13 +189,13 @@
     "iconMeal": {
       "title": "Heute in der App eingetragene THB-Mensagerichte",
       "id": "meal",
-      "sr_description": "diese Darstellung zeigt die totale anzahl der ausgewählten  mahlzeiten",
+      "sr_description": "Dieses Diagramm zeigt die Verteilung der Essenswahl unter den drei Fachbereichen. Anstelle von Balken werden Icons – ein Blatt für vegetarisch, ein Fischsymbol für Fischgerichte und ein Steak für Fleischgerichte – in unterschiedlichen Größen dargestellt. Die Größe eines Icons steht für die Anzahl der Personen, die diese Essensoption gewählt haben: Je größer das Icon, desto mehr Personen haben sich dafür entschieden",
       "altTableLabel": "meallable",
-      "altText": "alternativer text für die statistik",
-      "colLabel": "Kategorie- Mahlzeiten",
+      "altText": "Visualisierung der Essenswahl in drei Fachbereichen mit unterschiedlich großen Icons für vegetarisch, Fisch und Fleisch.",
+      "colLabel": "Mahlzeiten",
       "colValue": "Der totale Wert",
       "labels": {
-        "vegetarian": "Vegetarisch",
+        "vegetarian": "Veggi",
         "vegan": "Vegan",
         "fish": "Fisch",
         "meat": "Fleisch",
@@ -212,7 +212,7 @@
       "description": "Was hast du heute in der Mensa gegessen?",
       "options": [
         "Vegan",
-        "Vegetarisch",
+        "Veggi",
         "Fisch",
         "Fleisch",
         "Salat",
@@ -222,7 +222,7 @@
     },
     "arival": {
       "title": "Anreise",
-      "legendTransportation": "legende beschreibung der felder",
+      "legendTransportation": "Legende Beschreibung der Felder",
       "description": "Wie bist du heute zur THB gekommen?",
       "options": ["Zu Fuß", "Fahrrad", "Öffis", "Auto"],
       "distance": "Wie viele Kilometer hast du heute zurückgelegt?",

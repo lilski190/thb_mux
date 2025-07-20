@@ -35,15 +35,15 @@ export default function LanguageSwitcher({ dict, closeModal }) {
     try {
       // 1) Action ausführen (z. B. in der DB / Session speichern)
       let result = await setLang(selectedLang);
-      showToast("success", 3, result || "Erfolgreich gespeichert");
+      //  showToast("success", 3, result || "Erfolgreich gespeichert");
 
       // 2) URL umschreiben
       const segments = pathname.split("/").filter(Boolean);
       segments[0] = selectedLang;
-      router.push(`/${segments.join("/")}`);
+      window.location.href = `/${selectedLang}/dashboard/profil`;
     } catch (error) {
       console.error("Fehler beim Speichern:", error);
-      showToast("error", 3, "Fehler beim Speichern");
+      //showToast("error", 3, "Fehler beim Speichern");
     } finally {
       setIsSaving(false);
     }

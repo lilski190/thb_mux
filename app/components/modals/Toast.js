@@ -88,7 +88,7 @@ export const ToastProvider = ({ children }) => {
 
     return (
       <div
-        className="toast toast-top toast-center z-50"
+        className=" fixed top-4 left-1/2 transform -translate-x-1/2 z-50"
         aria-live={ariaLive}
         aria-atomic="true"
       >
@@ -99,7 +99,7 @@ export const ToastProvider = ({ children }) => {
           <button
             onClick={hideToast}
             aria-label="Benachrichtigung schließen"
-            className="absolute top-2 right-2 text-base-content hover:text-error focus:outline-none"
+            className="absolute top-2 right-2 text-base-content hover:text-error focus:outline-none mb-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ export const ToastProvider = ({ children }) => {
             </svg>
           </button>
 
-          <span>{toast.message}</span>
+          <span className="mt-2">{toast.message}</span>
 
           <progress
             className={`progress ${progressColorClass} w-full h-2`}

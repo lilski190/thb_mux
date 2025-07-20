@@ -15,7 +15,7 @@ const HomeInputModal = ({ icon, title, description }) => {
       role="group"
       aria-labelledby="input-title"
     >
-      <div className="py-6 pl-4 pr-1 hover:bg-base-300/10">
+      <div className="py-6 pl-4 rtl:pr-4 pr-1 hover:bg-base-300/10">
         <div className="flex justify-between items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const HomeInputModal = ({ icon, title, description }) => {
             />
           </svg>
 
-          <div className="w-1/2 ml-4">
+          <div className="w-1/2 ml-4 rtl:mr-4">
             <h3 className="Textbold text124 text " id="input-title">
               {title}
             </h3>
@@ -46,7 +46,7 @@ const HomeInputModal = ({ icon, title, description }) => {
               viewBox="0 0 96 96"
               strokeWidth={3}
               stroke="currentColor"
-              className="h-12"
+              className="h-12 rtl:scale-x-[-1]"
             >
               <path
                 strokeLinecap="round"

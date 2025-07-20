@@ -7,6 +7,7 @@ const DashboardHeader = ({ title }) => {
     <header
       role="banner"
       className="mb-5 font-bold fixed bg-base-200 w-full z-50"
+      dir="ltr"
     >
       <div className="flex items-center justify-between">
         <div

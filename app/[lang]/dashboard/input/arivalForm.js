@@ -126,8 +126,8 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
           type="range"
           id="distance-slider"
           name="distance"
-          min="0"
-          max="150"
+          min="1"
+          max="100"
           value={distance}
           className="w-full range range-xs focus:outline-none focus:ring-2 focus:ring-info"
           onChange={(e) => setDistance(Number(e.target.value))}

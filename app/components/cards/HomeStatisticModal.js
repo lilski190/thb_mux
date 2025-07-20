@@ -22,7 +22,7 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
       role="group"
       aria-labelledby="stat-title"
     >
-      <div className="py-6 pl-5 pr-1  hover:bg-base-300/10">
+      <div className="py-6 pl-5 rtl:pr-5 pr-1  hover:bg-base-300/10">
         <h3 className="Textbold font-bold mb-3 text124 text124 text">
           {title}
         </h3>
@@ -75,7 +75,9 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
                 </tbody>
               </table>
             </figure>
-            <p className="text96 w-3/6 ml-3 pb-4">{description[bestfb]}</p>
+            <p className="text96 w-3/6 ml-3 rtl:mr-3 pb-4">
+              {description[bestfb]}
+            </p>
           </div>
           <div className="text-base-300 pb-8" aria-hidden="true">
             <svg
@@ -84,7 +86,7 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
               viewBox="0 0 96 96"
               strokeWidth={3}
               stroke="currentColor"
-              className="h-12"
+              className="h-12 rtl:scale-x-[-1]"
             >
               <path
                 strokeLinecap="round"
