@@ -157,14 +157,7 @@ Aktuell sind folgende Sprachen implementiert: de (Deutsch), en (Englisch), sp (S
 Für Arabisch wird zusätzlich die Leserichtung auf Right-to-Left (RTL) geändert.
 
 Besonderheiten bei Mehrsprachigkeit:
-
-    Bei Arabisch gibt es Herausforderungen mit den Zahlenformaten: Die Datenbank liefert arabische Ziffern (0-9), nicht die arabisch-indischen Ziffern, die im arabischen Sprachraum üblich sind.
-
-    Die Sprache wird grundsätzlich anhand der Browsersprache erkannt, kann aber jederzeit vom User geändert werden.
-
-    Standardmäßig wird Deutsch verwendet, wenn keine gültige Sprache erkannt wird.
-
----
+Bei Arabisch gibt es Herausforderungen mit den Zahlenformaten: Die Datenbank liefert arabische Ziffern (0-9), nicht die arabisch-indischen Ziffern, die im arabischen Sprachraum üblich sind. Die Sprache wird grundsätzlich anhand der Browsersprache erkannt, kann aber jederzeit vom User geändert werden. Standardmäßig wird Deutsch verwendet, wenn keine gültige Sprache erkannt wird.
 
 #### Lokalisierte Inhalte
 
