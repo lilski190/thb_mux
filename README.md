@@ -54,7 +54,7 @@ Die Components sind die einzelen Bausteine der Website. Sie können auf UI Libar
 
 #### Beispiel eines Componenten: DefalutButton.js (mit Daisy UI):
 
-Das ist der Code des Button Components:
+Das ist der Code eines Button Components:
 
 ```
 import React from "react";
@@ -88,10 +88,6 @@ export default async function CollectionPage({ params }) {
 ```
 
 Durch die Weitergabe von Parametern kann der Button angepasst werden. Hier machen wir z.b. eine Anpassung mit dem Text und der Farbe:
-
-![Defalut Buttons mit Farben und Text](/thb_mux/public/markdownImg/DefalutButtonColors.png)
-
-Das ist der Code dazu:
 
 ```
 //In dem Button Component:
