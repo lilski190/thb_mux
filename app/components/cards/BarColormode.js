@@ -48,13 +48,16 @@ const BarColormode = ({ title, icon, mode, dict, toast }) => {
     <div className="w-full mb-2">
       <form>
         <fieldset
-          className="flex gap-4 w-full"
+          className="flex justify-evenly gap-4 w-full"
           aria-labelledby="color-group-label"
         >
           <legend id="color-group-label" className="sr-only">
             {dict.general.sr_color}
           </legend>
-          <label htmlFor={`color-main`} className="cursor-pointer w-1/3">
+          <label
+            htmlFor={`color-main`}
+            className="cursor-pointer w-1/3 flex items-center justify-center"
+          >
             <input
               type="radio"
               name="colormode"
@@ -96,7 +99,10 @@ const BarColormode = ({ title, icon, mode, dict, toast }) => {
               {dict.general.colormodes[0]}
             </span>
           </label>
-          <label htmlFor={`color-dark`} className="cursor-pointer w-1/3">
+          <label
+            htmlFor={`color-dark`}
+            className="cursor-pointer w-1/3 flex items-center justify-center"
+          >
             <input
               type="radio"
               name="colormode"
@@ -138,7 +144,10 @@ const BarColormode = ({ title, icon, mode, dict, toast }) => {
               {dict.general.colormodes[1]}
             </span>
           </label>
-          <label htmlFor={`color-contrast`} className="cursor-pointer w-1/3">
+          <label
+            htmlFor={`color-contrast`}
+            className="cursor-pointer w-1/3 flex items-center justify-center"
+          >
             <input
               type="radio"
               name="colormode"
