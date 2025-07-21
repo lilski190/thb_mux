@@ -2,7 +2,6 @@ import React from "react";
 
 /**
  * Tooltip Komponent von DaisyUI
-a
  */
 const InformationTooltipRight = ({ text }) => {
   return (

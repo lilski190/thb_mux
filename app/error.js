@@ -3,6 +3,17 @@
 import { useEffect, useState } from "react";
 import { getDictionary } from "@/lib/getDictionary";
 
+/**
+ * Fehlerseite-Komponente, die einen unerwarteten Fehler anzeigt.
+ * Lädt die Übersetzungen basierend auf der Sprache aus der URL.
+ *
+ * Zeigt eine barrierefreie Fehleranzeige mit ARIA-Rollen und Live-Region.
+ *
+ * @param {Object} props
+ * @param {Error} props.error - Der gefangene Fehler
+ * @param {Function} props.reset - Funktion zum Zurücksetzen des Fehlerzustands
+ * @returns {JSX.Element|null} Die Fehlerseite oder null während des Ladens
+ */
 export default function ErrorPage({ error, reset }) {
   const [dict, setDict] = useState(null);
 

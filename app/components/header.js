@@ -2,6 +2,14 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * DashboardHeader Komponente zeigt einen fixierten Header mit einem Icon und einem Titel.
+ *
+ * @param {Object} props
+ * @param {string} props.title - Der anzuzeigende Titel im Header
+ *
+ * @returns {JSX.Element} Ein Header-Element mit Logo und Titel
+ */
 const DashboardHeader = ({ title }) => {
   return (
     <header

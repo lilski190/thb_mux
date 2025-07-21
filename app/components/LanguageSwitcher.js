@@ -6,6 +6,21 @@ import { usePathname, useRouter } from "next/navigation";
 import { setLang } from "../actions/colorAction";
 import { useToast } from "@/app/components/modals/Toast";
 
+/**
+ * Komponente zum Umschalten der Sprache der Anwendung.
+ *
+ * Zeigt eine Liste von Sprachen als Radio-Buttons an und ermöglicht
+ * dem Nutzer, eine Sprache auszuwählen und zu speichern.
+ *
+ * Nach der Auswahl wird die Sprache serverseitig gesetzt (via setLang),
+ * und die Seite wird zur neuen Sprachroute weitergeleitet.
+ *
+ * @param {Object} props
+ * @param {Object} props.dict - Das Lokalisierungs-Objekt mit Texten, z.B. für ARIA und Buttons
+ * @param {Function} [props.closeModal] - Optionale Callback-Funktion, um ein Modal zu schließen
+ *
+ * @returns {JSX.Element} Ein Formular mit Sprachwahl und Speichern-Button
+ */
 export default function LanguageSwitcher({ dict, closeModal }) {
   const pathname = usePathname();
   const router = useRouter();

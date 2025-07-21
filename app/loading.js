@@ -1,5 +1,17 @@
 import { getDictionary } from "@/lib/getDictionary";
 
+/**
+ * Asynchrone Lade-Komponente für Next.js.
+ * Zeigt eine Ladeanzeige mit internationalisiertem Text basierend auf der Sprache in den Routen-Parametern.
+ *
+ * @async
+ * @function
+ * @param {Object} props - Die von Next.js übergebenen Eigenschaften.
+ * @param {Object} props.params - Routenparameter, z. B. Sprache.
+ * @param {string} [props.params.lang="de"] - Sprachcode aus der URL
+ *
+ * @returns {Promise<JSX.Element>} Eine visuell hervorgehobene Ladeanzeige mit Text aus dem Sprachwörterbuch.
+ */
 export default async function Loading({ params }) {
   const param = await params;
   const lang = param?.lang || "de";

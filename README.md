@@ -1,10 +1,10 @@
 # THB_MUX
 
-Das ist das Frontend für unser Projekt in MUX im Sommersemester 2025.
+Das ist das Frontend für unser Projekt: SustainAble in MUX an der THB im Sommersemester 2025.
 
 ## Getting Started
 
-- Step 1: Repo clonen !!! Falls das mit dem Clonen nicht geht kann das daran liegen, dass Github nen Accestoken braucht. Wenn das so ist, sagt bescheid !!!
+- Step 1: Repo clonen
 - Step 2: run npm install
 
 ```bash
@@ -23,18 +23,18 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öffne [http://localhost:3000](http://localhost:3000) in deinem Browser um das Projekt zu sehen.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Das Projekt ist mit Vercel deployed und kann hier aufgerufen werden:
+[Deployment mit Vercel](https://thb-mux.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Frameworks und Ressourchen
 
-## Deploy on Vercel
-
-Wir werden das Projekt in Vercel deployen. Das ist noch auf der TO-DO liste
+In diesem Projekt wurde DaisyUI und Tailwind für das Styling benutzt.
+Die verwendete Icons und Grafiken sind von Verena und Ella erstellt worden.
+Das Line und das Barchart wurden mit charts.js erstellt.
 
 ## Was ist Was
 
@@ -44,9 +44,9 @@ In diesem Abschitt sind Erklärungen zu den einzelen Codeteilen. Ziel ist es den
 
 In diesem Ordner sind die einzelen Routen und pages. Jeder Ordner in /app ist einen neu URL route, solange es in diesem Ornder die Datei page.js gibt (z.B. /login hat eine page.js)
 
-#### /collection
+#### /app/[lang]
 
-Diese Page ist als Vorschau gedacht. Alle Componenten in dem Ordner /components sind hier aufgelistet. So können wir überprüfen, dass alle Einzelteile so aussehen wie sie sollen. Und wir können auch testen, wie sich die Komponenten mit den unterschidlichen Farbklassen und Sprachen verhalten.
+Ist eine dymaische Route welche für die Sprachsteuerung zuständig ist. Hier drin sind verschachtelt die anderen Routen wie /dashboard als private Route auf die nur eingeloggte Nutzer zugrif haben oder /login in der sich Nutzer einloggen können.
 
 ### /components
 
@@ -134,7 +134,12 @@ export default async function CollectionPage({ params }) {
 
 ### global.css
 
-Hier sind die globalen Css styles drin. Dazu gehören auch unsere Stylings:
+Diese Datei enthält die globalen CSS-Regeln für das gesamte Projekt. Dazu gehören:
+
+- Basis-Styles (z.B. Reset, Box-Sizing)
+- Farbvariablen in drei Unterschiedlichen Klassen für Light, Dark und High Contrast Modi
+- Typografie-Grundlagen (Fonts, Größen)
+- Utility-Klassen und responsive Breakpoints
 
 ```
 .main {
@@ -145,31 +150,53 @@ Hier sind die globalen Css styles drin. Dazu gehören auch unsere Stylings:
 }
 ```
 
+Änderungen hier wirken sich auf die gesamte Anwendung aus, daher bitte vorsichtig anpassen.
+
 ### Sprachen
 
-Die Sprachsteuerung wird über das Routing gemacht. Es gibt in /app den Ordner [lang] in dem alle anderen Routen drin sind. Die URL ist also z.B. https://localhost:3000/de/login oder https://localhost:3000/en/login bisher sind nur de und en als Sprachen angelegt. In dem ordner "locales" sind die json files für die beiden Sprachen. Die json können in den Pages so aufgerufen werden:
+Die Sprachsteuerung erfolgt über das Routing in der Middleware. Im Ordner /app gibt es einen Unterordner [lang], in dem alle sprachabhängigen Routen liegen. Dadurch ist die URL z. B.
+https://localhost:3000/de/login oder https://localhost:3000/en/login.
+
+Beim ersten Laden der Website wird die Sprache auf die Systemsprache des Browsers (navigator.language) gesetzt. Dies erfolgt in der Komponente systemLang.js. Wenn der User eingeloggt ist, wird die Systemsprache mit der ausgewählten und gespeicherten Sprache der Anwendung überschrieben. Die Default- und Fallback-Sprache ist Deutsch (de).
+
+Aktuell sind folgende Sprachen implementiert: de (Deutsch), en (Englisch), sp (Spanisch), pl (Polnisch) und ar (Arabisch).
+Für Arabisch wird zusätzlich die Leserichtung auf Right-to-Left (RTL) geändert.
+
+Besonderheiten bei Mehrsprachigkeit:
+
+    Bei Arabisch gibt es Herausforderungen mit den Zahlenformaten: Die Datenbank liefert arabische Ziffern (0-9), nicht die arabisch-indischen Ziffern, die im arabischen Sprachraum üblich sind.
+
+    Die Sprache wird grundsätzlich anhand der Browsersprache erkannt, kann aber jederzeit vom User geändert werden.
+
+    Standardmäßig wird Deutsch verwendet, wenn keine gültige Sprache erkannt wird.
+
+---
+
+#### Lokalisierte Inhalte
+
+Im Ordner `locales/` liegen die JSON-Dateien für die verschiedenen Sprachen (`de.json`, `en.json` etc.). Diese JSON-Dateien enthalten die Übersetzungen für alle Seiten und werden in den Pages wie folgt genutzt:
 
 ```
 import { getDictionary } from "@/lib/getDictionary";
 
 export default async function DashboardPage({ params }) {
+  const lang = params.lang || "de";
+  const dict = await getDictionary(lang);
 
-const param = await params;
-const lang = param.lang || "de";
-const dict = await getDictionary(lang);
-
-return (
-
-<div>
-<h1 className="mb-5 text-5xl font-bold">{dict.dashboard.title}</h1>
-<h2> {dict.dashboard.welcome} </h2>
-</div>
-);
+  return (
+    <div>
+      <h1 className="mb-5 text-5xl font-bold">{dict.dashboard.title}</h1>
+      <h2>{dict.dashboard.welcome}</h2>
+    </div>
+  );
 }
 ```
 
-Es wird in der Route geschaut welche sprache ausgewählt ist und danach dann der Text zugeornet.
-In dem JSON file gibt es keys für jede Page und in der Page sind dann die keys für jeden text. Es ist wichtig, dass die Keys in jeder language JSON gleich sind. Sonst können die nihct richtig zugeordent werden. (Ein key für die Page ist z.b "home" )
+Die Funktion getDictionary(lang) lädt die passende Sprachdatei basierend auf dem URL-Parameter lang.
+
+#### Struktur der JSON-Dateien
+
+Jede Sprachdatei ist ein JSON-Objekt, in dem die Schlüssel (Keys) die Seiten und die Werte die Texte enthalten:
 
 ```
 {
@@ -188,6 +215,55 @@ In dem JSON file gibt es keys für jede Page und in der Page sind dann die keys 
     "welcome": "Willkommen auf der Dashboard-Seite"
   }
 }
+
 ```
 
-Die Sprache kann mit dem Componenten "LanguageSwitcher.js" umgestellt werden. Wenn neue Sprachen hinzugefügt werden sollen, dann müssen die erst an mehreren stellen eingebunden werden.
+Wichtig:
+Die Keys müssen in allen Sprachdateien identisch sein, damit die Zuordnung korrekt funktioniert. Fehlt ein Key in einer Sprache, kann der Text dort nicht angezeigt werden.
+
+#### Sprache wechseln
+
+Die Sprache kann über die Komponente LanguageSwitcher.js umgestellt werden. Bei Änderung der Sprache wird diese auch ans Backend gesendet, um Nutzerpräferenzen zu speichern.
+
+### Middleware für Sprach- und Zugriffskontrolle
+
+Diese Middleware sorgt für:
+
+- **Sprachvalidierung und Redirects**  
+  Prüft, ob die erste URL-Segmentsprache (`/de`, `/en`, etc.) unterstützt wird.  
+  Ist die Sprache ungültig oder fehlt, erfolgt ein Redirect zur Standardsprache `/de`.
+
+- **Öffentliche und geschützte Routen**
+
+  - Öffentliche Routen (z.B. `/`) sind für alle zugänglich.
+  - Geschützte Routen (z.B. `/dashboard`) sind nur für eingeloggte Nutzer mit gültigem Token zugänglich.
+  - Auth-Routen (z.B. `/login`) sind nur für nicht eingeloggte Nutzer zugänglich.
+
+- **Token-Prüfung**  
+  Überprüft, ob ein gültiges Authentifizierungs-Token (`token` Cookie) vorhanden ist, um Zugriff auf geschützte Bereiche zu erlauben.
+
+- **Redirect-Logik**
+  - Ungültige Sprache → Redirect zu `/de` + Pfad
+  - Ungeloggte Nutzer auf geschützten Routen → Redirect zu `/[lang]/login`
+  - Eingeloggte Nutzer auf Login-Seite → Redirect zu `/[lang]/dashboard`
+
+### Accessibility (Barrierefreiheit)
+
+Unsere Anwendung berücksichtigt verschiedene Aspekte der Barrierefreiheit, um möglichst viele Nutzer:innen einzubeziehen:
+
+- **Farbmodi:**  
+  Es gibt drei Farbmodi, die Nutzer:innen wählen können:
+
+  - Light (Heller Modus)
+  - Dark (Dunkler Modus)
+  - Hoher Kontrast (für bessere Lesbarkeit und Sichtbarkeit)
+
+- **ARIA-Attribute:**  
+  Wir verwenden ARIA-Attribute (Accessible Rich Internet Applications), um Screenreadern und assistiven Technologien wichtige Zusatzinformationen zu liefern.  
+  Beispielsweise sind beschreibende Texte für komplexere Elemente wie Statistiken eingebaut, damit diese für Screenreader verständlich sind.
+
+- **Keyboard-Navigation:**  
+  Alle Formularelemente und interaktiven Komponenten sind so gestaltet, dass sie vollständig mit der Tastatur bedienbar sind.  
+  Damit stellen wir sicher, dass Nutzer:innen, die keine Maus verwenden können oder wollen, problemlos mit der Anwendung interagieren können.
+
+Diese Maßnahmen helfen dabei, die Anwendung zugänglicher und nutzerfreundlicher für Menschen mit unterschiedlichen Bedürfnissen zu gestalten.

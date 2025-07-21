@@ -1,6 +1,18 @@
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 
+/**
+ * Asynchrone "Not Found" (404) Fehlerseite für Next.js.
+ * Zeigt eine lokalisierte Fehlernachricht, ein Bild und einen Link zurück zur Startseite.
+ *
+ * @async
+ * @function
+ * @param {Object} props - Eigenschaften, die von Next.js übergeben werden.
+ * @param {Object} props.params - Routenparameter, z. B. Sprache.
+ * @param {string} [props.params.lang="de"] - Sprachcode, standardmäßig "de".
+ *
+ * @returns {Promise<JSX.Element>} Eine visuell gestaltete 404-Seite mit Text aus dem Sprachwörterbuch.
+ */
 export default async function NotFound({ params }) {
   const param = await params;
   const lang = param?.lang || "de";

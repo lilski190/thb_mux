@@ -17,6 +17,17 @@ const PROTECTED_ROUTES = ["/dashboard"];
 
 const AUTH_ROUTES = ["/login"];
 
+/**
+ * Middleware zur Sprachvalidierung und Zugriffskontrolle.
+ *
+ * - Prüft, ob die Sprache in der URL unterstützt wird, sonst Redirect zu /de
+ * - Erlaubt Zugriff auf öffentliche Routen ohne Einschränkung
+ * - Schützt geschützte Routen, leitet bei fehlendem Token auf Login-Seite um
+ * - Leitet eingeloggte Nutzer von Login-Seite zum Dashboard um
+ *
+ * @param {NextRequest} req - Eingehende Request-Objekt
+ * @returns {NextResponse} Antwort, entweder Weiterleitung oder Fortsetzung der Anfrage
+ */
 export function middleware(req) {
   const { pathname } = req.nextUrl;
 

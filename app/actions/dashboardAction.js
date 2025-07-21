@@ -3,9 +3,6 @@
 import { redirect } from "next/dist/server/api-utils";
 import { getRequestToken } from "../api/api";
 import { cookies } from "next/headers";
-import statisticDummi from "@/app/dummidata/statistik.json";
-import HomeDummi from "@/app/dummidata/home.json";
-import ProfilDummi from "@/app/dummidata/profil.json";
 import { resolve } from "styled-jsx/css";
 
 export async function getHomeData() {

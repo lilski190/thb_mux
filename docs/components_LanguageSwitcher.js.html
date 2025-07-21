@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/LanguageSwitcher.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/LanguageSwitcher.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use client";
+
+import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+// ➜ Passe ggf. den Importpfad an:
+import { setLang } from "../actions/colorAction";
+import { useToast } from "@/app/components/modals/Toast";
+
+/**
+ * Komponente zum Umschalten der Sprache der Anwendung.
+ *
+ * Zeigt eine Liste von Sprachen als Radio-Buttons an und ermöglicht
+ * dem Nutzer, eine Sprache auszuwählen und zu speichern.
+ *
+ * Nach der Auswahl wird die Sprache serverseitig gesetzt (via setLang),
+ * und die Seite wird zur neuen Sprachroute weitergeleitet.
+ *
+ * @param {Object} props
+ * @param {Object} props.dict - Das Lokalisierungs-Objekt mit Texten, z.B. für ARIA und Buttons
+ * @param {Function} [props.closeModal] - Optionale Callback-Funktion, um ein Modal zu schließen
+ *
+ * @returns {JSX.Element} Ein Formular mit Sprachwahl und Speichern-Button
+ */
+export default function LanguageSwitcher({ dict, closeModal }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const { showToast } = useToast();
+
+  // Aktuelle Sprache aus der URL ermitteln
+  const currentLang = pathname.split("/")[1] || "de";
+
+  // Lokaler State für die (neu) gewählte Sprache
+  const [selectedLang, setSelectedLang] = useState(currentLang);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const languageKeys = ["de", "en", "sp", "pl", "ar"];
+  const langLabels = {
+    de: "Deutsch",
+    en: "English",
+    sp: "Español",
+    pl: "Polski",
+    ar: "العربية",
+  };
+
+  /** Router‑Pfad anpassen und Action aufrufen */
+  const handleSave = async () => {
+    if (selectedLang === currentLang) return; // Nichts zu tun
+    setIsSaving(true);
+    try {
+      // 1) Action ausführen (z. B. in der DB / Session speichern)
+      let result = await setLang(selectedLang);
+      //  showToast("success", 3, result || "Erfolgreich gespeichert");
+
+      // 2) URL umschreiben
+      const segments = pathname.split("/").filter(Boolean);
+      segments[0] = selectedLang;
+      window.location.href = `/${selectedLang}/dashboard/profil`;
+    } catch (error) {
+      console.error("Fehler beim Speichern:", error);
+      //showToast("error", 3, "Fehler beim Speichern");
+    } finally {
+      setIsSaving(false);
+    }
+    closeModal?.();
+  };
+
+  return (
+    &lt;form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSave();
+      }}
+      className="space-y-6 flex items-center flex-col"
+    >
+      {/* Sprachwahl */}
+      &lt;fieldset
+        className="flex flex-wrap justify-center items-center gap-2 mt-4 w-full"
+        aria-labelledby="language-group-label"
+      >
+        &lt;legend id="language-group-label" className="sr-only">
+          {dict.general.sr_lang}
+        &lt;/legend>
+
+        {languageKeys.map((lang) => (
+          &lt;div key={lang} className="flex flex-col  items-center px-3 py-3">
+            &lt;label htmlFor={`lang-${lang}`} className="cursor-pointer">
+              &lt;input
+                type="radio"
+                id={`lang-${lang}`}
+                name="language"
+                value={lang}
+                checked={lang === selectedLang}
+                onChange={() => setSelectedLang(lang)}
+                className="sr-only peer"
+              />
+              &lt;span
+                className={`
+                  w-13 h-13 flex items-center justify-center rounded-full
+                  transition text124 text uppercase
+                  peer-focus:ring-2 peer-focus:ring-info
+                  ${
+                    lang === selectedLang
+                      ? "bg-accent text-accent-content hoverButtonRoundActive"
+                      : "bg-base-200 text-base-content hover:bg-base-300/40 hoverButtonRound"
+                  }
+                `}
+              >
+                {lang}
+              &lt;/span>
+            &lt;/label>
+            &lt;span className="text text80 mt-2">{langLabels[lang]}&lt;/span>
+          &lt;/div>
+        ))}
+      &lt;/fieldset>
+
+      {/* Speichern‑Button */}
+      &lt;div className="flex justify-center mt-12">
+        &lt;button
+          type="submit"
+          className="btn btn-primary buttonStyle mt-4 text-base font-bold text-primary-content hoverButtonPrim"
+        >
+          {dict.general.save}
+        &lt;/button>
+      &lt;/div>
+    &lt;/form>
+  );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#DashboardHeader">DashboardHeader</a></li><li><a href="global.html#InformationTooltipMini">InformationTooltipMini</a></li><li><a href="global.html#InformationTooltipRight">InformationTooltipRight</a></li><li><a href="global.html#Tooltip">Tooltip</a></li><li><a href="global.html#metadata">metadata</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Jul 21 2025 01:49:07 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
