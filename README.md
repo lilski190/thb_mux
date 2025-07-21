@@ -1,6 +1,6 @@
 # THB_MUX
 
-Das ist das Frontend für unser Projekt: SustainAble in MUX an der THB im Sommersemester 2025.
+Das ist das Frontend für unser Projekt: SustainAble aus dem Fach MUX an der THB im Sommersemester 2025.
 SustainAble macht Nachhaltigkeit im Hochschulalltag sichtbar, messbar und erlebbar.
 Alltags- und Verbrauchsdaten werden spielerisch visualisiert – mit Gamification, Belohnungen und einer positiven, persönlichen Dynamik.
 Dadurch entsteht ein transparenter Überblick über den ökologischen Fußabdruck an der THB – und ein gemeinsamer Fortschritt.
