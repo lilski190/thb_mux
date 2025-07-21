@@ -1,6 +1,15 @@
 # THB_MUX
 
 Das ist das Frontend für unser Projekt: SustainAble in MUX an der THB im Sommersemester 2025.
+SustainAble macht Nachhaltigkeit im Hochschulalltag sichtbar, messbar und erlebbar.
+Alltags- und Verbrauchsdaten werden spielerisch visualisiert – mit Gamification, Belohnungen und einer positiven, persönlichen Dynamik.
+Dadurch entsteht ein transparenter Überblick über den ökologischen Fußabdruck an der THB – und ein gemeinsamer Fortschritt.
+
+## Team
+- Verena Graf (Design, Konzeption, Koordination)
+- Ella Danay (Design, Konzeption, Datenvisualisierung)
+- Lilian Drabinski (Frontent Entwicklung)
+- Artem Paliesika (Backend Entwicklung)
 
 ## Getting Started
 
@@ -36,9 +45,28 @@ In diesem Projekt wurde DaisyUI und Tailwind für das Styling benutzt.
 Die verwendete Icons und Grafiken sind von Verena und Ella erstellt worden.
 Das Line und das Barchart wurden mit charts.js erstellt.
 
+- [Next.js](https://nextjs.org/) – React Framework für SSR/SSG
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS Framework
+- [DaisyUI](https://daisyui.com/) – UI-Komponenten für Tailwind
+- [Chart.js](https://www.chartjs.org/) – Datenvisualisierung (Line & Bar Charts)
+- [Vercel](https://vercel.com/) – Deployment-Plattform
+
 ## Was ist Was
 
 In diesem Abschitt sind Erklärungen zu den einzelen Codeteilen. Ziel ist es den einzelnen Teammitgliedern einen leichten Zugang zu der Arbeit mit Next.js zu geben und einen Überblick zu verschaffen.
+
+### Projektstruktur (Auszug)
+.
+├── app/ # Routenstruktur (inkl. [lang]/ für sprachsteuerung)
+│ ├── dashboard/
+│ ├── login/
+├── components/ # Wiederverwendbare UI-Komponenten
+│ ├── buttons/
+│ ├── cards/
+├── lib/ # Hilfsfunktionen (z. B. getDictionary)
+├── middleware.ts # Sprach- & Auth-Middleware
+├── locales/ # Sprachdateien (de.json, en.json, ...)
+├── public/ # Statische Assets
 
 ### /app
 
@@ -254,3 +282,16 @@ Unsere Anwendung berücksichtigt verschiedene Aspekte der Barrierefreiheit, um m
   Damit stellen wir sicher, dass Nutzer:innen, die keine Maus verwenden können oder wollen, problemlos mit der Anwendung interagieren können.
 
 Diese Maßnahmen helfen dabei, die Anwendung zugänglicher und nutzerfreundlicher für Menschen mit unterschiedlichen Bedürfnissen zu gestalten.
+
+## Server-side Rendering
+
+Die App verwendet das App-Router-Feature von Next.js mit React Server Components. 
+Dadurch werden viele Seiten auf dem Server gerendert (SSR), was die Performance verbessert und SEO-freundlich ist. Componenten und Pages die mit dem User Interagieren (z.b. Forms) müssen aber weiterhin Client-Side gerendert werden. Als Schittstelle zwischen Client-Component und API werden Server Actions genutzt.
+
+## Authentifizierung & Datenfluss
+
+- Der Login erfolgt über ein externes Backend.
+- Nach erfolgreichem Login wird ein `jwt token`-Cookie gesetzt (HttpOnly, Secure).
+- Die Middleware prüft das Token bei geschützten Routen (`/dashboard` etc.).
+- Das Token wird in Server Components genutzt, um geschützte Daten vom Backend zu laden.
+- Ein Logout löscht den Token und redirectet zur Login-Seite.
