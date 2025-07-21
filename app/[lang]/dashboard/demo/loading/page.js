@@ -18,7 +18,7 @@ export default async function LoadingDemo({ params }) {
         aria-label={title}
       >
         <img
-          src="/loading.gif"
+          src="/loading.GIF"
           alt={altText}
           className="w-full mt-6"
           aria-hidden="true"
