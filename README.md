@@ -56,7 +56,7 @@ Das Line und das Barchart wurden mit charts.js erstellt.
 In diesem Abschitt sind Erklärungen zu den einzelen Codeteilen. Ziel ist es den einzelnen Teammitgliedern einen leichten Zugang zu der Arbeit mit Next.js zu geben und einen Überblick zu verschaffen.
 
 ### Projektstruktur (Auszug)
-.
+```
 ├── app/ # Routenstruktur (inkl. [lang]/ für sprachsteuerung)
 │ ├── dashboard/
 │ ├── login/
@@ -66,7 +66,8 @@ In diesem Abschitt sind Erklärungen zu den einzelen Codeteilen. Ziel ist es den
 ├── lib/ # Hilfsfunktionen (z. B. getDictionary)
 ├── middleware.ts # Sprach- & Auth-Middleware
 ├── locales/ # Sprachdateien (de.json, en.json, ...)
-├── public/ # Statische Assets
+├── public/ # Statische Assets`
+```
 
 ### /app
 
