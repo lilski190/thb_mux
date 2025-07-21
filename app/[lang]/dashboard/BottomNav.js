@@ -5,14 +5,20 @@ import { usePathname } from "next/navigation";
 import { ICONS } from "@/lib/globals";
 import Tooltip from "@/app/components/tooltips/InformationTooltip";
 
-export default function BottomNav({ lang, dict }) {
+export default function BottomNav({ lang, dict, mode }) {
   const pathname = usePathname();
 
   const isActive = (path) => pathname === path;
 
+  let colormode = mode || "main";
+
   return (
     <div
-      className="h-16 bg-base-300 w-full max-w-screen fixed bottom-0 z-50 flex justify-evenly items-center text "
+      className={`h-16 ${
+        colormode == "contrast"
+          ? "bg-base-200 border-base-300 border-t-2"
+          : "bg-base-300"
+      }  w-full max-w-screen fixed bottom-0 z-50 flex justify-evenly items-center text`}
       dir="ltr"
     >
       {[
@@ -47,7 +53,11 @@ export default function BottomNav({ lang, dict }) {
           <div className="flex flex-col items-center ">
             <div
               className={` rounded-xl ${
-                isActive(item.href) ? "bg-accent" : "bg-transparent"
+                isActive(item.href)
+                  ? colormode == "contrast"
+                    ? "bg-accent/20"
+                    : "bg-accent"
+                  : "bg-transparent"
               } hover:bg-base-100/30 -mb-0`}
             >
               <svg
