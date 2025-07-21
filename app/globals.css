@@ -114,8 +114,8 @@
   --color-primary-content: rgb(255, 255, 255);
   --color-secondary: rgb(0, 0, 0);
   --color-secondary-content: rgb(255, 255, 255);
-  --color-accent: rgb(0, 0, 0);
-  --color-accent-content: rgb(255, 255, 255);
+  --color-accent: rgb(203, 203, 203);
+  --color-accent-content: rgb(0, 0, 0);
   --color-neutral: rgb(0, 0, 0);
   --color-neutral-content: rgb(255, 255, 255);
 

@@ -17,7 +17,7 @@ export default async function StatisticPage({ params }) {
     rtl = true;
   }
   return (
-    <div>
+    <div className="max-w-screen">
       <DashboardHeader title={dict.routes.statistic} />
       <section
         aria-labelledby="statistic-content"
