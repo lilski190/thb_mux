@@ -54,8 +54,6 @@ Die Components sind die einzelen Bausteine der Website. Sie können auf UI Libar
 
 #### Beispiel eines Componenten: DefalutButton.js (mit Daisy UI):
 
-![Defalut Button](/thb_mux/public/markdownImg/DefaultButton.png)
-
 Das ist der Code des Button Components:
 
 ```
