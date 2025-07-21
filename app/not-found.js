@@ -43,7 +43,7 @@ export default async function NotFound({ params }) {
             {title}
           </h1>
         </header>
-        <p className="px-10 text96 text-center w-full mt-3 my-6">
+        <p className="px-10 text text96 text-center w-full mt-3 my-6">
           {description}
         </p>
         <Link href={`/`} className="btn btn-primary mx-10">

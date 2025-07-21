@@ -40,7 +40,7 @@ export default async function Loading({ params }) {
             {title}
           </h1>
         </header>
-        <p className="px-10 text96 text-center w-full mt-3 my-6">
+        <p className="px-10 text text96 text-center w-full mt-3 my-6">
           {description}
         </p>
       </section>

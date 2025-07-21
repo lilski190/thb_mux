@@ -31,7 +31,7 @@ export function IntroOverlay({ altText, name, userLoggedIn, lang }) {
       aria-live="assertive"
       aria-label={altText}
     >
-      <img src="/start.GIF" alt={altText} className="w-full" />
+      <img src="/start.gif" alt={altText} className="w-full" />
     </div>
   );
 }

@@ -17,11 +17,11 @@ export default async function StatisticPage({ params }) {
     rtl = true;
   }
   return (
-    <div className="w-screen">
+    <div className="">
       <DashboardHeader title={dict.routes.statistic} />
       <section
         aria-labelledby="statistic-content"
-        className="py-24 bg-base-200 px-3 grid grid-cols-1 gap-4 min-h-screen gap-2 w-screen"
+        className="py-24 bg-base-200 px-3 grid grid-cols-1 gap-4 min-h-screen gap-2"
       >
         {statisticData.data.map((item, index) => {
           switch (item.type) {
