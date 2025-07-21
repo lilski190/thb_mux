@@ -17,7 +17,7 @@ export default async function StatisticPage({ params }) {
     rtl = true;
   }
   return (
-    <div className="">
+    <div>
       <DashboardHeader title={dict.routes.statistic} />
       <section
         aria-labelledby="statistic-content"

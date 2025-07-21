@@ -12,7 +12,7 @@ export default function BottomNav({ lang, dict }) {
 
   return (
     <div
-      className="h-16 bg-base-300 w-full fixed bottom-0 z-50 flex justify-evenly items-center text "
+      className="h-16 bg-base-300 w-full max-w-screen fixed bottom-0 z-50 flex justify-evenly items-center text "
       dir="ltr"
     >
       {[

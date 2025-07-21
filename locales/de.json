@@ -76,7 +76,7 @@
     "lang": {
       "title": "Spracheinstellungen",
       "description": "Wähle deine bevorzugte Sprache aus.",
-      "options": ["de", "en", "sp", "pl", "ar"],
+      "options": ["de", "en", "es", "pl", "ar"],
       "save": "Speichern"
     },
     "info": "Informationen",
@@ -195,7 +195,7 @@
       "colLabel": "Mahlzeiten",
       "colValue": "Der totale Wert",
       "labels": {
-        "vegetarian": "Veggi",
+        "vegetarian": "Veggie",
         "vegan": "Vegan",
         "fish": "Fisch",
         "meat": "Fleisch",
@@ -212,7 +212,7 @@
       "description": "Was hast du heute in der Mensa gegessen?",
       "options": [
         "Vegan",
-        "Veggi",
+        "Veggie",
         "Fisch",
         "Fleisch",
         "Salat",
@@ -258,9 +258,9 @@
       "msg": "Es gab einen Fehler mit der Autorisierung"
     },
     "notifications": {
-      "general": "Fehler beim Speichern der Notifikationen",
-      "success": "Notofications erfolgreich gespeichert",
-      "error": "Notofications sind ungültig",
+      "general": "Fehler beim Speichern der Benachrichtigungseinstellung",
+      "success": "Benachrichtigungseinstellungen erfolgreich gespeichert",
+      "error": "Benachrichtigungseinstellungen sind ungültig",
       "msg": "Es gab einen Fehler mit der Autorisierung"
     },
     "color": {

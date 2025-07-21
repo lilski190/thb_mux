@@ -76,7 +76,7 @@
     "lang": {
       "title": "Ustawienia języka",
       "description": "Wybierz preferowany język.",
-      "options": ["de", "en", "sp", "pl", "ar"],
+      "options": ["de", "en", "es", "pl", "ar"],
       "save": "Zapisz"
     },
     "info": "Informacje",

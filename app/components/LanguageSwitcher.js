@@ -106,7 +106,7 @@ export default function LanguageSwitcher({ dict, closeModal }) {
                   }
                 `}
               >
-                {lang}
+                {lang === "sp" ? "es" : lang}
               </span>
             </label>
             <span className="text text80 mt-2">{langLabels[lang]}</span>

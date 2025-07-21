@@ -83,7 +83,7 @@
     "lang": {
       "title": "إعدادات اللغة",
       "description": "اختر لغتك المفضلة.",
-      "options": ["de", "en", "sp", "pl", "ar"],
+      "options": ["de", "en", "es", "pl", "ar"],
       "save": "حفظ"
     },
     "info": "المعلومات",

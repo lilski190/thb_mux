@@ -108,7 +108,7 @@
 .contrast {
   --color-base-100: rgb(255, 255, 255);
   --color-base-200: rgb(255, 255, 255);
-  --color-base-300: rgb(255, 255, 255);
+  --color-base-300: rgb(0, 0, 0);
   --color-base-content: rgb(0, 0, 0);
   --color-primary: rgb(0, 0, 0);
   --color-primary-content: rgb(255, 255, 255);
