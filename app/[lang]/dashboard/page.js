@@ -27,7 +27,7 @@ export default async function DashboardPage({ params }) {
         className="py-20 bg-base-200 px-3 flex flex-col justify-evenly min-h-screen gap-2 max-w-screen"
       >
         <MedalModal
-          count={13} //{homeData.streak}
+          count={homeData.streak}
           title={dict.home.streak.title}
           description={dict.home.streak.options[homeData.streak]}
           sr={dict.home.streak.sr_title}
