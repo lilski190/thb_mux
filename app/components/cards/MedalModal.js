@@ -2,10 +2,15 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
-const MedalModal = ({ count, title, description, sr }) => {
+const MedalModal = ({ count, title, description, sr, allOptions }) => {
   const showMiddle = count >= 5;
   const showBig = count >= 10;
 
+    let descriptionText =
+    description ||
+    allOptions[allOptions.length - 1] ||
+    "No description available";
+  
   return (
     <article
       className="card bg-base-100 border border-base-300"
@@ -68,7 +73,7 @@ const MedalModal = ({ count, title, description, sr }) => {
           </div>
           <div className="w-1/2">
             <h3 className="Textbold w-5/6 text124 text">{title}</h3>
-            <p className="text96 w-5/6">{description}</p>
+            <p className="text96 w-5/6">{descriptionText}</p>
           </div>
         </div>
       </div>

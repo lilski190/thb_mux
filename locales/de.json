@@ -274,7 +274,7 @@
     "error": "Es gab einen Fehler",
     "errorDescription": "Bitte versuche es später noch einmal, oder lade die Seite erneut",
     "errorAltText": "Fehler beim Laden der Seite",
-    "notFound": "Diese Seite exestiert nicht",
+    "notFound": "Diese Seite existiert nicht",
     "notFoundDescription": "Die Seite die du suchst, konnte nicht gefunden werden. Bitte überprüfe die URL oder gehe zurück zur Startseite.",
     "notFoundAltText": "404 Fehler - Seite nicht gefunden",
     "LinkNotFound": "Zurück zur Startseite",
