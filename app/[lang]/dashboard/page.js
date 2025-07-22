@@ -31,6 +31,7 @@ export default async function DashboardPage({ params }) {
           title={dict.home.streak.title}
           description={dict.home.streak.options[homeData.streak]}
           sr={dict.home.streak.sr_title}
+allOptions={dict.home.streak.options}
         />
         <Link href={`/${lang}/dashboard/statistic`}>
           <HomeInputModal
