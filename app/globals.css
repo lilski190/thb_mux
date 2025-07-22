@@ -5,7 +5,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Root Variables */
 :root {
   --color-primary: #1e40af;
   --color-secondary: #cccccc;
@@ -18,19 +17,19 @@
   --color-buttonDisabled: #9ca3af;
   --color-error: #dc2626;
   --color-confirm: #16a34a;
-  --fs-350: 3.85rem; /* 3.5 * 1.1 */
-  --fs-300: 3.3rem; /* 3 * 1.1 */
-  --fs-172: 1.892rem; /* 1.72 * 1.1 */
-  --fs-150: 1.65rem; /* 1.5 * 1.1 */
-  --fs-124: 1.364rem; /* 1.24 * 1.1 */
-  --fs-100: 1.1rem; /* 1 * 1.1 */
-  --fs-98: 1.078rem; /* 0.98 * 1.1 */
-  --fs-96: 1.056rem; /* 0.96 * 1.1 */
-  --fs-80: 0.88rem; /* 0.8 * 1.1 */
-  --fs-75: 0.825rem; /* 0.75 * 1.1 */
-  --fs-65: 0.8rem; /* 0.65 * 1.1 */
-  --fs-54: 0.8rem; /* 0.54 * 1.1 */
-  --fs-36: 0.5em; /* 0.36 * 1.1 */
+  --fs-350: 3.85rem;
+  --fs-300: 3.3rem;
+  --fs-172: 1.892rem;
+  --fs-150: 1.65rem;
+  --fs-124: 1.364rem;
+  --fs-100: 1.1rem;
+  --fs-98: 1.078rem;
+  --fs-96: 1.056rem;
+  --fs-80: 0.88rem;
+  --fs-75: 0.825rem;
+  --fs-65: 0.8rem;
+  --fs-54: 0.8rem;
+  --fs-36: 0.5em;
 }
 
 .main {
@@ -160,23 +159,21 @@
   }
 }
 
-/* Global Styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Athiti", sans-serif;
 }
 
-/* Title Styling */
 .title {
   font-family: "Onest", sans-serif;
-  font-weight: 800; /* ExtraBold */
+  font-weight: 800;
   font-size: var(--fs-150);
   width: 100%;
   text-align: center;
   vertical-align: top;
   color: var(--color-primary);
-  line-height: 1.1; /* optional, für bessere Lesbarkeit */
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -184,7 +181,6 @@ body {
   font-size: var(--fs-172);
 }
 
-/* Text Styling */
 .text {
   color: var(--color-base-content);
   font-family: "Athiti", sans-serif;
@@ -321,8 +317,7 @@ body {
   border: 3px solid #f0f0f0;
 }
 
-/* Scrollbar-Styling für Firefox */
 * {
-  scrollbar-width: thin; /* oder auto, thin, none */
-  scrollbar-color: #999 #f0f0f0; /* Daumenfarbe + Trackfarbe */
+  scrollbar-width: thin;
+  scrollbar-color: #999 #f0f0f0;
 }

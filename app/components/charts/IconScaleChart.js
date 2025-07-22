@@ -1,6 +1,23 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * IconScaleChart-Komponente zur Darstellung von skalierten Symbolen basierend auf Datenwerten.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {number[]} props.data - Array von numerischen Werten zur Skalierung der Symbole
+ * @param {string[]} props.labels - Array von Labels, die den Datenwerten entsprechen
+ * @param {Object} props.dict - Wörterbuch für Barrierefreiheit und Beschriftungen
+ * @param {Object.<string,string>} props.dict.labels - Mapping von Label-Keys zu lesbaren Strings
+ * @param {string} [props.dict.altText] - Alternativer Text für das Diagramm (aria-label)
+ * @param {string} [props.dict.title] - Fallback-Titel für das Diagramm (aria-label)
+ * @param {string} [props.dict.altTableLabel] - Beschriftung für die unsichtbare Tabelle (Screenreader)
+ * @param {string} [props.dict.colLabel] - Spaltenüberschrift Kategorie für die Tabelle
+ * @param {string} [props.dict.colValue] - Spaltenüberschrift Wert für die Tabelle
+ * @param {string} [props.ariaDescribedBy] - Optionaler Wert für aria-describedby (ID-Referenz)
+ *
+ * @returns {JSX.Element} JSX-Element mit skalierten Symbolen und einer Screenreader-Tabelle
+ */
 const IconScaleChart = ({ data, labels, dict, ariaDescribedBy }) => {
   const max = Math.max(...data);
   const maxSize = 80;
@@ -8,7 +25,7 @@ const IconScaleChart = ({ data, labels, dict, ariaDescribedBy }) => {
 
   const items = data
     .map((value, i) => ({ value, label: labels[i] }))
-    .sort((a, b) => b.value - a.value); // größter Wert links
+    .sort((a, b) => b.value - a.value);
 
   const sortedItems = data
     .map((value, index) => ({ value, label: labels[index] }))

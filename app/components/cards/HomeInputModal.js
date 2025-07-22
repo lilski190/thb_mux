@@ -2,6 +2,19 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * Komponente für ein Eingabe-Modal mit Icon, Titel und Beschreibung.
+ *
+ * Zeigt ein gruppiertes Element mit einem SVG-Icon, einem Titel und einer Beschreibung.
+ * Bei bestimmten Icons ("bike", "walk") wird das SVG anders gefüllt/gezeichnet.
+ *
+ * @param {Object} props - Komponenten-Props.
+ * @param {string} props.icon - Schlüssel für das Icon im ICONS-Objekt.
+ * @param {string} props.title - Titeltext der Eingabe.
+ * @param {string} props.description - Beschreibungstext unter dem Titel.
+ *
+ * @returns {JSX.Element} JSX-Element des Eingabe-Modals.
+ */
 const HomeInputModal = ({ icon, title, description }) => {
   let stroke = "none";
   let fill = "currentColor";

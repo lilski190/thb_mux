@@ -2,6 +2,20 @@ import { getDictionary } from "@/lib/getDictionary";
 import BottomNav from "./BottomNav";
 import { cookies } from "next/headers";
 
+/**
+ * Layout-Komponente für das Dashboard mit Sprach- und Farbmodus-Unterstützung.
+ *
+ * Lädt das Wörterbuch basierend auf der Sprachkennung aus den URL-Parametern,
+ * liest den Farbmodus aus den Cookies aus und rendert die Hauptnavigation
+ * sowie die eingebetteten Kind-Komponenten.
+ *
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Die eingebetteten Komponenten bzw. Seiteninhalte.
+ * @param {Object} props.params - URL-Parameter (z.B. Sprachkennung).
+ * @param {string} [props.params.lang] - Sprachkennung, z.B. 'de' oder 'en'.
+ *
+ * @returns {JSX.Element} Layout mit BottomNav und Seiteninhalt.
+ */
 export default async function Layout({ children, params }) {
   const param = await params;
   const lang = param.lang || "de";

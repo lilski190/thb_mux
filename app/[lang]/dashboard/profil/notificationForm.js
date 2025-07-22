@@ -4,6 +4,18 @@ import { useState } from "react";
 import { pushNotoficationData } from "@/app/actions/formAction";
 import { useToast } from "@/app/components/modals/Toast";
 
+/**
+ * Formular-Komponente zur Auswahl und Speicherung von Benachrichtigungstagen.
+ *
+ * @param {Object} props
+ * @param {Object} props.params - Parameter, typischerweise aus Routing.
+ * @param {Object} props.dict - Übersetzungen und UI-Texte für die Komponente.
+ * @param {Function} props.closeModal - Funktion zum Schließen des Modals (optional).
+ * @param {Object} props.toast - Texte für Toast-Nachrichten (optional).
+ *
+ * @returns {JSX.Element} Formular zum Auswählen von Wochentagen mit Checkboxen,
+ *                       inklusive "Alle auswählen"-Funktion, Speichern und Toast-Meldungen.
+ */
 export default function NotificationForm({ params, dict, closeModal, toast }) {
   const [checkboxes, setCheckboxes] = useState({
     mo: false,
@@ -110,7 +122,6 @@ export default function NotificationForm({ params, dict, closeModal, toast }) {
         })}
       </fieldset>
 
-      {/* Alle auswählen */}
       <div className="flex items-center gap-3 ml-4">
         <label
           htmlFor="select-all"
@@ -122,7 +133,7 @@ export default function NotificationForm({ params, dict, closeModal, toast }) {
             checked={allChecked}
             onChange={handleSelectAll}
             className={"sr-only peer"}
-            aria-label={dict.options[5]} // z. B. „Alle Tage auswählen“
+            aria-label={dict.options[5]}
           />
 
           <div
@@ -160,7 +171,6 @@ export default function NotificationForm({ params, dict, closeModal, toast }) {
         </label>
       </div>
 
-      {/* Submit */}
       <div className="flex items-center justify-center mb-24">
         <button
           type="submit"

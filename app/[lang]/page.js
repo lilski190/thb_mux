@@ -7,12 +7,23 @@ import { IntroOverlay } from "../components/modals/IntroOverlay";
 import InstallButton from "../components/buttons/InstallButton";
 import { cookies } from "next/headers";
 
+/**
+ * Async React-Komponente für die Startseite.
+ * Lädt das Sprach-Dictionary basierend auf den URL-Parametern,
+ * liest Cookies aus, um Login-Status und bevorzugte Sprache zu bestimmen,
+ * und rendert die Hauptseite mit entsprechenden UI-Komponenten.
+ *
+ * @param {Object} props
+ * @param {Object} props.params - URL-Parameter, inklusive Sprachcode `lang`.
+ * @param {string} [props.params.lang] - Sprachcode, z.B. "de" oder "en". Standard ist "de".
+ *
+ * @returns {JSX.Element} Die gerenderte Startseiten-Komponente.
+ */
 export default async function Home({ params }) {
   const param = await params;
   const lang = param.lang || "de";
   const dict = await getDictionary(lang);
 
-  // 1. Token aus Cookies holen
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
   const cookieLang = cookieStore.get("lang")?.value;

@@ -2,6 +2,17 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * MenuModal-Komponente zur Darstellung eines Menüeintrags mit Icon und Titel.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {string} props.icon - Schlüssel für das Icon aus ICONS (z.B. "bike", "walk")
+ * @param {string} props.title - Titeltext des Menüeintrags
+ * @param {Object} props.dict - (Optional) Wörterbuch für Übersetzungen oder andere Texte (derzeit nicht verwendet)
+ * @param {string} [props.color] - (Optional) Textfarbe, z.B. "primary", "accent"
+ *
+ * @returns {JSX.Element} JSX-Element mit Menüeintrag inklusive Icon und Pfeil
+ */
 const MenuModal = ({ icon, title, dict, color }) => {
   let stroke = "none";
   let fill = "currentColor";

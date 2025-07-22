@@ -12,6 +12,28 @@ import { ICONS } from "@/lib/globals";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import { cookies } from "next/headers";
 
+/**
+ * ProfilPage – Asynchrone Next.js Page-Komponente für das Benutzerprofil.
+ *
+ * Diese Seite lädt sprachspezifische Inhalte (Dictionary) und Profildaten des Benutzers.
+ * Sie stellt verschiedene UI-Komponenten wie Benutzer-Avatar, Begrüßung, Medaillen (z. B. Rekordanzeige),
+ * sowie interaktive Einstellungen wie Benachrichtigungen, Darkmode und Sprachwahl bereit.
+ *
+ * Die Komponente unterstützt Mehrsprachigkeit und liest u. a. den Farbmodus aus Cookies aus.
+ *
+ * @async
+ * @function
+ * @param {Object} props - Die Properties, die vom Next.js Router übergeben werden.
+ * @param {Object} props.params - Die Routenparameter der Seite.
+ * @param {string} [props.params.lang="de"] - Die Sprache der Seite (Standard ist Deutsch).
+ *
+ * @returns {JSX.Element} Die vollständig gerenderte Profil-Seite mit interaktiven Modals und Benutzerinformationen.
+ *
+ * @example
+ * // Beispielhafte Verwendung:
+ * <ProfilPage params={{ lang: "en" }} />
+ */
+
 export default async function ProfilPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";
@@ -29,7 +51,6 @@ export default async function ProfilPage({ params }) {
         className="py-20 bg-base-200 px-3 grid grid-cols-1 gap-1.5"
         aria-label={dict.profil.sectionLabel || "Profilübersicht"}
       >
-        {/* Profilbild */}
         <div className="w-full flex items-center justify-center mb-1.5 mt-2">
           <div
             className="card bg-base-100 border border-base-300 p-0 m-0 w-24 h-24 rounded-full flex items-center justify-center"
@@ -57,7 +78,6 @@ export default async function ProfilPage({ params }) {
           </div>
         </div>
 
-        {/* Begrüßung & Medaille */}
         <div className="w-full">
           <article
             className="card bg-base-100 border border-base-300 p-0 m-0 mb-1.5"

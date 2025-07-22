@@ -5,6 +5,18 @@ import LoginForm from "@/app/components/login/loginForm";
 import Tooltip from "@/app/components/tooltips/InformationTooltip";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * Asynchrone React-Komponente für die Login-Seite.
+ *
+ * Lädt die Sprachübersetzung basierend auf dem URL-Parameter `lang` (Standard: "de")
+ * und rendert das Login-Formular mit zugehörigen UI-Elementen und Tooltips.
+ *
+ * @param {Object} props
+ * @param {Object} props.params - URL-Parameter der Seite.
+ * @param {string} [props.params.lang] - Sprachcode, z.B. 'de' oder 'en'.
+ *
+ * @returns {JSX.Element} JSX-Element mit Login-Formular, Logo, Titel, Beschreibung und Hilfetexten.
+ */
 export default async function LoginPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";

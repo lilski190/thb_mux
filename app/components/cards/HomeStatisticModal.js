@@ -8,6 +8,20 @@ const COLOR_MAP = {
   FBW: "#F18400",
 };
 
+/**
+ * Komponente für ein Statistik-Modal mit Balkendiagramm.
+ *
+ * Zeigt eine gruppierte Karte mit Balken, die Werte aus den Daten visualisieren,
+ * dazu Titel, Beschreibung und eine unsichtbare Tabelle für Screenreader.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {Object.<string, number>} props.data - Objekt mit Schlüsseln und numerischen Werten, die visualisiert werden
+ * @param {string} props.title - Titel der Statistik
+ * @param {Object.<string, string>} props.description - Objekt mit Beschreibungen, Schlüssel entspricht einem key aus data
+ * @param {Object} props.sr - Objekt mit Texten für Screenreader (z.B. sr.value als Spaltenüberschrift)
+ *
+ * @returns {JSX.Element} JSX-Element der Statistik-Karte
+ */
 const HomeStatisticModal = ({ data, title, description, sr }) => {
   const entries = Object.entries(data);
   const [bestfb, bestValue] = entries.reduce((max, entry) =>
@@ -35,7 +49,7 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
             >
               {entries.map(([key, value]) => {
                 const heightPercent = Math.max((value / maxValue) * 100, 1);
-                const barColor = COLOR_MAP[key] || "#888"; // fallback-farbe grau
+                const barColor = COLOR_MAP[key] || "#888";
 
                 return (
                   <div
@@ -57,7 +71,6 @@ const HomeStatisticModal = ({ data, title, description, sr }) => {
                   </div>
                 );
               })}
-              {/* Unsichtbare Tabelle für Screen‑Reader */}
               <table className="sr-only">
                 <thead>
                   <tr>

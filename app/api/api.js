@@ -1,8 +1,13 @@
-const FLASK_BASE_URL = "https://campertour.pl"; //"http://192.168.178.44:5000";
+const FLASK_BASE_URL = "https://campertour.pl";
 
-//process.env.NEXT_PUBLIC_FLASK_API ||
-// "http://mux-team2.th-brandenburg.de:5000";
-
+/**
+ * Führt einen GET-Request mit Token-Authentifizierung durch.
+ *
+ * @param {string} token - JWT-Token für Authorization-Header.
+ * @param {string} path - API-Endpunkt (z.B. "home", "profile").
+ * @returns {Promise<any>} Antwort-Daten als JSON-Objekt.
+ * @throws {Error} Wirft bei HTTP-Fehlern mit Fehlernachricht.
+ */
 export async function getRequestToken(token, path) {
   const res = await fetch(`${FLASK_BASE_URL}/${path}`, {
     method: "GET",
@@ -12,7 +17,7 @@ export async function getRequestToken(token, path) {
   });
 
   if (!res.ok) {
-    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    const errorText = await res.text();
     let errorMsg = ` (${res.status})`;
 
     try {
@@ -20,9 +25,7 @@ export async function getRequestToken(token, path) {
       if (json.error) {
         errorMsg = json.error;
       }
-    } catch (_) {
-      // keine gültige JSON-Antwort, ignoriere
-    }
+    } catch (_) {}
 
     throw new Error(errorMsg);
   }
@@ -31,8 +34,15 @@ export async function getRequestToken(token, path) {
   return data;
 }
 
+/**
+ * Führt einen POST-Request ohne Token durch.
+ *
+ * @param {string} path - API-Endpunkt.
+ * @param {Object} obj - Payload als JS-Objekt, wird als JSON gesendet.
+ * @returns {Promise<any>} Antwort-Daten als JSON-Objekt.
+ * @throws {Error} Wirft bei HTTP-Fehlern mit Fehlernachricht.
+ */
 export async function postRequest(path, obj) {
-  console.log("postRequest Body", JSON.stringify(obj));
   const res = await fetch(`${FLASK_BASE_URL}/${path}`, {
     method: "POST",
     headers: {
@@ -42,7 +52,7 @@ export async function postRequest(path, obj) {
   });
 
   if (!res.ok) {
-    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    const errorText = await res.text();
     let errorMsg = `(${res.status})`;
 
     try {
@@ -50,9 +60,7 @@ export async function postRequest(path, obj) {
       if (json.error) {
         errorMsg = json.error;
       }
-    } catch (_) {
-      // keine gültige JSON-Antwort, ignoriere
-    }
+    } catch (_) {}
 
     throw new Error(errorMsg);
   }
@@ -68,6 +76,15 @@ export async function postRequest(path, obj) {
   return data;
 }
 
+/**
+ * Führt einen POST-Request mit Token-Authentifizierung durch.
+ *
+ * @param {string} token - JWT-Token für Authorization-Header.
+ * @param {string} path - API-Endpunkt.
+ * @param {Object} obj - Payload als JS-Objekt, wird als JSON gesendet.
+ * @returns {Promise<any>} Antwort-Daten als JSON-Objekt.
+ * @throws {Error} Wirft bei HTTP-Fehlern mit Fehlernachricht.
+ */
 export async function postRequestToken(token, path, obj) {
   const res = await fetch(`${FLASK_BASE_URL}/${path}`, {
     method: "POST",
@@ -79,7 +96,7 @@ export async function postRequestToken(token, path, obj) {
   });
 
   if (!res.ok) {
-    const errorText = await res.text(); // enthält evtl. JSON mit "error"
+    const errorText = await res.text();
     let errorMsg = ` (${res.status})`;
 
     try {
@@ -87,9 +104,7 @@ export async function postRequestToken(token, path, obj) {
       if (json.error) {
         errorMsg = json.error;
       }
-    } catch (_) {
-      // keine gültige JSON-Antwort, ignoriere
-    }
+    } catch (_) {}
 
     throw new Error(errorMsg);
   }

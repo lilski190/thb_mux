@@ -9,14 +9,27 @@ import React, {
   useCallback,
 } from "react";
 
+/**
+ * Kontext für Toast-Benachrichtigungen.
+ *
+ * Bietet Funktionen zum Anzeigen und Verbergen von Toast-Nachrichten.
+ */
 const ToastContext = createContext();
 
+/**
+ * Provider-Komponente, die Toast-Nachrichten verwaltet und rendert.
+ *
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Die untergeordneten Komponenten, die den ToastContext nutzen können
+ *
+ * @returns {JSX.Element} ToastContext.Provider mit gerendertem Toast und showToast-Funktion
+ */
 export const ToastProvider = ({ children }) => {
   const [toast, setToast] = useState({
     visible: false,
-    type: "info", // info | success | warning | error | neutral
+    type: "info",
     message: "",
-    duration: 3, // Sekunden
+    duration: 3,
   });
 
   const [progress, setProgress] = useState(100);
@@ -139,4 +152,12 @@ export const ToastProvider = ({ children }) => {
   );
 };
 
+/**
+ * Hook zum Zugriff auf Toast-Funktionalität.
+ *
+ * Gibt ein Objekt mit der Funktion `showToast(type, duration, message)` zurück,
+ * mit der man Toasts anzeigen kann.
+ *
+ * @returns {{ showToast: (type?: string, duration?: number, message?: string) => void }}
+ */
 export const useToast = () => useContext(ToastContext);

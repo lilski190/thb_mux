@@ -1,12 +1,18 @@
 "use server";
 
 import { redirect } from "next/navigation"; // besser als von api-utils
-import { getRequestToken, postRequestToken } from "../api/api";
+import { postRequestToken } from "../api/api";
 import { cookies } from "next/headers";
 
+/**
+ * Sendet die Ankunftsdaten (Transport und Entfernung) an den Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @param {FormData} formData - Formulardaten mit Feldern "transportation" und "distance".
+ * @returns {Promise<{success: boolean, message: string} | null>} Erfolgsmeldung oder Umleitung (null).
+ */
 export async function pushArivalData(formData) {
   const path = "add_transportation_entry";
-  console.log("PUSH DATA FOR ARIVAL");
 
   const transportation = formData.get("transportation");
   const distance = formData.get("distance");
@@ -15,9 +21,6 @@ export async function pushArivalData(formData) {
     transportationType: transportation,
     value: distance,
   };
-
-  console.log("PUSH DATA FOR ARIVAL", JSON.stringify(obj));
-
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
@@ -29,7 +32,6 @@ export async function pushArivalData(formData) {
 
   try {
     const response = await postRequestToken(token, path, obj);
-    console.log("response Arrival post", response);
     return { success: true, message: "Daten erfolgreich gespeichert" };
   } catch (error) {
     console.error("Fehler beim Speichern der Ankunftsdaten:", error.message);
@@ -37,18 +39,21 @@ export async function pushArivalData(formData) {
   }
 }
 
+/**
+ * Sendet die Mahlzeit-Daten an den Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @param {FormData} formData - Formulardaten mit Feld "meal".
+ * @returns {Promise<{success: boolean, message: string} | null>} Erfolgsmeldung oder Umleitung (null).
+ */
 export async function pushMealData(formData) {
   const path = "add_meal_entry";
-  console.log("PUSH DATA FOR MEAL");
-
   const meal = formData.get("meal");
 
   const obj = {
     mealType: meal,
     value: 1,
   };
-
-  console.log("PUSH DATA FOR MEAL", JSON.stringify(obj));
 
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
@@ -61,7 +66,6 @@ export async function pushMealData(formData) {
 
   try {
     const response = await postRequestToken(token, path, obj);
-    console.log("response Meal post", response);
     return { success: true, message: "Mahlzeit erfolgreich gespeichert" };
   } catch (error) {
     console.error("Fehler beim Speichern der Mahlzeit:", error.message);
@@ -69,6 +73,13 @@ export async function pushMealData(formData) {
   }
 }
 
+/**
+ * Sendet die Benachrichtigungseinstellungen an den Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @param {FormData} formData - Formulardaten mit Feldern "mo", "di", "mi", "do", "fr" (jeweils "0" oder "1").
+ * @returns {Promise<{success: boolean, message: string} | null>} Erfolgsmeldung oder Umleitung (null).
+ */
 export async function pushNotoficationData(formData) {
   const path = "settings/notifications";
 
@@ -81,9 +92,6 @@ export async function pushNotoficationData(formData) {
   const obj = {
     notifications: [mo, di, mi, don, fr],
   };
-
-  console.log("PUSH DATA FOR NOTIFICATIONS", JSON.stringify(obj));
-
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
@@ -95,7 +103,6 @@ export async function pushNotoficationData(formData) {
 
   try {
     const response = await postRequestToken(token, path, obj);
-    console.log("response Notifications post", response);
     return {
       success: true,
       message: "Benachrichtigungen erfolgreich gespeichert",

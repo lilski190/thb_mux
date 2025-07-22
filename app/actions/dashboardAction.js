@@ -3,59 +3,54 @@
 import { redirect } from "next/dist/server/api-utils";
 import { getRequestToken } from "../api/api";
 import { cookies } from "next/headers";
-import { resolve } from "styled-jsx/css";
 
+/**
+ * Holt die Daten für die Startseite vom Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @returns {Promise<Object|null>} Die Daten für die Startseite oder null bei Umleitung.
+ */
 export async function getHomeData() {
   let path = "home";
-  console.log("GET DATA FOR HOME");
-
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
+  const token = cookieStore.get("token")?.value;
 
   if (!token) {
     console.warn("No token found");
     redirect("/login");
     return null;
   }
-
-  // let response = HomeDummi.response;
-  //TODO: write usual_arival in cookies
   const response = await getRequestToken(token, path);
-  if (response.data.usual_arival != undefined) {
-    console.log("usual_arival", response.data.usual_arival);
-  }
-
-  //COLROMODE Cookie setzen
-  console.log("home request result: ", response);
-
   return response.data;
 }
 
+/**
+ * Holt die Eingabedaten (input data) vom Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @returns {Promise<Object|null>} Die Eingabedaten oder null bei Umleitung.
+ */
 export async function getInputData() {
   let path = "home";
-  console.log("GET DATA FOR HOME");
-
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
+  const token = cookieStore.get("token")?.value;
 
   if (!token) {
     console.warn("No token found");
     redirect("/login");
     return null;
   }
-
-  // let response = HomeDummi.response;
-  //TODO: write usual_arival in cookies
   const response = await getRequestToken(token, path);
-
-  //COLROMODE Cookie setzen
-  console.log("input request result: ", response);
-
   return response.data;
 }
 
+/**
+ * Holt die Statistik-Daten vom Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @returns {Promise<Object|null>} Die Statistik-Daten oder null bei Umleitung.
+ */
 export async function getStatisitcData() {
-  console.log("GET DATA FOR STATISTICS");
   let path = "statistics";
 
   const cookieStore = await cookies();
@@ -67,18 +62,21 @@ export async function getStatisitcData() {
     return null;
   }
 
-  // let response = statisticDummi.response;
   const response = await getRequestToken(token, path);
-  console.log("statistic response", response);
-  return response; //data;
+  return response;
 }
 
+/**
+ * Holt die Profildaten vom Server.
+ * Leitet bei fehlendem Token auf die Login-Seite um.
+ *
+ * @returns {Promise<Object|null>} Die Profildaten oder null bei Umleitung.
+ */
 export async function getProfilData() {
   let path = "profile";
-  console.log("GET DATA FOR HOME");
 
   const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value; // oder dein Cookie-Name
+  const token = cookieStore.get("token")?.value;
 
   if (!token) {
     console.warn("No token found");
@@ -86,10 +84,6 @@ export async function getProfilData() {
     return null;
   }
 
-  //let response = ProfilDummi.response;
   const response = await getRequestToken(token, path);
-  console.log("statistic response", response);
-  return response.data; //data;
-
-  //const data = await getRequestToken(path, token);
+  return response.data;
 }

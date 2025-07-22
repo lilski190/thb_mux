@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-// ➜ Passe ggf. den Importpfad an:
 import { setLang } from "../actions/colorAction";
 import { useToast } from "@/app/components/modals/Toast";
 
@@ -27,10 +26,7 @@ export default function LanguageSwitcher({ dict, closeModal }) {
 
   const { showToast } = useToast();
 
-  // Aktuelle Sprache aus der URL ermitteln
   const currentLang = pathname.split("/")[1] || "de";
-
-  // Lokaler State für die (neu) gewählte Sprache
   const [selectedLang, setSelectedLang] = useState(currentLang);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -42,23 +38,16 @@ export default function LanguageSwitcher({ dict, closeModal }) {
     pl: "Polski",
     ar: "العربية",
   };
-
-  /** Router‑Pfad anpassen und Action aufrufen */
   const handleSave = async () => {
-    if (selectedLang === currentLang) return; // Nichts zu tun
+    if (selectedLang === currentLang) return;
     setIsSaving(true);
     try {
-      // 1) Action ausführen (z. B. in der DB / Session speichern)
       let result = await setLang(selectedLang);
-      //  showToast("success", 3, result || "Erfolgreich gespeichert");
-
-      // 2) URL umschreiben
       const segments = pathname.split("/").filter(Boolean);
       segments[0] = selectedLang;
       window.location.href = `/${selectedLang}/dashboard/profil`;
     } catch (error) {
       console.error("Fehler beim Speichern:", error);
-      //showToast("error", 3, "Fehler beim Speichern");
     } finally {
       setIsSaving(false);
     }
@@ -73,7 +62,6 @@ export default function LanguageSwitcher({ dict, closeModal }) {
       }}
       className="space-y-6 flex items-center flex-col"
     >
-      {/* Sprachwahl */}
       <fieldset
         className="flex flex-wrap justify-center items-center gap-2 mt-4 w-full"
         aria-labelledby="language-group-label"
@@ -113,8 +101,6 @@ export default function LanguageSwitcher({ dict, closeModal }) {
           </div>
         ))}
       </fieldset>
-
-      {/* Speichern‑Button */}
       <div className="flex justify-center mt-12">
         <button
           type="submit"

@@ -4,6 +4,23 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * Cloudchart-Komponente zur Darstellung eines skalierenden Symbol-Diagramms (Cloud Chart).
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {number[]} props.data - Array von numerischen Werten, die die Größe der Symbole bestimmen
+ * @param {string[]} props.labels - Array von Labels, passend zu den Daten, zur Beschriftung der Werte
+ * @param {string[]} props.colors - Array von Farbwerten (CSS-Farbstrings) für die Symbole
+ * @param {string} [props.ariaDescribedBy] - Optionales ID-Attribut für `aria-describedby` zur Barrierefreiheit
+ * @param {Object} props.dict - Wörterbuch-Objekt mit Texten für Barrierefreiheit und Tabellenbeschriftungen
+ * @param {string} [props.dict.altTableLabel] - Alternativer Text für die unsichtbare Tabelle (Screenreader)
+ * @param {string} [props.dict.colLabel] - Spaltenüberschrift für Kategorien in der Tabelle
+ * @param {string} [props.dict.colValue] - Spaltenüberschrift für Werte in der Tabelle
+ * @param {string} [props.dict.altText] - Alternativer Text für das Diagramm (aria-label)
+ * @param {string} [props.dict.title] - Titel des Diagramms als Fallback für aria-label
+ *
+ * @returns {JSX.Element} JSX-Element mit dem Symbol-Diagramm und einer unsichtbaren Tabelle für Screenreader
+ */
 const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
   const chartRef = useRef();
   const max = Math.max(...data);
@@ -56,8 +73,6 @@ const Cloudchart = ({ data, labels, colors, ariaDescribedBy, dict }) => {
     pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
     pdf.save("cloudchart.pdf");
   };
-
-  // negative margin to create overlap
 
   return (
     <div className=" w-2/3 grid  grid-cols-3 relative overflow-visible">

@@ -7,6 +7,15 @@ import { useToast } from "../modals/Toast";
 import { loginAction } from "@/app/actions/authAction";
 import Tooltip from "../tooltips/InformationTooltip";
 
+/**
+ * Asynchrone Funktion zum Verarbeiten des Login-Formulars.
+ *
+ * @param {FormData} formData - Formulardaten mit E-Mail und Passwort.
+ * @param {Object} dict - Objekt mit Übersetzungen und Texten.
+ * @param {Function} showToast - Funktion zum Anzeigen von Toast-Nachrichten.
+ * @param {import('next/navigation').Router} router - Next.js Router zum Navigieren.
+ * @param {string} lang - Sprachcode für die Weiterleitung nach erfolgreichem Login.
+ */
 async function handleLogin(formData, dict, showToast, router, lang) {
   const email = formData.get("email")?.trim();
   const password = formData.get("password");
@@ -37,7 +46,6 @@ async function handleLogin(formData, dict, showToast, router, lang) {
 
     if (success) {
       showToast("success", 3, dict.toast.login.success || "Login erfolgreich!");
-      // Kurze Pause, damit Toast sichtbar wird
       await new Promise((resolve) => setTimeout(resolve, 100));
       router.push(`/${lang}/dashboard`);
     } else {
@@ -61,6 +69,15 @@ async function handleLogin(formData, dict, showToast, router, lang) {
   }
 }
 
+/**
+ * LoginForm-Komponente mit Eingabefeldern für E-Mail und Passwort,
+ * Passwort-Anzeige-Umschalter, Validierung und Login-Versuch.
+ *
+ * @param {Object} props
+ * @param {Object} props.dict - Übersetzungsobjekt für Texte und Beschriftungen.
+ * @param {string} props.lang - Sprachcode, z.B. "de" oder "en".
+ * @returns {JSX.Element} Formular-Komponente für Login.
+ */
 export default function LoginForm({ dict, lang }) {
   const { showToast } = useToast();
   const router = useRouter();
@@ -102,7 +119,7 @@ export default function LoginForm({ dict, lang }) {
 
         <div className="relative mt-1 text -mb-1">
           <input
-            type={showPassword ? "text" : "password"} // <-- toggle type
+            type={showPassword ? "text" : "password"}
             name="password"
             id="password"
             className="input block px-2.5 pb-2 pt-2 w-full bg-transparent rounded-full border-1 border-base-300 appearance-none focus:outline-none focus:ring-0 focus:border-info peer hover:border-info pr-10" // padding für Icon
@@ -115,7 +132,6 @@ export default function LoginForm({ dict, lang }) {
           >
             {dict.login.pw}
           </label>
-          {/* Auge-Icon */}
           <button
             type="button"
             onClick={togglePasswordVisibility}

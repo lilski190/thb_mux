@@ -4,6 +4,47 @@ import { useState } from "react";
 import { ICONS } from "@/lib/globals";
 import { useToast } from "@/app/components/modals/Toast";
 
+/**
+ * ArrivalForm – Formular zur Auswahl des Verkehrsmittels und der Distanz.
+ *
+ * Diese Client-Komponente rendert eine Radiogruppen-Auswahl für verschiedene
+ * Transportarten (zu Fuß, Fahrrad, Zug, Auto) mit passenden Icons sowie einen
+ * Distanz-Slider. Es gibt außerdem einen Button, um auf die gewohnte Auswahl zurückzusetzen.
+ * Nach dem Absenden werden die Daten per `pushArivalData` gesendet, und es werden
+ * Toast-Nachrichten zu Erfolg oder Fehlern angezeigt.
+ *
+ * @component
+ * @param {Object} props - Komponenten-Props.
+ * @param {Object} props.dict - Objekt mit sprachspezifischen Texten und Labels.
+ * @param {string[]} props.dict.options - Beschriftungen der Transportoptionen.
+ * @param {string} props.dict.legendTransportation - ARIA-Legendentext für die Radiogruppe.
+ * @param {string} props.dict.distance - Beschriftung für den Distanz-Slider.
+ * @param {string} props.dict.usual - Text für den Gewohnheits-Auswahl-Button.
+ * @param {string} props.dict.save - Text für den Speichern-Button.
+ * @param {Object} props.toast - Optional. Texte für Toast-Nachrichten.
+ * @param {string} [props.toast.success] - Erfolgsmeldung.
+ * @param {string} [props.toast.error] - Fehler bei ungültigem Transporttyp.
+ * @param {string} [props.toast.msg] - Meldung bei fehlender Autorisierung.
+ * @param {string} [props.toast.general] - Allgemeine Fehlermeldung.
+ * @param {function} props.closeModal - Callback-Funktion zum Schließen des Modals.
+ * @param {Object} props.usual - Gewohnheitswerte für Transportart und Distanz.
+ * @param {string} props.usual.key - Gewöhnliche Transportart (z.B. "walk").
+ * @param {number} props.usual.value - Gewöhnliche Distanz.
+ *
+ * @returns {JSX.Element} Das gerenderte Formular mit Transportmittel-Auswahl und Distanz-Slider.
+ *
+ * @example
+ * <ArrivalForm
+ *   dict={{
+ *     options: ["Zu Fuß", "Fahrrad", "Zug", "Auto"],
+ *     legendTransportation: "Wähle dein Verkehrsmittel",
+ *     distance: "Distanz (km)",
+ *     usual: "Gewohnte Auswahl",
+ *     save: "Speichern"
+ *   }}
+ * />
+ */
+
 export default function ArrivalForm({ dict, closeModal, usual, toast }) {
   const [transportation, setTransportation] = useState("");
   const [distance, setDistance] = useState(5);
@@ -41,12 +82,10 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
     closeModal?.();
   };
 
-  /* Hilfsfunktion für IDs */
   const id = (val) => `transport-${val}`;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* --------- Verkehrsmittel --------- */}
       <fieldset
         role="radiogroup"
         aria-labelledby="legend-transport"
@@ -62,7 +101,6 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
 
           return (
             <div key={value} className="flex flex-col items-center">
-              {/* Visuell runder Icon-Button */}
               <label htmlFor={id(value)} className="cursor-pointer">
                 <input
                   type="radio"
@@ -100,20 +138,17 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
                 </span>
               </label>
 
-              {/* Sichtbarer Klartext unter dem Icon */}
               <span className="text text80 mt-3">{dict.options[idx]}</span>
             </div>
           );
         })}
       </fieldset>
 
-      {/* --------- Distanz-Slider --------- */}
       <div className="text-center space-y-1">
         <label htmlFor="distance-slider" className="text-lg font-medium">
           {dict.distance}
         </label>
 
-        {/* Live‑Ausgabe für Screenreader und Sicht */}
         <output
           id="distance-value"
           aria-live="polite"
@@ -135,7 +170,6 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
         />
       </div>
 
-      {/* --------- Gewohnheits-Link --------- */}
       <button
         type="button"
         className="underline text80 hover:text-accent focus:outline-none focus:ring-2 focus:ring-info w-full"
@@ -146,8 +180,6 @@ export default function ArrivalForm({ dict, closeModal, usual, toast }) {
       >
         {dict.usual}
       </button>
-
-      {/* --------- Speichern --------- */}
       <div className="text-center">
         <button
           type="submit"

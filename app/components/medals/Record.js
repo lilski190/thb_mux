@@ -1,6 +1,16 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * Zeigt eine grafische Darstellung eines "Records" (Erfolg/Streak) basierend auf der Dauer.
+ * Die Darstellung ändert sich farblich je nach Dauer mit unterschiedlichen SVG-Farben.
+ *
+ * @param {Object} props
+ * @param {number} props.duration - Dauer (z.B. Tage), die den Record bestimmt.
+ * @param {Object} props.dict - Objekt mit Texten/HTML, das die Beschreibung des aktuellen Records enthält.
+ *                              Der Schlüssel ist die errechnete Stufe (0 bis 6).
+ * @returns {JSX.Element} JSX mit SVG-Grafik und Beschreibungstext.
+ */
 const Record = ({ duration, dict }) => {
   let record = 0;
   let band = "fill-[#EFE9E5]";

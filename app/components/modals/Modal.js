@@ -2,6 +2,22 @@
 import React, { useRef, cloneElement } from "react";
 import MenuModal from "../cards/MenuModal";
 
+/**
+ * Modal-Komponente, die einen Button rendert, um ein Dialogfenster (modal) zu öffnen.
+ *
+ * Das Modal ist ein nativer <dialog> mit Fokus-Management und Accessibility-Attributen.
+ * Das geöffnete Modal kann mit einem Schließen-Button oder per `closeModal`-Callback geschlossen werden.
+ *
+ * @param {Object} props
+ * @param {React.ReactNode} props.button - Inhalt des Buttons (wird an MenuModal übergeben)
+ * @param {React.ReactNode} props.children - Modal-Inhalt, dem automatisch die Funktion `closeModal` übergeben wird
+ * @param {string} props.title - Titel des Modals, wird im Header angezeigt
+ * @param {string} props.description - Beschreibungstext, wird unter dem Titel angezeigt
+ * @param {string} props.id - ID für das Dialog-Element und Verknüpfung der Accessibility-Attribute
+ * @param {React.ReactNode} props.icon - Icon, das im Button (MenuModal) angezeigt wird
+ *
+ * @returns {JSX.Element} JSX des Buttons und des Dialogfensters
+ */
 const Modal = ({ button, children, title, description, id, icon }) => {
   const dialogRef = useRef();
   const buttonRef = useRef();
@@ -65,8 +81,6 @@ const Modal = ({ button, children, title, description, id, icon }) => {
               >
                 {description}
               </div>
-
-              {/* 🔥 WICHTIG: dem Kind closeModal mitgeben */}
               <div>
                 {React.isValidElement(children)
                   ? cloneElement(children, { closeModal })

@@ -5,6 +5,20 @@ import { usePathname } from "next/navigation";
 import { ICONS } from "@/lib/globals";
 import Tooltip from "@/app/components/tooltips/InformationTooltip";
 
+/**
+ * Bottom Navigation Component für die Dashboard-Navigation.
+ *
+ * Zeigt eine fixe Leiste am unteren Bildschirmrand mit Icons und Labels
+ * für verschiedene Dashboard-Routen an. Aktiver Tab wird hervorgehoben.
+ * Manche Tabs können Tooltips haben, wenn Funktionen noch nicht implementiert sind.
+ *
+ * @param {Object} props
+ * @param {string} props.lang - Aktuelle Sprachkennung, z.B. 'de' oder 'en'.
+ * @param {Object} props.dict - Wörterbuch mit Routen-Labels und allgemeinen Texten.
+ * @param {string} [props.mode="main"] - Farbmodus der Navigation ("main" oder "contrast").
+ *
+ * @returns {JSX.Element} Navigationsleiste am unteren Bildschirmrand.
+ */
 export default function BottomNav({ lang, dict, mode }) {
   const pathname = usePathname();
 

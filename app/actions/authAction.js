@@ -6,18 +6,23 @@ import { redirect } from "next/navigation";
 
 const path = "login";
 
+/**
+ * Führt den Login-Vorgang auf dem Server aus.
+ * Liest Benutzername und Passwort aus dem übergebenen FormData-Objekt,
+ * sendet diese an den Login-API-Endpunkt und setzt bei Erfolg entsprechende Cookies.
+ *
+ * @param {FormData} formData - Formulardaten mit den Feldern "email" und "password".
+ * @param {string} lang - Sprachcode, z.B. "de" oder "en".
+ *
+ * @returns {Promise<{success: boolean, message: string}>} Ergebnis des Login-Versuchs.
+ */
 export async function loginAction(formData, lang) {
-  console.log("Send login: ");
   const user = formData.get("email");
   const pw = formData.get("password");
-
-  console.log("username", user, "pw", pw);
-
   const obj = { username: user, password: pw };
 
   try {
     const result = await postRequest(path, obj);
-    console.log("Result", result);
 
     if (result?.access_token) {
       const cookieStore = await cookies();
@@ -48,10 +53,16 @@ export async function loginAction(formData, lang) {
   }
 }
 
+/**
+ * Führt den Logout-Vorgang auf dem Server aus.
+ * Löscht Login-bezogene Cookies (token, colorMode, lang, dir)
+ * und leitet auf die Startseite der zuletzt genutzten Sprache um.
+ *
+ * @returns {Promise<void>}
+ */
 export async function logoutAction() {
   const cookieStore = await cookies();
   let lastLang = cookieStore.get("lang")?.value || "de";
-  // Cookie löschen, indem man es mit leerem Wert und maxAge 0 setzt
   cookieStore.set("token", "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -59,7 +70,6 @@ export async function logoutAction() {
     path: "/",
   });
 
-  // Optional: andere Cookies wie colorMode auch löschen
   cookieStore.set("colorMode", "", {
     maxAge: 0,
     path: "/",

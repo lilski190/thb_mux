@@ -4,6 +4,24 @@ import { ICONS } from "@/lib/globals";
 import { setColorMode } from "@/app/actions/colorAction";
 import { useToast } from "@/app/components/modals/Toast";
 
+/**
+ * React-Komponente für die Farbauswahl (Colormode) mit Speicherung und Feedback.
+ *
+ * @param {Object} props - Die Props für die Komponente.
+ * @param {string} props.title - Titel (derzeit nicht genutzt, kann für Überschrift o.Ä. sein).
+ * @param {React.ReactNode} props.icon - Icon-Komponente (derzeit nicht genutzt, evtl. Erweiterung).
+ * @param {string} props.mode - Der aktuell ausgewählte Farbmodus ("main", "dark" oder "contrast").
+ * @param {Object} props.dict - Wörterbuch für Übersetzungen/Textinhalte.
+ * @param {Object} props.dict.general - Generelle Texte.
+ * @param {string[]} props.dict.general.colormodes - Array mit Bezeichnungen der Farbmodes (Licht, Dunkel, Kontrast).
+ * @param {string} props.dict.general.sr_color - Beschreibung für Screenreader (z.B. "Farbmodus").
+ * @param {Object} [props.toast] - Optional, Übersetzungen für Toast-Nachrichten.
+ * @param {string} [props.toast.success] - Erfolgsmeldung.
+ * @param {string} [props.toast.auth] - Authentifizierungs-Fehlermeldung.
+ * @param {string} [props.toast.general] - Allgemeine Fehlermeldung.
+ *
+ * @returns {JSX.Element} JSX-Element mit Farbauswahl und Speicherung.
+ */
 const BarColormode = ({ title, icon, mode, dict, toast }) => {
   const formRef = useRef(null);
   const [selectedMode, setSelectedMode] = useState(mode);
@@ -42,7 +60,7 @@ const BarColormode = ({ title, icon, mode, dict, toast }) => {
   const handleChange = (e) => {
     const value = e.target.value;
     setSelectedMode(value);
-    handleSave(value); // Direkt speichern mit dem neuen Wert
+    handleSave(value);
   };
   return (
     <div className="w-full mb-2">

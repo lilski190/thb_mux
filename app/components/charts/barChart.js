@@ -22,6 +22,18 @@ ChartJS.register(
   Legend
 );
 
+/**
+ * BarChart-Komponente zur Anzeige eines Balkendiagramms mit Chart.js und React.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {Array<Object>} props.ChartData - Array von Datensätzen für das Diagramm, jeweils mit Feldern wie `label`, `data`, `backgroundColor` etc.
+ * @param {Object} props.dict - Wörterbuch-Objekt zur Übersetzung von Labels und für BarChart-Beschriftungen (z.B. `labels`, `altText`, `title`, `colLabel`, `colValue`)
+ * @param {Array<string>} props.labels - Array von Label-Schlüsseln, die in `dict.labels` übersetzt werden
+ * @param {string} [props.ariaDescribedBy] - Optionaler Wert für `aria-describedby` Attribut am Canvas für Screenreader
+ * @param {boolean} [props.rtl=false] - Falls true, wird die X-Achse im Diagramm umgekehrt (für Rechts-nach-Links-Sprachen)
+ *
+ * @returns {JSX.Element} JSX-Element mit dem gerenderten Balkendiagramm und einer unsichtbaren Tabelle für Screenreader
+ */
 export default function BarChart({
   ChartData,
   dict,
@@ -37,7 +49,7 @@ export default function BarChart({
   });
 
   useEffect(() => {
-    const rootEl = document.body; // oder document.documentElement
+    const rootEl = document.body;
     const classes = rootEl.classList;
     let colorModeClass = null;
 
@@ -133,7 +145,7 @@ export default function BarChart({
 
   const chartRef = useRef(null);
   useEffect(() => {
-    const canvas = chartRef.current?.canvas; // <canvas> DOM‑Element
+    const canvas = chartRef.current?.canvas;
     if (canvas instanceof HTMLCanvasElement) {
       canvas.setAttribute("role", "img");
       canvas.setAttribute(

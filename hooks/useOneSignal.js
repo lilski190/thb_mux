@@ -16,8 +16,6 @@ import { useEffect } from "react";
 export default function useOneSignal() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-
-    // OneSignalDeferred Queue vorbereiten
     window.OneSignalDeferred = window.OneSignalDeferred || [];
 
     window.OneSignalDeferred.push(async function (OneSignal) {
@@ -26,8 +24,6 @@ export default function useOneSignal() {
         notifyButton: {
           enable: true,
         },
-        // Optional: Falls du Safari oder andere Optionen brauchst:
-        // safari_web_id: '...',
       });
     });
   }, []);

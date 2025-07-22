@@ -2,6 +2,12 @@
 import React from "react";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
 
+/**
+ * InstallButton-Komponente zeigt einen Button zum Installieren der PWA an,
+ * wenn die Installation möglich ist.
+ *
+ * @returns {JSX.Element|null} JSX-Button zum Installieren der App oder null, wenn nicht installierbar
+ */
 const InstallButton = ({}) => {
   const { installApp, isInstallable } = usePWAInstall();
 

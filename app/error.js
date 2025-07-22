@@ -19,8 +19,6 @@ export default function ErrorPage({ error, reset }) {
 
   useEffect(() => {
     console.error("Ein unerwarteter Fehler ist aufgetreten:", error);
-
-    // Sprache aus der URL extrahieren (z. B. /de/xyz)
     const pathname = window.location.pathname;
     const lang = pathname.split("/")[1] || "de";
 

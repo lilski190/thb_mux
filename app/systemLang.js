@@ -27,20 +27,15 @@ export default function SystemLanguage({ current, loggedInLang }) {
     if (loggedInLang || loggedInLang != undefined) {
       cookieLang = loggedInLang;
     }
-    // Hole System-Sprache als Fallback
     const systemLangFull = navigator.language || "de-DE";
     const systemLang = systemLangFull.split("-")[0];
 
-    // Entscheide, welche Sprache verwendet werden soll
     const preferredLang = allowedLangs.includes(cookieLang)
       ? cookieLang
       : allowedLangs.includes(systemLang)
       ? systemLang
-      : "de"; // Standardfallback
+      : "de";
 
-    console.log("Preferred Lang:", preferredLang, "| Aktuelle Route:", current);
-
-    // Redirect nur, wenn preferredLang ≠ aktuelle Sprachroute
     if (current && preferredLang !== current) {
       router.replace(`/${preferredLang}`);
     }

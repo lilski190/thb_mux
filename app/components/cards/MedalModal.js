@@ -2,15 +2,28 @@
 import React from "react";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * Komponente für eine Medaillen-Anzeige mit visuellem Flammen-Icon,
+ * abhängig von der Anzahl (count) werden unterschiedliche Flammenstufen angezeigt.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {number} props.count - Anzahl der Medaillen
+ * @param {string} props.title - Titel der Medaille
+ * @param {string} [props.description] - Beschreibungstext (optional)
+ * @param {string} props.sr - Screenreader-Text für die Anzahl
+ * @param {string[]} props.allOptions - Liste aller möglichen Beschreibungen (Fallback)
+ *
+ * @returns {JSX.Element} JSX-Element der Medaillenkarte
+ */
 const MedalModal = ({ count, title, description, sr, allOptions }) => {
   const showMiddle = count >= 5;
   const showBig = count >= 10;
 
-    let descriptionText =
+  let descriptionText =
     description ||
     allOptions[allOptions.length - 1] ||
     "No description available";
-  
+
   return (
     <article
       className="card bg-base-100 border border-base-300"

@@ -3,6 +3,16 @@ import { logoutAction } from "@/app/actions/authAction";
 import { ICONS } from "@/lib/globals";
 import React from "react";
 
+/**
+ * MenuBar-Komponente mit Logout-Button.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {string} [props.title="Logout"] - Beschriftung des Buttons und aria-label
+ * @param {string} [props.mode] - Optionaler Modus (derzeit ungenutzt)
+ * @param {string} [props.icon=ICONS.logout] - SVG-Pfad für das Icon
+ *
+ * @returns {JSX.Element} JSX-Element mit Logout-Formular und Button
+ */
 export default function MenuBar({
   title = "Logout",
   mode,
@@ -11,11 +21,6 @@ export default function MenuBar({
   return (
     <div className="w-full my-3">
       <form action={logoutAction} className="w-full">
-        {/* 
-          Button ist nun semantic <button>, erhält
-          - aria-label  (für Screenreader, falls der sichtbare Text fehlt/gekürzt)
-          - type="submit"  (löst Form-Action aus)
-        */}
         <button
           type="submit"
           className="w-full focus:outline-none focus:ring-2 focus:ring-info rounded-lg"
@@ -27,7 +32,6 @@ export default function MenuBar({
               role="group"
               aria-labelledby="logout-label"
             >
-              {/* Optionales Icon – versteckt vor Screenreadern, rein dekorativ */}
               {icon && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

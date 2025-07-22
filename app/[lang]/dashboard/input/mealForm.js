@@ -5,6 +5,37 @@ import { pushMealData } from "@/app/actions/formAction";
 import { useToast } from "@/app/components/modals/Toast";
 import { ICONS } from "@/lib/globals";
 
+/**
+ * MealForm – Formular-Komponente zur Auswahl und Speicherung einer Mahlzeit.
+ *
+ * Diese Client-Komponente rendert ein radiobutton-basiertes Formular mit verschiedenen
+ * Mahlzeit-Optionen (vegan, vegetarisch, Fisch, Fleisch, Salat, keine Angabe).
+ * Nach Absenden des Formulars werden die Daten per `pushMealData` an den Server geschickt.
+ * Erfolgs- und Fehlernachrichten werden über einen Toast angezeigt.
+ *
+ * @component
+ * @param {Object} props - Die Eigenschaften der Komponente.
+ * @param {Object} props.dict - Sprachspezifische Texte und Labels.
+ * @param {string[]} props.dict.options - Array mit Beschriftungen der Mahlzeitoptionen.
+ * @param {string} props.dict.legendMeal - ARIA-Legendentext für das Radiogruppen-Label.
+ * @param {Object} props.toast - Optional. Texte für verschiedene Toast-Nachrichten.
+ * @param {string} [props.toast.success] - Erfolgsmeldung.
+ * @param {string} [props.toast.invalid] - Nachricht bei ungültigem Mahlzeitentyp.
+ * @param {string} [props.toast.msg] - Nachricht bei fehlender Autorisierung.
+ * @param {string} [props.toast.general] - Allgemeine Fehlermeldung.
+ * @param {function} props.closeModal - Callback zum Schließen des umgebenden Modals.
+ *
+ * @returns {JSX.Element} Das gerenderte Formular mit Mahlzeit-Auswahl und Submit-Button.
+ *
+ * @example
+ * <MealForm
+ *   dict={{
+ *     options: ["Vegan", "Vegetarisch", "Fisch", "Fleisch", "Salat", "Keine Angabe"],
+ *     legendMeal: "Wähle deine Mahlzeit"
+ *   }}
+ * />
+ */
+
 export default function MealForm({ dict, closeModal, toast }) {
   const { showToast } = useToast();
   const [meal, setMeal] = useState("");
@@ -143,7 +174,6 @@ export default function MealForm({ dict, closeModal, toast }) {
         })}
       </fieldset>
 
-      {/* Submit-Button */}
       <div className="flex justify-center">
         <button
           type="submit"

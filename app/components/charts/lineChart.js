@@ -23,6 +23,24 @@ ChartJS.register(
   Legend
 );
 
+/**
+ * LineChart-Komponente zur Darstellung eines Liniendiagramms mit Chart.js.
+ *
+ * @param {Object} props - Komponenten-Props
+ * @param {Array<Object>} props.ChartData - Array von Datensätzen für das Diagramm (z.B. { label, data, ... })
+ * @param {Object} props.dict - Wörterbuch für Barrierefreiheit und Beschriftungen
+ * @param {Object.<string,string>} props.dict.labels - Mapping von Label-Keys zu lesbaren Strings
+ * @param {string} [props.dict.altText] - Alternativer Text für das Diagramm (aria-label)
+ * @param {string} [props.dict.title] - Fallback-Titel für das Diagramm (aria-label)
+ * @param {string} [props.dict.colLabel] - Spaltenüberschrift Kategorie für die Tabelle
+ * @param {string} [props.dict.colValue] - Spaltenüberschrift Wert für die Tabelle
+ * @param {string[]} props.labels - Array der Labels für die X-Achse
+ * @param {string} [props.color] - Farbwert (wird intern verwendet, kann ignoriert werden)
+ * @param {string} [props.ariaDescribedBy] - Optionaler Wert für aria-describedby (ID-Referenz)
+ * @param {boolean} [props.rtl] - Ob die x-Achse von rechts nach links dargestellt werden soll
+ *
+ * @returns {JSX.Element} JSX-Element mit dem Liniendiagramm und einer Screenreader-Tabelle
+ */
 export default function LineChart({
   ChartData,
   dict,
@@ -40,7 +58,7 @@ export default function LineChart({
   });
 
   useEffect(() => {
-    const rootEl = document.body; // oder document.documentElement
+    const rootEl = document.body;
     const classes = rootEl.classList;
     let colorModeClass = null;
 
@@ -103,7 +121,7 @@ export default function LineChart({
         reverse: rtl,
         grid: { display: false },
         border: {
-          color: fontSettings.color, // <-- Achsenlinie (x-Achse)
+          color: fontSettings.color,
         },
         ticks: {
           color: fontSettings.color,
@@ -118,7 +136,7 @@ export default function LineChart({
         grid: { display: false },
         beginAtZero: true,
         border: {
-          color: fontSettings.color, // <-- Achsenlinie (y-Achse)
+          color: fontSettings.color,
         },
         ticks: {
           color: fontSettings.color,
@@ -134,7 +152,7 @@ export default function LineChart({
 
   const chartRef = useRef(null);
   useEffect(() => {
-    const canvas = chartRef.current?.canvas; // <canvas> DOM‑Element
+    const canvas = chartRef.current?.canvas;
     if (canvas instanceof HTMLCanvasElement) {
       canvas.setAttribute("role", "img");
       canvas.setAttribute(

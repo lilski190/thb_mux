@@ -7,6 +7,26 @@ import IconScaleChart from "@/app/components/charts/IconScaleChart";
 import DashboardHeader from "@/app/components/header";
 import StatisticModal from "@/app/components/cards/StatisticModal";
 
+/**
+ * StatisticPage – Asynchrone Next.js Page-Komponente zur Darstellung von Statistik-Diagrammen.
+ *
+ * Diese Seite lädt sprachspezifische Inhalte (Dictionary) und Nutzerstatistiken,
+ * und rendert diese in verschiedenen Diagrammkomponenten (z. B. BarChart, LineChart, WordCloud, IconScaleChart).
+ * Die Inhalte sind je nach Sprache links- oder rechtsbündig ausgerichtet (RTL-Support für Arabisch).
+ *
+ * @async
+ * @function
+ * @param {Object} props - Die Properties, die vom Next.js Router übergeben werden.
+ * @param {Object} props.params - Die Routenparameter der Seite (z. B. Sprache).
+ * @param {string} [props.params.lang="de"] - Die Sprache der Seite (Standard: "de").
+ *
+ * @returns {JSX.Element} Die vollständig gerenderte Statistik-Seite mit verschiedenen Diagrammen.
+ *
+ * @example
+ * // Beispielhafte Verwendung durch Next.js Routing:
+ * <StatisticPage params={{ lang: "en" }} />
+ */
+
 export default async function StatisticPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";

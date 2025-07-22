@@ -2,8 +2,16 @@
 
 import { cookies } from "next/headers";
 import { postRequestToken } from "../api/api";
-import { redirect } from "next/navigation"; // redirect richtig importieren
+import { redirect } from "next/navigation";
 
+/**
+ * Setzt den Farbmodus (colorMode) des Benutzers.
+ * Speichert die Einstellung serverseitig über eine API-Anfrage und aktualisiert das entsprechende Cookie.
+ * Leitet bei fehlendem Token zur Login-Seite weiter.
+ *
+ * @param {string} colormode - Der gewünschte Farbmodus, z.B. "main" oder "contrast".
+ * @returns {Promise<{success: boolean, message: string} | null>} Ergebnis der Speicherung oder null bei Umleitung.
+ */
 export async function setColorMode(colormode) {
   const path = "settings/colorMode";
   const cm = colormode || "main";
@@ -20,7 +28,6 @@ export async function setColorMode(colormode) {
 
   try {
     const response = await postRequestToken(token, path, obj);
-    console.log("response COLORMODE post", response);
 
     cookieStore.set("colorMode", cm);
 
@@ -31,6 +38,14 @@ export async function setColorMode(colormode) {
   }
 }
 
+/**
+ * Setzt die Sprache (lang) des Benutzers.
+ * Speichert die Einstellung serverseitig über eine API-Anfrage, aktualisiert die Sprach- und Richtungs-Cookies.
+ * Leitet bei fehlendem Token zur Login-Seite weiter.
+ *
+ * @param {string} lang - Gewünschter Sprachcode, z.B. "de", "en", "ar".
+ * @returns {Promise<{success: boolean, message: string} | null>} Ergebnis der Speicherung oder null bei Umleitung.
+ */
 export async function setLang(lang) {
   const path = "settings/lang";
   const chosenLang = lang || "de";
@@ -49,8 +64,6 @@ export async function setLang(lang) {
 
   try {
     const response = await postRequestToken(token, path, obj);
-    console.log("response LANG post", response);
-
     cookieStore.set("dir", dir);
     cookieStore.set("lang", chosenLang);
 

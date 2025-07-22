@@ -5,6 +5,24 @@ import Modal from "@/app/components/modals/Modal";
 import DashboardHeader from "@/app/components/header";
 import { getInputData } from "@/app/actions/dashboardAction";
 
+/**
+ * InputPage – Asynchrone Next.js Page-Komponente zur Eingabe von Alltagsverhalten (Ankunft & Mahlzeiten).
+ *
+ * Diese Seite lädt sprachspezifische Inhalte und Eingabedaten des Nutzers (z. B. üblicher Ankunftsweg)
+ * und stellt zwei Eingabeformulare in Modals zur Verfügung: eins für die Ankunftsart, eins für Mahlzeiten.
+ *
+ * @async
+ * @function
+ * @param {Object} props - Die Properties, die vom Next.js Router übergeben werden.
+ * @param {Object} props.params - Die Routenparameter der Seite.
+ * @param {string} [props.params.lang="de"] - Die Sprache der Seite (Standard: "de").
+ *
+ * @returns {JSX.Element} Die vollständig gerenderte Eingabeseite mit Formular-Modals.
+ *
+ * @example
+ * <InputPage params={{ lang: "en" }} />
+ */
+
 export default async function InputPage({ params }) {
   const param = await params;
   const lang = param.lang || "de";
