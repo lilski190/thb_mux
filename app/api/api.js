@@ -1,4 +1,4 @@
-const FLASK_BASE_URL = "https://campertour.pl";
+const FLASK_BASE_URL = "https://campertour.eu";
 
 /**
  * Führt einen GET-Request mit Token-Authentifizierung durch.
